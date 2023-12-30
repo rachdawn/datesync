@@ -1,15 +1,11 @@
-// load .env data into process.env
-require('dotenv').config();
-
-// other dependencies
-const fs = require('fs');
-const chalk = require('chalk');
-const db = require('../db/connection');
+// Importing modules
+import 'dotenv/config';
+import fs from 'fs';
+import chalk from 'chalk';
+import db from '../db/connection.js';
 
 // PG connection setup
-// const connectionString = process.env.DATABASE_URL ||
-//   `postgresql://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}?sslmode=disable`;
-// const client = new Client();
+// Note: If you need to construct a connection string, ensure process.env variables are accessed correctly.
 
 // Loads the schema files from db/schema
 const runSchemaFiles = async () => {
