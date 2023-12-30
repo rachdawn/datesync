@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
 import "./App.css";
 
 import CreateDate from "./routes/CreateDate";
@@ -7,6 +8,10 @@ import LandingPage from "./routes/LandingPage";
 
 
 function App() {
+  
+  
+  
+  
   return (
     <>
     <Routes>
