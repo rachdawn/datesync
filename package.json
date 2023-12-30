@@ -1,0 +1,31 @@
+{
+  "name": "date_planner",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src/server/main.js -w src/server",
+    "start": "NODE_ENV=production node src/server/main.js",
+    "build": "vite build",
+    "db:reset": "node bin/resetdb.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "react-dom": "^18.2.0",
+    "react": "^18.2.0",
+    "vite-express": "*",
+    "axios": "^1.6.3",
+    "chalk": "^2.4.2",
+    "dotenv": "^2.0.0",
+    "morgan": "^1.9.1",
+    "pg": "^8.5.0",
+    "sass": "^1.35.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.26",
+    "@types/react-dom": "^18.0.10",
+    "@vitejs/plugin-react": "^4.2.0",
+    "nodemon": "^3.0.1",
+    "vite": "^5.0.2"
+  }
+}
