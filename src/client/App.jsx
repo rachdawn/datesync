@@ -1,33 +1,36 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
+import axios from "axios";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [text, setText] = useState([]);
+
+  const url = "http://localhost:3000/local";
+
+  const fetchData = () => {
+    axios.get(url).then((res) => {
+      console.log(res.data.local_results);
+      setText(res.data.local_results);
+    });
+  };
+
+  const handleClick = () => {
+    fetchData();
+  };
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR!
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+    <>
+      <h1>App</h1>
+      <button onClick={handleClick}>Click me to fetch data</button>
+      {text.map((data) => (
+        <div key={data.position}>
+          <img src={data.thumbnail} alt="" />
+          <div>{data.title}</div>
+          <div>{data.address}</div>
+          <div>{data.description}</div>
+        </div>
+      ))}
+    </>
   );
 }
 
