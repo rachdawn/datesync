@@ -1,37 +1,26 @@
-import { useState } from "react";
-import axios from "axios";
+import { Routes, Route } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
 import "./App.css";
 
+import CreateDate from "./routes/CreateDate";
+import Dashboard from "./routes/Dashboard";
+import LandingPage from "./routes/LandingPage";
+
+
 function App() {
-  const [text, setText] = useState([]);
-
-  const url = "http://localhost:3000/local";
-
-  const fetchData = () => {
-    axios.get(url).then((res) => {
-      console.log(res.data.local_results);
-      setText(res.data.local_results);
-    });
-  };
-
-  const handleClick = () => {
-    fetchData();
-  };
-
+  
+  
+  
+  
   return (
     <>
-      <h1>App</h1>
-      <button onClick={handleClick}>Click me to fetch data</button>
-      {text.map((data) => (
-        <div key={data.position}>
-          <img src={data.thumbnail} alt="" />
-          <div>{data.title}</div>
-          <div>{data.address}</div>
-          <div>{data.description}</div>
-        </div>
-      ))}
+    <Routes>
+      <Route path='/' element={<LandingPage />} />
+      <Route path='/create-date' element={<CreateDate />} />
+      <Route path= '/dashboard' element={<Dashboard />} />
+    </Routes>
     </>
-  );
+  )
 }
 
 export default App;
