@@ -5,6 +5,7 @@ CREATE TABLE "dates"(
     "invited_user_id" INTEGER REFERENCES users(id) ON DELETE CASCADE,
     "created_at" TIMESTAMP(0) WITH TIME ZONE NOT NULL DEFAULT NOW(),
     "scheduled_date" TIMESTAMP(0) WITH TIME ZONE NULL,
+    "default_location" VARCHAR(255) NOT NULL,
     "is_draft" BOOLEAN DEFAULT true
 );
 
