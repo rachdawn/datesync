@@ -1,0 +1,82 @@
+main {
+  .featured {
+    .feature-carousel {
+      color: #662d91;
+      background-color: #e1cce6;
+      border-radius: 20px;
+      padding: 10px;
+
+      .elements {
+        display: flex;
+        flex-direction: row;
+
+        img {
+          max-width: 70%;
+          height: auto;
+          margin: 10px;
+          border-radius: 10px;
+        }
+
+        p {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  .time-picker {
+    // background-color: grey;
+    border-radius: 12px;
+    margin: 10px;
+    padding: 15px;
+  }
+
+  .component {
+    margin: 0 auto;
+    margin-bottom: 55px;
+    background-color: #e1cce6;
+    padding: 40px;
+    max-width: 50%;
+    border-radius: 12px;
+
+    .add-button {
+      background-color: #662d91;
+    }
+
+    .add-button:hover {
+      background-color: #7b1fa2;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+
+      button {
+        margin: 8px;
+        color: white;
+        background-color: #662d91;
+      }
+
+      button:hover {
+        background-color: #7b1fa2;
+      }
+    }
+  }
+  .complete {
+    .buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+
+      button {
+        margin: 8px;
+        color: white;
+        background-color: #662d91;
+      }
+
+      button:hover {
+        background-color: #7b1fa2;
+      }
+    }
+  }
+}
