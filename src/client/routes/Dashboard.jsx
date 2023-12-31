@@ -1,7 +1,16 @@
+import DashboardTabs from "../components/DashboardTabs";
+import "../styles/Dashboard.scss";
+
 const Dashboard = () => {
   return (
-    <h1>Hello from Dashboard!</h1>
-  )
-}
+    <main>
+      <section className="dashboard">
+        <header>
+          <DashboardTabs/>
+        </header>
+      </section>
+    </main>
+  );
+};
 
 export default Dashboard;
