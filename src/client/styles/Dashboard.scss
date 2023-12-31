@@ -1,0 +1,27 @@
+.dashboard {
+    margin: 0 auto;
+    margin-top: 5rem;
+    width: 90%;
+    justify-self: center;
+    border-radius: 10px;
+    min-height: 90vh;
+}
+.tabs {
+    position: top;
+    width: 100%;
+    margin: 0;
+}
+article {
+    display: flex;
+    background-color: #d8bfd8;
+    margin: 0.75rem;
+    padding: 0.1rem;
+    border-radius: 10px;
+}
+.dashboard img {
+    max-width: 25%;
+    max-height: 20%;
+    margin: 10px;
+    border-radius: 10px;
+}
+
