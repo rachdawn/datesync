@@ -8,6 +8,7 @@ import LandingPage from "./routes/LandingPage";
 import TopNavBar from "./components/TopNavBar";
 
 function App() {
+
   return (
     <>
       <TopNavBar />
