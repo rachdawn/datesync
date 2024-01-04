@@ -1,5 +1,3 @@
-import "../styles/Dashboard.scss";
-
 const AllDates = () => {
   return (
     <>
