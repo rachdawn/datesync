@@ -61,28 +61,29 @@ function Styles() {
       .CustomTabsList {
         text-wrap: nowrap;
         background-color: #d8bfd8;
-        border-radius: 12px;
-        margin-bottom: 16px;
+        border-radius: 10px;
+        margin-bottom: 12px;
+        width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
-        align-content: space-around;
+        align-content: space-evenly;
         box-shadow: 0px 4px 6px ${
           isDarkMode ? 'rgba(0,0,0, 0.4)' : 'rgba(0,0,0, 0.2)'
         };
       }
 
       .CustomTab {
-        font-family: 'IBM Plex Sans', sans-serif;
+        font-family: "Roboto","Helvetica","Arial",sans-serif;
         color: #662d91;;
         cursor: pointer;
-        font-size: 1rem;
+        font-size: 0.9rem;
         font-weight: bold;
         background-color: transparent;
         width: 100%;
         line-height: 1.7;
-        padding: 8px 12px;
-        margin: 6px;
+        padding: 6px;
+        margin: 2px;
         border: none;
         border-radius: 8px;
         display: flex;
@@ -117,7 +118,7 @@ function Styles() {
         color: #662d91;
         background-color: #662d91;
         border-radius: 10px;
-        padding: 6px; 
+        padding: 4px; 
       }
       `}
     </style>

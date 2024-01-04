@@ -6,14 +6,13 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
-import CalendarLogo from "../assets/calendar_logo.svg";
+import ThistleCalendarLogo from "../assets/calendar_thistle_transparent.png"
 
 
 const settings = [
@@ -54,7 +53,7 @@ function TopNavBar() {
               textDecoration: "none",
             }}
           >
-            <img src={CalendarLogo} alt="logo" className="logo-icon" />
+            <img src={ThistleCalendarLogo} alt="logo" className="logo-icon" />
             <span>DateSync</span>
           </Typography>
 
@@ -72,7 +71,7 @@ function TopNavBar() {
           </Box>
           <Typography
             className="logo"
-            variant="h5"
+            variant="h4"
             noWrap
             component="a"
             href="/"
@@ -87,7 +86,7 @@ function TopNavBar() {
               textDecoration: "none",
             }}
           >
-            <img src={CalendarLogo} alt="DateSync logo" className="logo-icon" />
+            <img src={ThistleCalendarLogo} alt="DateSync logo" className="logo-icon" />
             DateSync
           </Typography>
           <Box
@@ -95,6 +94,7 @@ function TopNavBar() {
             sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
           >
             <Button
+              id="create-button"
               href="/create-date"
               sx={{ my: 2, color: "inherit", display: "flex" }}
             >
