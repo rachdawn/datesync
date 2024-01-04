@@ -1,81 +1,193 @@
-main {
-  .featured {
-    .feature-carousel {
-      color: #662d91;
-      background-color: #e1cce6;
-      border-radius: 20px;
-      padding: 10px;
+body {
+  width: 100dvw;
 
-      .elements {
+  main {
+    margin-top: -50px;
+    width: 100%;
+
+    .featured {
+      .feature-carousel {
+        color: #662d91;
+        background-color: #e1cce6;
+        border-radius: 20px;
+        padding: 5px;
+        width: 90dvw;
+
+        .elements {
+          display: flex;
+          flex-direction: row;
+          overflow-x: auto;
+
+          img {
+            max-width: 170px;
+            height: auto;
+            border-radius: 10px;
+            margin: 10px;
+          }
+
+          p {
+            font-weight: bold;
+          }
+        }
+      }
+    }
+    .time-picker {
+      margin: 0 auto;
+      padding: 30px;
+    }
+
+    .picker {
+      background-color: #e1cce6;
+    }
+
+    .component {
+      margin: 0 auto;
+      margin-bottom: 25px;
+      background-color: #e1cce6;
+      padding: 15px;
+      width: 80dvw;
+      border-radius: 12px;
+      font-size: smaller;
+
+      .add-button {
+        background-color: #662d91;
+      }
+
+      .add-button:hover {
+        background-color: #7b1fa2;
+      }
+
+      .buttons {
         display: flex;
         flex-direction: row;
+        overflow-x: auto;
 
-        img {
-          max-width: 70%;
-          height: auto;
-          margin: 10px;
-          border-radius: 10px;
+        button {
+          margin: 5px;
+          color: white;
+          background-color: #662d91;
+          font-size: 12px;
         }
 
-        p {
-          font-weight: bold;
+        button:hover {
+          background-color: #7b1fa2;
+        }
+      }
+    }
+    .complete {
+
+      .buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        button {
+          margin: 5px;
+          color: white;
+          background-color: #662d91;
+          font-size: 12px;
+        }
+
+        button:hover {
+          background-color: #7b1fa2;
         }
       }
     }
   }
-  .time-picker {
-    // background-color: grey;
-    border-radius: 12px;
-    margin: 10px;
-    padding: 15px;
-  }
 
-  .component {
-    margin: 0 auto;
-    margin-bottom: 55px;
-    background-color: #e1cce6;
-    padding: 40px;
-    max-width: 50%;
-    border-radius: 12px;
+  @media (min-width: 900px) {
+    main {
+      margin-top: 90px;
 
-    .add-button {
-      background-color: #662d91;
-    }
+      .featured {
+        .feature-carousel {
+          color: #662d91;
+          background-color: #e1cce6;
+          border-radius: 20px;
+          padding: 10px;
+          width: 70dvw;
+          margin: 0 auto;
 
-    .add-button:hover {
-      background-color: #7b1fa2;
-    }
+          .elements {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            
 
-    .buttons {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
+            img {
+              max-width: 250px;
+              height: auto;
+              margin: 10px;
+              border-radius: 10px;
+            }
 
-      button {
-        margin: 8px;
-        color: white;
-        background-color: #662d91;
+            p {
+              font-weight: bold;
+            }
+          }
+        }
+      }
+      .time-picker {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        max-width: 50%;
+        border-radius: 12px;
+        margin: 25px auto;
+        padding: 40px;
       }
 
-      button:hover {
-        background-color: #7b1fa2;
-      }
-    }
-  }
-  .complete {
-    .buttons {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-
-      button {
-        margin: 8px;
-        color: white;
-        background-color: #662d91;
+      .picker {
+        background-color: #e1cce6;
       }
 
-      button:hover {
-        background-color: #7b1fa2;
+      .component {
+        margin: 0 auto;
+        margin-bottom: 55px;
+        background-color: #e1cce6;
+        padding: 40px;
+        max-width: 50%;
+        border-radius: 12px;
+
+        .add-button {
+          background-color: #662d91;
+        }
+
+        .add-button:hover {
+          background-color: #7b1fa2;
+        }
+
+        .buttons {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+
+          button {
+            margin: 8px;
+            color: white;
+            background-color: #662d91;
+          }
+
+          button:hover {
+            background-color: #7b1fa2;
+          }
+        }
+      }
+      .complete {
+        .buttons {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+
+          button {
+            margin: 8px;
+            color: white;
+            background-color: #662d91;
+          }
+
+          button:hover {
+            background-color: #7b1fa2;
+          }
+        }
       }
     }
   }
