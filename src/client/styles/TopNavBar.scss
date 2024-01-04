@@ -7,12 +7,14 @@
     margin: 0;
     padding: 0;
     align-items: center;
-    height: 5rem;
-
+    height: 4rem;
 }
-.logo:hover {
-    filter: drop-shadow(0 0 2.25em #fff);
-    
+.logo:hover,
+#create-button:hover {
+    filter: drop-shadow(0 0 1rem #fff);
+}
+#create-button {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 .logo-icon {
     max-height: 2.4rem;
@@ -21,6 +23,7 @@
 .nav-menu {
     justify-content: right;
     padding: 0 1rem;
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 .nav-plus-icon {
     padding-right: 0.5rem;
