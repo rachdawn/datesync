@@ -5,9 +5,7 @@ const Dashboard = () => {
   return (
     <main>
       <section className="dashboard">
-        <header>
-          <DashboardTabs/>
-        </header>
+        <DashboardTabs/>
       </section>
     </main>
   );
