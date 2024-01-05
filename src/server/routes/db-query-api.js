@@ -1,6 +1,9 @@
-import getDateComponents from '../../db/queries/dates.js';
+import { Router } from 'express';
+import getDateComponents from '../../../db/queries/dates.js';
 
-app.get('/dates', async (req, res) => {
+const router = Router();
+
+router.get('/dates', async (req, res) => {
   getDateComponents()
   .then((rows) => {
     res.json(rows);
@@ -10,3 +13,5 @@ app.get('/dates', async (req, res) => {
     res.send(error);
   })
 });
+
+export default router;
