@@ -3,10 +3,6 @@ import axios from 'axios';
 
 const router = Router();
 
-router.get('/hello', (req, res) => {
-  res.send('Hello Vite + React!');
-});
-
 router.get('/local', async (req, res) => {
   try {
     const query = 'Beaches'
@@ -18,5 +14,6 @@ router.get('/local', async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch data' });
   }
 });
+
 
 export default router;
