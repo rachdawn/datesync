@@ -3,6 +3,8 @@ import ViteExpress from "vite-express";
 import axios from "axios";
 import 'dotenv/config';
 
+import getDateComponents from '../../db/queries/dates.js';
+
 const app = express();
 
 app.get("/hello", (req, res) => {
@@ -21,6 +23,17 @@ app.get('/local', async (req, res) => {
   } catch (error) {
     res.status(500).json({ error: 'Failed to fetch data' });
   }
+});
+
+app.get('/dates', async (req, res) => {
+  getDateComponents()
+  .then((rows) => {
+    res.json(rows);
+  })
+  .catch(error => {
+    console.error(error);
+    res.send(error);
+  })
 });
 
 ViteExpress.listen(app, 3000, () =>
