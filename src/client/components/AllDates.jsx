@@ -7,7 +7,7 @@ const AllDates = () => {
   const [dates, setDates] = useState([]);
 
   useEffect(() => {
-    axios.get('/dates').then((res) => {
+    axios.get('/api/dates').then((res) => {
       console.log(res.data)
       setDates(res.data);
     });
