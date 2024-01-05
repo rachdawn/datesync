@@ -4,7 +4,7 @@ import axios from 'axios'
 const LocalApi = () => {
   const [text, setText] = useState([]);
 
-  const url = "http://localhost:3000/local";
+  const url = "http://localhost:3000/api/local";
 
   const fetchData = () => {
     axios.get(url).then((res) => {
