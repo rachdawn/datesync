@@ -1,48 +1,15 @@
-.dashboard {
-  max-width: 92dvw;
+body {
 
-  .tabs {
-    width: 25rem;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    // justify-content: center;
-  }
+  width: 99vw;
+  overflow-y: scroll;
 
-  .list {
-    height: 50px;
-    width: 95dvw;
-  }
-
-  .panel {
-    width: 950dvw;
-  }
-
-  article {
-    display: flex;
-    background-color: #d8bfd8;
-    margin: 0.75rem;
-    padding: 0.1rem;
-    border-radius: 10px;
-  }
-
-  img {
-    max-width: 10%;
-    max-height: 20%;
-    margin: 10px;
-    border-radius: 5px;
-  }
-
-  .date-title {
-    color: white;
-  }
-}
-
-@media (min-width: 768px) {
   .dashboard {
-    
+    max-width: 90vw;
+    margin-bottom: 20px;
+    margin-top: -20px;
+
     .tabs {
-      width: 90%;
+      width: 100%;
       margin: 0 auto;
       display: flex;
       flex-wrap: wrap;
@@ -51,30 +18,84 @@
 
     .list {
       height: 50px;
-      max-width: 70dvw;
+      width: 95vw;
     }
 
     .panel {
-      max-width: 70dvw;
+      width: 90vw;
+    }
+
+    .date-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     article {
       display: flex;
       background-color: #d8bfd8;
+      min-width: 85%;
+      max-width: 85%;
       margin: 0.75rem;
       padding: 0.1rem;
       border-radius: 10px;
+      text-align: start;
     }
 
     img {
-      max-width: 10%;
-      max-height: 20%;
+      max-width: 25%;
+      max-height: 85%;
       margin: 10px;
       border-radius: 5px;
     }
 
     .date-title {
       color: white;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .dashboard {
+      max-width: 90%;
+      margin: 0;
+
+      .tabs {
+        width: 90dvw;
+        margin: 10px auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .list {
+        height: 50px;
+        max-width: 70dvw;
+      }
+
+      .panel {
+        max-width: 70dvw;
+        padding-bottom: 50px;
+      }
+
+      article {
+        display: flex;
+        background-color: #d8bfd8;
+        // min-width: 85%;
+        // max-width: 85%;
+        margin: 0.75rem;
+        padding: 0.1rem;
+        border-radius: 10px;
+      }
+
+      img {
+        max-height: 160px;
+        margin: 10px;
+        border-radius: 5px;
+      }
+
+      .date-title {
+        color: white;
+      }
     }
   }
 }

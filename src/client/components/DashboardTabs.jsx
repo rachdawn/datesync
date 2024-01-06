@@ -66,7 +66,6 @@ function Styles() {
         display: flex;
         align-items: center;
         justify-content: center;
-        align-content: space-evenly;
         box-shadow: 0px 4px 6px ${
           isDarkMode ? 'rgba(0,0,0, 0.4)' : 'rgba(0,0,0, 0.2)'
         };
