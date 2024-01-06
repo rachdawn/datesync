@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import axios from 'axios';
 import filterAndLimitResults from '../helpers/filterResults.js';
+import processEventData from '../helpers/processEventData.js';
 
 const router = Router();
 
@@ -45,7 +46,30 @@ router.get('/activities', async (req, res) => {
 ////////////////////////////////////////////////////////////////////////////////
 // Following routes are using Events API
 ////////////////////////////////////////////////////////////////////////////////
-
+// This is for events using the Events API:
+router.get('/events', async (req, res) => {
+  try {
+    const { query, location = 'Montreal' } = req.query;
+    // Handle case where user does not fill the query search field:
+    if (!query) {
+      return res.status(400).json({ error: 'Query parameter is required' });
+    }
+    
+    const apiUrl = `https://serpapi.com/search.json?engine=google_events&q=${query}&location=${location}&api_key=${process.env.API_KEY}`;
+    
+    const response = await axios.get(apiUrl);
+    // Check if events_results exists in the response
+    if (response.data.events_results) {
+      // Call helper function:
+      const processedEvents = processEventData(response.data.events_results);
+      res.json(processedEvents);
+    } else {
+      res.status(404).json({ error: 'No events found' });
+    }
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch event data' });
+  }
+});
 
 
 
