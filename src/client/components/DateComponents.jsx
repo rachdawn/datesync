@@ -43,7 +43,12 @@ const DateComponents = ({ dates }) => (
       (item, index) =>
         item.activity_type && (
           <article key={index}>
-            <h1>Activities</h1>
+            <img src={item.activity_photo_url} alt="" />
+            <div>
+              <p>{item.activity_type}</p>
+              <p>{item.activity_location}</p>
+              <p>{item.activity_address}</p>
+            </div>
           </article>
         )
     )}
