@@ -1,4 +1,5 @@
 import TestActivitiesApi from "../components/TestActivitiesApi";
+import TestEventsApi from "../components/TestEventsApi";
 import TestRestaurantsApi from "../components/TestRestaurantsAPI";
 
 const LandingPage = () => {
@@ -7,6 +8,7 @@ const LandingPage = () => {
   <>
     <TestRestaurantsApi />
     <TestActivitiesApi />
+    <TestEventsApi />
   </>
   );
 
