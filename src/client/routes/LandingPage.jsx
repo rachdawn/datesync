@@ -1,10 +1,13 @@
-import LocalApi from "../components/LocalAPI";
+import TestActivitiesApi from "../components/TestActivitiesApi";
+import TestRestaurantsApi from "../components/TestRestaurantsAPI";
 
 const LandingPage = () => {
 
   return (
-    <LocalApi />
-
+  <>
+    <TestRestaurantsApi />
+    <TestActivitiesApi />
+  </>
   );
 
 };
