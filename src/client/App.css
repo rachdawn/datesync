@@ -1,7 +1,6 @@
 #root {
   max-width: 100dvw;
-  margin: 0 auto;
+  margin: 0 auto; 
   padding: 1rem;
-  justify-content: center;
   text-align: center;
 }
