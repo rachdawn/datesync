@@ -23,10 +23,10 @@ const DraftDates = () => {
 
   return (
     <>
-      <h2 style={{ color: "#fff" }}>Dates</h2>
+      <h2 className="date-title">Dates</h2>
       {Object.keys(datesByGroup).map((dateId, index) => (
         <div key={index}>
-          <h4 style={{ color: "#fff" }}>Date {dateId}</h4>
+          <h4 className="date-title">Date ID #{dateId}</h4>
           <DateComponents key={dateId} dates={datesByGroup[dateId]} />
         </div>
       ))}

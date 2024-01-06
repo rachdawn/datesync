@@ -14,11 +14,11 @@ export default function DashboardTabs() {
   return (
     <React.Fragment>
       <Tabs defaultValue={1} className="tabs">
-        <TabsList className="CustomTabsList">
+        <TabsList className="CustomTabsList list">
           <Tab className="CustomTab" value={1}>
             All Dates
           </Tab>
-           <Tab className="CustomTab" value={2}>
+          <Tab className="CustomTab" value={2}>
             Upcoming
           </Tab>
           <Tab className="CustomTab" value={3}>
@@ -27,18 +27,17 @@ export default function DashboardTabs() {
           <Tab className="CustomTab" value={4}>
             Past Dates
           </Tab>
-
         </TabsList>
-        <TabPanel className="CustomTabPanel" value={1}>
+        <TabPanel className="CustomTabPanel panel" value={1}>
           <AllDates />
         </TabPanel>
-        <TabPanel className="CustomTabPanel" value={2}>
+        <TabPanel className="CustomTabPanel panel" value={2}>
           <UpcomingDates />
         </TabPanel>
-        <TabPanel className="CustomTabPanel" value={3}>
-         <DraftDates />
+        <TabPanel className="CustomTabPanel panel" value={3}>
+          <DraftDates />
         </TabPanel>
-        <TabPanel className="CustomTabPanel" value={4}>
+        <TabPanel className="CustomTabPanel panel" value={4}>
           <PastDates />
         </TabPanel>
       </Tabs>
