@@ -7,7 +7,7 @@ CREATE TABLE "activities"(
     "location_name" VARCHAR(255) NOT NULL,
     "address" VARCHAR(255) NOT NULL,
     "description" TEXT NULL,
-    "photo_url" VARCHAR(255) NULL,
+    "photo_url" TEXT NULL,
     "activity_url" VARCHAR(255) NULL
 );
 
