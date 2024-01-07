@@ -1,12 +1,12 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
-import DateComponents from "./DateComponents";
+import axios from "axios";
+import DateComponents from "../DateComponents";
 
-const DraftDates = () => {
+const AllDates = () => {
   const [dates, setDates] = useState([]);
 
   useEffect(() => {
-    axios.get("api/dates?drafts=true").then((res) => {
+    axios.get("/api/dates").then((res) => {
       console.log(res.data);
       setDates(res.data);
     });
@@ -34,4 +34,4 @@ const DraftDates = () => {
   );
 };
 
-export default DraftDates;
+export default AllDates;

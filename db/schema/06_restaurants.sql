@@ -11,5 +11,5 @@ CREATE TABLE "restaurants"(
     "opening_hours" TIME(0) WITH TIME ZONE NOT NULL,
     "closing_hours" TIME(0) WITH TIME ZONE NOT NULL,
     "website_url" VARCHAR(255) NOT NULL,
-    "photo_url" VARCHAR(255) NOT NULL
+    "photo_url" TEXT NOT NULL
 );

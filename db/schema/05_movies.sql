@@ -8,7 +8,7 @@ CREATE TABLE "movies"(
     "duration" INTEGER NOT NULL,
     "movie_theatre" VARCHAR(255) NOT NULL,
     "synopsis" TEXT NOT NULL,
-    "photo_url" VARCHAR NOT NULL,
+    "photo_url" TEXT NOT NULL,
     "address" VARCHAR(255) NOT NULL,
     "movie_url" VARCHAR(255) NOT NULL
 );

@@ -5,10 +5,10 @@ import { TabsList } from '@mui/base/TabsList';
 import { TabPanel } from '@mui/base/TabPanel';
 import { buttonClasses } from '@mui/base/Button';
 import { Tab, tabClasses } from '@mui/base/Tab';
-import AllDates from './AllDates';
-import UpcomingDates from './UpcomingDates';
-import DraftDates from './DraftDates';
-import PastDates from './PastDates';
+import AllDates from './dashboard-tabs/AllDates';
+import UpcomingDates from './dashboard-tabs/UpcomingDates';
+import DraftDates from './dashboard-tabs/DraftDates';
+import PastDates from './dashboard-tabs/PastDates';
 
 export default function DashboardTabs() {
   return (
