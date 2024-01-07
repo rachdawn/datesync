@@ -1,5 +1,4 @@
 body {
-
   width: 99vw;
   overflow-y: scroll;
 
@@ -13,7 +12,6 @@ body {
       margin: 0 auto;
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
     }
 
     .list {
@@ -23,34 +21,49 @@ body {
 
     .panel {
       width: 90vw;
-    }
 
-    .date-group {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+      h2.date-title {
+        color: white;
+        font-weight: bold;
+        font-size: 25px;
+        margin: 10px;
+      }
 
-    article {
-      display: flex;
-      background-color: #d8bfd8;
-      min-width: 85%;
-      max-width: 85%;
-      margin: 0.75rem;
-      padding: 0.1rem;
-      border-radius: 10px;
-      text-align: start;
-    }
+      h4.date-title {
+        color: white;
+        font-size: 15px;
+        margin: 15px;
+      }
 
-    img {
-      max-width: 25%;
-      max-height: 85%;
-      margin: 10px;
-      border-radius: 5px;
-    }
+      .date-group {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
 
-    .date-title {
-      color: white;
+        article {
+          display: flex;
+          align-items: center;
+          background-color: #d8bfd8;
+          min-width: 85%;
+          max-width: 85%;
+          margin: 0.75rem;
+          padding: 0.1rem;
+          border-radius: 10px;
+          text-align: start;
+        }
+
+        img {
+          max-width: 25%;
+          max-height: 85%;
+          margin: 10px;
+          border-radius: 5px;
+        }
+
+        .date-component-info {
+          margin: 15px 5px;
+          margin-bottom: 0px;
+        }
+      }
     }
   }
 
@@ -75,26 +88,41 @@ body {
       .panel {
         max-width: 70dvw;
         padding-bottom: 50px;
-      }
 
-      article {
-        display: flex;
-        background-color: #d8bfd8;
-        // min-width: 85%;
-        // max-width: 85%;
-        margin: 0.75rem;
-        padding: 0.1rem;
-        border-radius: 10px;
-      }
+        h2.date-title {
+          color: white;
+          font-weight: bold;
+          font-size: 25px;
+          margin: 10px;
+        }
 
-      img {
-        max-height: 160px;
-        margin: 10px;
-        border-radius: 5px;
-      }
+        h4.date-title {
+          color: white;
+          font-size: 15px;
+          margin: 15px;
+        }
 
-      .date-title {
-        color: white;
+        .date-group {
+
+          article {
+            display: flex;
+            align-items: center;
+            background-color: #d8bfd8;
+            margin: 0.75rem;
+            padding: 0.1rem;
+            border-radius: 10px;
+          }
+
+          img {
+            max-height: 160px;
+            margin: 10px;
+            border-radius: 5px;
+          }
+
+          .date-component-info {
+            margin: 10px 5px;
+          }
+        }
       }
     }
   }

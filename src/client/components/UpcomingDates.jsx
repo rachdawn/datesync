@@ -7,7 +7,7 @@ const UpcomingDates = () => {
 
   useEffect(() => {
     axios.get("api/dates?upcoming=true").then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       setDates(res.data);
     });
   }, []);

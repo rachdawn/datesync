@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import "../styles/Dashboard.scss";
 import axios from "axios";
 import DateComponents from "./DateComponents";
 
@@ -8,7 +7,7 @@ const AllDates = () => {
 
   useEffect(() => {
     axios.get("/api/dates").then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       setDates(res.data);
     });
   }, []);
