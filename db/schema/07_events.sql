@@ -12,5 +12,5 @@ CREATE TABLE "events"(
     "event_type" VARCHAR(255) NOT NULL,
     "price" INTEGER NOT NULL,
     "event_url" VARCHAR(255) NOT NULL,
-    "photo_url" VARCHAR(255) NOT NULL
+    "photo_url" TEXT NOT NULL
 );

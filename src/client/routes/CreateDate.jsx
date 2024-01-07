@@ -1,51 +1,62 @@
 import "../styles/CreateDate.scss";
+import "../styles/SearchModals.scss";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
-
 import Box from "@mui/material/Box";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
-
+import FeatureDates from "../components/FeatureDates";
+import ActivitiesModal from "../components/date-modals/ActivitiesModal";
+import MoviesModal from "../components/date-modals/MoviesModal";
+import RestaurantsModal from "../components/date-modals/RestaurantsModal";
+import EventsModal from "../components/date-modals/EventsModal";
 
 const CreateDate = () => {
-
-  const data = [
+  const featureDates = [
     {
       src: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       title: "Healthy date",
+      description:
+        "Nourish love with a delightful, nutritious dinner, a romantic stroll, and shared laughter under starlight.",
     },
     {
       src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       title: "Fancy lunch",
+      description:
+        "Savor exquisite flavors in a chic ambiance with our gourmet lunch, a sophisticated culinary indulgence awaits.",
     },
     {
       src: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       title: "Late-night drinks",
+      description:
+        "Sip under the stars in a cozy ambiance, where late-night drinks spark laughter, intimacy, and connection.",
     },
     {
       src: "https://images.unsplash.com/photo-1539056276907-dc946d5098c9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       title: "Friends Dinner",
-    }
+      description:
+        "Relish a delightful evening with friends over a homemade feast, laughter, and shared memories together.",
+    },
   ];
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <main>
         <section className="featured">
+          <div id="feature-title">
+            <h2>Feature Dates</h2>
+          </div>
           <div className="feature-carousel">
-            <h3>Featured</h3>
-            <span className="elements">
-              {data.map((item, index) => (
-                <div key={index}>
-                  <img src={item.src} alt="" />
-                  <p>{item.title}</p>
+            <div className="cards">
+              {featureDates.map((date, index) => (
+                <div className="feature-card" key={index}>
+                  <FeatureDates date={date} />
                 </div>
               ))}
-            </span>
+            </div>
           </div>
         </section>
-
         <section className="time-picker">
           <DateTimePicker
             className="picker"
@@ -56,10 +67,10 @@ const CreateDate = () => {
         <section className="date-components">
           <div className="component">
             <div className="buttons">
-              <button>Add Restaurant</button>
-              <button>Add Event</button>
-              <button>Add Movie</button>
-              <button>Add Activities</button>
+              <RestaurantsModal />
+              <EventsModal />
+              <MoviesModal />
+              <ActivitiesModal />
             </div>
           </div>
           <div className="component">

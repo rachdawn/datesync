@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
 import axios from "axios";
-import DateComponents from "./DateComponents";
+import { useEffect, useState } from "react";
+import DateComponents from "../DateComponents";
 
-const AllDates = () => {
+const UpcomingDates = () => {
   const [dates, setDates] = useState([]);
 
   useEffect(() => {
-    axios.get("/api/dates").then((res) => {
+    axios.get("api/dates?upcoming=true").then((res) => {
       // console.log(res.data);
       setDates(res.data);
     });
@@ -34,4 +34,4 @@ const AllDates = () => {
   );
 };
 
-export default AllDates;
+export default UpcomingDates;

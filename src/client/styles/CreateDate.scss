@@ -1,18 +1,23 @@
 body {
-  width: 95dvw;
-  margin-top: 80px;
+  width: 100dvw;
+  margin-top: 1rem;
 
   main {
-    width: 100%;    
+    margin-top: 3rem;
+    width: 100%;
 
     .featured {
       .feature-carousel {
         color: #662d91;
         background-color: #e1cce6;
         border-radius: 20px;
-        padding: 5px;
-        width: 90dvw;
-
+        padding: 0.5rem;
+        width: 90%;
+        margin: 0 auto;
+        justify-content: center;
+        .cards {
+          display: flex;
+        }
         .elements {
           display: flex;
           flex-direction: row;
@@ -29,6 +34,15 @@ body {
             font-weight: bold;
           }
         }
+      }
+    }
+    #feature-title {
+      justify-content: center;
+
+      h2 {
+        font-family: Grand Hotel;
+        font-size: 1.8rem;
+        margin: 0;
       }
     }
     .time-picker {
@@ -75,7 +89,6 @@ body {
       }
     }
     .complete {
-
       .buttons {
         display: flex;
         flex-direction: row;
@@ -105,27 +118,46 @@ body {
           color: #662d91;
           background-color: #e1cce6;
           border-radius: 20px;
-          padding: 10px;
-          width: 70dvw;
+          padding: 0.5rem;
+          width: 90%;
           margin: 0 auto;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
 
-          .elements {
+          .cards {
             display: flex;
-            flex-direction: row;
-            justify-content: space-evenly;
-            
+            justify-content: center;
+          }
+          .feature-card {
+            margin: 0.5rem;
+            padding: 0.5rem;
+            width: 80%;
+            height: 90%;
+            max-width: 240px;
 
             img {
-              max-width: 250px;
+              max-width: 11rem;
               height: auto;
-              margin: 10px;
+              margin: 0 auto;
+              margin-top: 0.5rem;
               border-radius: 10px;
+              padding: 4px;
+              justify-content: center;
             }
-
             p {
               font-weight: bold;
             }
           }
+        }
+      }
+      #feature-title {
+        justify-content: center;
+
+        h2 {
+          font-family: Grand Hotel;
+          font-size: 1.8rem;
+          margin: 0;
         }
       }
       .time-picker {
