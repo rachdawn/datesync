@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import DateComponents from "./DateComponents";
+import DateComponents from "../DateComponents";
 
 const PastDates = () => {
   const [dates, setDates] = useState([]);
