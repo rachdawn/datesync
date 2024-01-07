@@ -2,6 +2,7 @@ import { Router } from 'express';
 import axios from 'axios';
 import filterAndLimitResults from '../helpers/filterResults.js';
 import processEventData from '../helpers/processEventData.js';
+import processMoviesData from '../helpers/processMoviesData.js';
 
 const router = Router();
 
@@ -71,8 +72,46 @@ router.get('/events', async (req, res) => {
   }
 });
 
+////////////////////////////////////////////////////////////////////////////////
+// Following routes are using Movies API:
+////////////////////////////////////////////////////////////////////////////////
+// This for the movies near the user; the api is the Google Search API:
+router.get('/movies', async (req, res) => {
+  try {
+    const { location = 'Montreal, Quebec, Canada' } = req.query;
 
+    const apiUrl = `https://serpapi.com/search.json?q=movies+near+me&location=${location}&google_domain=google.ca&gl=ca&hl=en&api_key=${process.env.API_KEY}`
+    
+    const response = await axios.get(apiUrl);
 
+    const moviesData = response.data.knowledge_graph.movies_playing;
+  
+    if (moviesData) {
+      const processedMovies = processMoviesData(moviesData);
+      res.json(processedMovies);
+    } else {
+      res.status(404).json({ error: 'No movies found near the specified location.' });
+    }
+  } catch (error) {
+    console.error('Error fetching movies.', error);
+    res.status(500).json({ error: 'Failed to fetch movies data.' });
+  }
+});
+
+// This is fo the movies showtimes obtained when a movie is selected by user:
+router.get('/movie-showtimes', async (req, res) => {
+  try {
+  const { movieName, location = 'Montreal, Quebec, Canada' } = req.query;
+
+  const apiUrl = `https://serpapi.com/search.json?q=${movieName}+theater&location=${location}&hl=en&gl=us&api_key=${process.env.API_KEY}`;
+
+    const response = await axios.get(apiUrl);
+    res.json(response.data.showtimes || []);
+  } catch (error) {
+    console.error('Error fetching showtimes:', error);
+    res.status(500).json({ error: 'Failed to fetch showtimes.' });
+  }
+});
 
 
 export default router;
