@@ -1,5 +1,6 @@
 body {
   width: 100dvw;
+  margin-top: 80px;
 
   main {
     margin-top: 3.7rem;
@@ -109,6 +110,7 @@ body {
 
   @media (min-width: 900px) {
     main {
+        
       .featured {
         .feature-carousel {
           color: #662d91;
@@ -194,6 +196,7 @@ body {
             margin: 8px;
             color: white;
             background-color: #662d91;
+            font-size: 15px;
           }
 
           button:hover {
@@ -211,6 +214,7 @@ body {
             margin: 8px;
             color: white;
             background-color: #662d91;
+            font-size: 15px;
           }
 
           button:hover {
