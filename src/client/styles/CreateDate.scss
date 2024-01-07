@@ -110,7 +110,9 @@ body {
 
   @media (min-width: 900px) {
     main {
-        
+      
+      justify-content: center;
+
       .featured {
         .feature-carousel {
           color: #662d91;
