@@ -21,7 +21,7 @@ import "../styles/TopNavBar.scss";
 
 
 function TopNavBar() {
-  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  const { isAuthenticated } = useAuth0();
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const navigate = useNavigate();
