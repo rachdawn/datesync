@@ -1,10 +1,10 @@
-import { Routes, Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import TopNavBar from "./components/TopNavBar";
+import { CallbackPage } from "./components/auth/pages/callback-page";
 import CreateDate from "./routes/CreateDate";
 import Dashboard from "./routes/Dashboard";
 import LandingPage from "./routes/LandingPage";
-import TopNavBar from "./components/TopNavBar";
-import { CallbackPage } from "./components/auth/pages/callback-page";
 
 function App() {
 
