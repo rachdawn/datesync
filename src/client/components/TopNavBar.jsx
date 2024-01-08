@@ -12,7 +12,7 @@ import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { LoginButton } from "./auth/buttons/login-button";
 import { LogoutButton } from "./auth/buttons/logout-button";
 import { SignupButton } from "./auth/buttons/signup-button";
@@ -21,10 +21,12 @@ import "../styles/TopNavBar.scss";
 
 
 function TopNavBar() {
-  const { isAuthenticated } = useAuth0();
+  const { isAuthenticated, user } = useAuth0();
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const navigate = useNavigate();
+
+  const location = useLocation();
 
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
@@ -41,17 +43,19 @@ function TopNavBar() {
     handleCloseUserMenu();
   };
 
+  // location.pathname !== "/dashboard" and location.pathname !== "/profile" are conditions that check if the current path is not '/dashboard' or '/profile', respectively. If the condition is true, the corresponding menu item is included; otherwise, it is excluded. The filter(Boolean) function call at the end of the array will remove any false values, effectively excluding menu items based on the current path:
   let settings = isAuthenticated
   ? [
-      { label: "Dashboard", path: "/dashboard" },
-      { label: "Profile", path: "/profile" },
+      location.pathname !== "/dashboard" && { label: "Dashboard", path: "/dashboard" },
+      location.pathname !== "/profile" && { label: "Profile", path: "/profile" },
       { label: "Logout", component: <LogoutButton /> },
-    ]
+    ].filter(Boolean)
   : [
       { label: "Login", component: <LoginButton /> },
       { label: "Signup", component: <SignupButton /> },
     ];
 
+  const defaultAvatar = 'src/client/assets/calendar_whistle_transparent.png'
 
   return (
     <AppBar id="top-nav" position="fixed">
@@ -126,10 +130,11 @@ function TopNavBar() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                {/* Avatar with conditional source */}
                 <Avatar
                   id="profile-icon"
-                  alt="User"
-                  src="/static/images/avatar/2.jpg"
+                  alt="User Avatar"
+                  src={isAuthenticated && user && user.picture ? user.picture : defaultAvatar}
                 />
               </IconButton>
             </Tooltip>
