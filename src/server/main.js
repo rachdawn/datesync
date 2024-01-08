@@ -1,6 +1,7 @@
 import express from "express";
 import ViteExpress from "vite-express";
 import 'dotenv/config';
+import morgan from 'morgan';
 import externalApiRoutes from "./routes/external-api.js";
 import dbQueriesApiRoutes from "./routes/db-query-api.js"
 
