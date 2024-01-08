@@ -9,6 +9,9 @@ const app = express();
 
 app.use(express.json());
 
+// Use of Morgan for logging incoming requests
+app.use(morgan('dev'));
+
 app.use('/api', externalApiRoutes, dbQueriesApiRoutes);
 
 ViteExpress.listen(app, 3000, () =>
