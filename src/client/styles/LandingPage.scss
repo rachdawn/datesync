@@ -1,19 +1,79 @@
 body {
   width: 100vw;
   padding: 0;
+  font-family: Neuton;
+  
+  .btn {
+    background-color: #662d91;
+    border: none;
+    margin: 15px;
+    color: white;
+  }
+
+  .btn:hover {
+    background-color: #e1cce6;
+    color: #662d91;
+  }
 
   .hero {
-    // margin-top: 120px;
     width: 100vw;
-    height: 50vh;
-    
+    height: 55vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
-    
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url(https://i.ibb.co/6vBcH5y/nathan-dumlao-Ed-ULZp-OKs-UE-unsplash.jpg);
+
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url(https://i.ibb.co/6vBcH5y/nathan-dumlao-Ed-ULZp-OKs-UE-unsplash.jpg);
     background-size: cover;
-    background-position: center;
+    background-position: 50% 80%;
+
+  }  
+
+  main {
+    max-width: 100vw;
+    margin: 30px auto;
+
+    h2 {
+      margin-bottom: 1px;
+      font-weight: 600;
+    }
+
+    .feature-carousel {
+      color: #662d91;
+      background-color: #e1cce6;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .cards {
+      display: flex;
+      justify-content: center;
+    }
+
+    .feature-card {
+      margin: 0.5rem;
+      padding: 0.5rem;
+      width: 80%;
+      height: 90%;
+      max-width: 240px;
+
+      img {
+        max-width: 11rem;
+        height: auto;
+        margin: 0 auto;
+        margin-top: 0.5rem;
+        border-radius: 10px;
+        padding: 4px;
+        justify-content: center;
+      }
+
+      p {
+        font-weight: bold;
+      }
+    }
   }
 }
