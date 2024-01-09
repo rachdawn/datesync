@@ -1,50 +1,53 @@
 body {
-  width: 100dvw;
-  margin-top: 1rem;
+  width: 99vw;
+  overflow-y: scroll;
 
-  main {
-    margin-top: 3rem;
-    width: 100%;
+  .create-date {
+    justify-content: center;
+    width: 99vw;
 
     .featured {
+      padding-top: 4rem;
+      justify-content: center;
+      background-color: #e1cce6;
+
+      #feature-title {
+        text-align: left;
+
+        h2 {
+          font-family: Grand Hotel;
+          font-size: 1.8rem;
+          margin: 0;
+        }
+      }
       .feature-carousel {
         color: #662d91;
-        background-color: #e1cce6;
-        border-radius: 20px;
-        padding: 0.5rem;
-        width: 90%;
-        margin: 0 auto;
-        justify-content: center;
+        padding: 1rem;
+        width: 100vw;
+
         .cards {
           display: flex;
-        }
-        .elements {
-          display: flex;
-          flex-direction: row;
           overflow-x: auto;
 
-          img {
-            max-width: 170px;
-            height: auto;
-            border-radius: 10px;
-            margin: 10px;
-          }
+          .feature-card {
+            margin: 0.5rem;
+            min-width: 220px;
+            min-height: 200px;
 
-          p {
-            font-weight: bold;
+            .feature-desktop {
+              display: none;
+            }
+            img {
+              max-width: 90%;
+              height: 90%;
+              border-radius: 10px;
+              margin: 10px auto;
+            }
           }
         }
       }
     }
-    #feature-title {
-      justify-content: center;
 
-      h2 {
-        font-family: Grand Hotel;
-        font-size: 1.8rem;
-        margin: 0;
-      }
-    }
     .time-picker {
       margin: 0 auto;
       padding: 30px;
@@ -108,58 +111,56 @@ body {
     }
   }
 
-  @media (min-width: 900px) {
-    main {
-      
+  @media (min-width: 768px) {
+    .create-date {
       justify-content: center;
+      width: 99vw;
 
       .featured {
+        padding-top: 4rem;
+        justify-content: center;
+        background-color: #e1cce6;
+
+        #feature-title {
+          text-align: center;
+
+          h2 {
+            font-family: Grand Hotel;
+            font-size: 1.8rem;
+            margin: 0;
+          }
+        }
         .feature-carousel {
           color: #662d91;
-          background-color: #e1cce6;
-          border-radius: 20px;
-          padding: 0.5rem;
-          width: 90%;
-          margin: 0 auto;
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
+          padding: 1rem;
+          width: 100vw;
 
           .cards {
             display: flex;
             justify-content: center;
-          }
-          .feature-card {
-            margin: 0.5rem;
-            padding: 0.5rem;
-            width: 80%;
-            height: 90%;
-            max-width: 240px;
+            overflow-x: auto;
+            .feature-card {
+              margin: 0.5rem;
+              padding: 0.5rem;
+              min-width: 220px;
+              height: 300px;
+              max-width: 240px;
 
-            img {
-              max-width: 11rem;
-              height: auto;
-              margin: 0 auto;
-              margin-top: 0.5rem;
-              border-radius: 10px;
-              padding: 4px;
-              justify-content: center;
-            }
-            p {
-              font-weight: bold;
+              .feature-mobile {
+                display: none;
+              }
+
+              img {
+                max-width: 90%;
+                height: 90%;
+                border-radius: 10px;
+                margin: 10px auto;
+              }
             }
           }
         }
       }
-      #feature-title {
-        justify-content: center;
 
-        h2 {
-          font-family: Grand Hotel;
-          font-size: 1.8rem;
-          margin: 0;
-        }
-      }
       .time-picker {
         padding-top: 20px;
         padding-bottom: 20px;
