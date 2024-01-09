@@ -7,6 +7,8 @@ import dbQueriesApiRoutes from "./routes/db-query-api.js"
 
 const app = express();
 
+const PORT = (process.env.PORT);
+
 app.use(express.json());
 
 // Use of Morgan for logging incoming requests
@@ -14,6 +16,6 @@ app.use(morgan('dev'));
 
 app.use('/api', externalApiRoutes, dbQueriesApiRoutes);
 
-ViteExpress.listen(app, 3000, () =>
-  console.log("Server is listening on port 3000..."),
+ViteExpress.listen(app, PORT, () =>
+  console.log(`Server is listening on port ${PORT}...`),
 );
