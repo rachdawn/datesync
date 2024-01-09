@@ -1,4 +1,4 @@
-import '../../../styles/code-snippet.css'
+import '../../../styles/code-snippet.scss'
 
 export const CodeSnippet = ({ title, code = "" }) => (
   <div className="code-snippet">

@@ -1,5 +1,5 @@
 import TopNavBar from "../../TopNavBar";
-import '../../../styles/layouts/page-layout.css'
+import '../../../styles/layouts/page-layout.scss'
 
 export const PageLayout = ({ children }) => {
   return (

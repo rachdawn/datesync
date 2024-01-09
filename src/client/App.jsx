@@ -9,7 +9,7 @@ import Dashboard from "./routes/Dashboard";
 import LandingPage from "./routes/LandingPage";
 import { ProfilePage } from "./components/auth/pages/profile-page";
 import { PageLoader } from "./components/PageLoader";
-import "./styles/layouts/page-layout.css";
+import "./styles/layouts/page-layout.scss";
 
 function App() {
   // While the React SDK is loading, the PageLoader component renders, which shows up an animation. Log out and log back in to see this in action. No more UI flashing should happen:
