@@ -36,7 +36,7 @@ const LandingPage = () => {
   ];
 
   return (
-    <>
+    <div className="landing-page">
       <section className="hero">
         <div className="hero-inner">
           <h1>DateSync</h1>
@@ -53,7 +53,7 @@ const LandingPage = () => {
           </div>
           <div className="cards">
             {featureDates.map((date, index) => (
-              <div className="feature-card" key={index}>
+              <div key={index}>
                 <FeatureDates date={date} />
               </div>
             ))}
@@ -73,7 +73,7 @@ const LandingPage = () => {
     <TestActivitiesApi />
     <TestEventsApi />
     <TestMoviesApi /> */}
-    </>
+    </div>
   );
 };
 
