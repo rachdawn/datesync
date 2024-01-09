@@ -42,15 +42,15 @@ const CreateDate = () => {
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <main>
+      <main className="create-date">
         <section className="featured">
+          <div className="feature-carousel">
           <div id="feature-title">
             <h2>Feature Dates</h2>
           </div>
-          <div className="feature-carousel">
             <div className="cards">
               {featureDates.map((date, index) => (
-                <div className="feature-card" key={index}>
+                <div key={index}>
                   <FeatureDates date={date} />
                 </div>
               ))}
