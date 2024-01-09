@@ -60,7 +60,7 @@ const LandingPage = () => {
           </div>
         </div>
       </main>
-      <section>
+      <section className="buttons">
         <a className="btn btn-secondary" href="">
           Create account
         </a>

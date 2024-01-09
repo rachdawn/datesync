@@ -1,7 +1,13 @@
 body {
   width: 100vw;
+  min-height: 950px;
   padding: 0;
   font-family: Neuton;
+  overflow-x: hidden;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://i.ibb.co/6vBcH5y/nathan-dumlao-Ed-ULZp-OKs-UE-unsplash.jpg);
+  background-position: 30% 30%;
+  background-size: 200vw 100vh;
+
   
   .btn {
     background-color: #662d91;
@@ -17,21 +23,17 @@ body {
 
   .hero {
     width: 100vw;
-    height: 55vh;
+    height: 30vh;
+    margin-top: 45px;
 
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
-
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url(https://i.ibb.co/6vBcH5y/nathan-dumlao-Ed-ULZp-OKs-UE-unsplash.jpg);
-    background-size: cover;
-    background-position: 50% 80%;
-
-  }  
+  }
 
   main {
+    display: none; // feature cards are not being displayed 
     max-width: 100vw;
     margin: 30px auto;
 
@@ -48,6 +50,7 @@ body {
       flex-direction: column;
       justify-content: center;
     }
+    
 
     .cards {
       display: flex;
@@ -74,6 +77,97 @@ body {
       p {
         font-weight: bold;
       }
+    }
+  }
+
+  .buttons {
+    margin-bottom: 30px;
+  }
+}
+
+@media (min-width: 768px) {
+  body {
+    width: 100%;
+    padding: 0;
+    font-family: Neuton;
+    overflow-x: hidden;
+    background-image: none;
+
+    .btn {
+      background-color: #662d91;
+      border: none;
+      margin: 15px;
+      color: white;
+    }
+
+    .btn:hover {
+      background-color: #e1cce6;
+      color: #662d91;
+    }
+
+    .hero {
+      width: 100vw;
+      height: 55vh;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url(https://i.ibb.co/6vBcH5y/nathan-dumlao-Ed-ULZp-OKs-UE-unsplash.jpg);
+      background-size: cover;
+      background-position: 50% 80%;
+    }
+
+    main {
+      max-width: 100vw;
+      margin: 30px auto;
+
+      h2 {
+        margin-bottom: 1px;
+        font-weight: 600;
+      }
+
+      .feature-carousel {
+        color: #662d91;
+        background-color: #e1cce6;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .cards {
+        display: flex;
+        justify-content: center;
+      }
+
+      .feature-card {
+        margin: 0.5rem;
+        padding: 0.5rem;
+        width: 80%;
+        height: 90%;
+        max-width: 240px;
+
+        img {
+          max-width: 11rem;
+          height: auto;
+          margin: 0 auto;
+          margin-top: 0.5rem;
+          border-radius: 10px;
+          padding: 4px;
+          justify-content: center;
+        }
+
+        p {
+          font-weight: bold;
+        }
+      }
+    }
+
+    .buttons {
+      margin-bottom: 30px;
     }
   }
 }
