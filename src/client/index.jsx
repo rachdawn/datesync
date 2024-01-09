@@ -12,11 +12,11 @@ import App from './App';
 
 // The Context from React Router must be present in the component tree at a higher level for Auth0ProviderWithNavigate to access the useNavigate() hook from React Router.
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+ 
     <BrowserRouter>
       <Auth0ProviderWithNavigate>
         <App />
       </Auth0ProviderWithNavigate>
     </BrowserRouter>
-  </React.StrictMode>,
+  
 );
