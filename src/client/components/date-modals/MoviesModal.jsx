@@ -47,9 +47,19 @@ export default function MoviesModal() {
             <LottieSpinner />
           ) : (
             <>
-              <button className="close-button" onClick={handleClose}>
-                <img src={closeSymbol} alt="close symbol" />
-              </button>
+              <div className="modal-top">
+                <button className="close-button" onClick={handleClose}>
+                  <img src={closeSymbol} alt="close symbol" />
+                </button>
+                <Typography
+                  className="modal-title"
+                  id="modal-modal-title"
+                  variant="h6"
+                  component="h2"
+                >
+                  Search Movies
+                </Typography>
+              </div>
               <MoviesNearMe movies={movies} />
             </>
           )}

@@ -40,16 +40,26 @@ export default function EventsModal() {
         aria-describedby="modal-modal-description"
       >
         <Box className="search-modal">
-          <button className="close-button" onClick={handleClose}>
-            <img src={closeSymbol} alt="close symbol" />
-          </button>
-          <Typography className="modal-title" id="modal-modal-title" variant="h6" component="h2">
-            Search Events
-          </Typography>
+          <div className="modal-top">
+            <button className="close-button" onClick={handleClose}>
+              <img src={closeSymbol} alt="close symbol" />
+            </button>
+            <Typography
+              className="modal-title"
+              id="modal-modal-title"
+              variant="h6"
+              component="h2"
+            >
+              Search Events
+            </Typography>
+          </div>
           <EventsSelect />
           <ul>
             {eventsData.map((eventData) => (
-                <EventAccordion key={eventData.component_id} eventData={eventData}/>
+              <EventAccordion
+                key={eventData.component_id}
+                eventData={eventData}
+              />
             ))}
           </ul>
         </Box>
