@@ -20,12 +20,19 @@ export default function MoviesModal() {
         aria-describedby="modal-modal-description"
       >
         <Box className="search-modal">
-          <button className="close-button" onClick={handleClose}>
-            <img src={closeSymbol} alt="close symbol" />
-          </button>
-          <Typography className="modal-title" id="modal-modal-title" variant="h6" component="h2">
-            Search Movies
-          </Typography>
+          <div className="modal-top">
+            <button className="close-button" onClick={handleClose}>
+              <img src={closeSymbol} alt="close symbol" />
+            </button>
+            <Typography
+              className="modal-title"
+              id="modal-modal-title"
+              variant="h6"
+              component="h2"
+            >
+              Search Movies
+            </Typography>
+          </div>
         </Box>
       </Modal>
     </div>
