@@ -1,0 +1,48 @@
+/* Footer Container */
+.footer-container {
+  background-color: #662d91; 
+  color: #fff; 
+  padding: 20px 10px; 
+  width: 100;
+  height: auto;
+}
+
+/* Footer Title */
+.footer-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px; 
+  display: column;
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  justify-content: space-around; 
+  align-items: center; 
+
+  svg {
+    margin: 0 8px; // This adds horizontal space between the icons
+    margin-top: 10px;
+    width: 24px; // Adjust size as needed
+    height: 24px; // Adjust size as needed
+    color: #fff; // Adjust color as needed
+  }
+}
+
+/* Contact Information */
+.footer-contact {
+  margin-bottom: 5px; 
+}
+
+/* Copyright Text */
+.copy-right {
+  margin-top: 20px; 
+  text-align: center; 
+}
+
+.row-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
