@@ -7,6 +7,7 @@ import MoviesNearMe from '../MoviesNearMe';
 import closeSymbol from "/src/client/assets/closeSymbol.svg";
 import LottieSpinner from "../LottieSpinner";
 import useLoading from "../hooks/useLoading";
+import Typography from "@mui/material/Typography";
 
 export default function MoviesModal() {
   const [open, setOpen] = useState(false);
