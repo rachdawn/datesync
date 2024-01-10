@@ -1,8 +1,8 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { CodeSnippet } from "./code-snippet";
 import { PageLayout } from "./page-layout";
-import "../../../styles/layouts/content-layout.css"
-import "../../../styles/grids/profile-grid.css"
+import "../../../styles/layouts/content-layout.scss"
+import "../../../styles/grids/profile-grid.scss"
 
 export const ProfilePage = () => {
   const { user } = useAuth0();

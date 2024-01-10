@@ -1,7 +1,7 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import { Typography } from "@mui/material";
+import { Typography, Button } from "@mui/material";
 
-export const SignupButton = () => {
+export const SignupButton = ({ asButton = false, className }) => {
   const { loginWithRedirect } = useAuth0();
 
   const handleSignUp = async () => {
@@ -15,9 +15,19 @@ export const SignupButton = () => {
     });
   };
 
-  return (
-    <Typography onClick={handleSignUp} style={{ cursor: 'pointer' }}>
-      Sign Up
-    </Typography>
-  );
+ // THis will render as a button if asButton is true, otherwise it will render as text (Typography):
+ return asButton ? (
+  <Button 
+    variant="contained"
+    color="primary"
+    onClick={handleSignUp}
+    className={className}
+  >
+    Sign Up for free
+  </Button>
+) : (
+  <Typography onClick={handleSignUp} style={{ cursor: 'pointer' }}>
+    Sign Up
+  </Typography>
+);
 };
