@@ -1,10 +1,4 @@
-// import TestActivitiesApi from "../components/TestActivitiesApi";
-// import TestEventsApi from "../components/TestEventsApi";
-// import TestMoviesApi from "../components/TestMoviesApi";
-// import TestRestaurantsApi from "../components/TestRestaurantsAPI";
-
 import FeatureDates from "../components/FeatureDates";
-
 import "../styles/LandingPage.scss";
 
 const LandingPage = () => {
@@ -69,10 +63,6 @@ const LandingPage = () => {
           Try without account
         </a>
       </section>
-      {/* <TestRestaurantsApi />
-    <TestActivitiesApi />
-    <TestEventsApi />
-    <TestMoviesApi /> */}
     </>
   );
 };
