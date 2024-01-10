@@ -67,7 +67,7 @@ function Styles() {
         align-items: center;
         justify-content: center;
         box-shadow: 0px 4px 6px ${
-          isDarkMode ? 'rgba(0,0,0, 0.4)' : 'rgba(0,0,0, 0.2)'
+          isDarkMode ? "rgba(0,0,0, 0.4)" : "rgba(0,0,0, 0.2)"
         };
       }
 
@@ -114,7 +114,7 @@ function Styles() {
         font-family: 'IBM Plex Sans', sans-serif;
         font-size: 0.875rem;
         color: #662d91;
-        background-color: #662d91;
+        background-color: #d8bfd8;
         border-radius: 10px;
         padding: 4px; 
       }
