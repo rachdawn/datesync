@@ -149,6 +149,9 @@ body {
               .feature-mobile {
                 display: none;
               }
+              .feature-desktop {
+                display: contents;
+              }
 
               img {
                 max-width: 90%;
