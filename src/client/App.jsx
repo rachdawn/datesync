@@ -3,12 +3,13 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { AuthenticationGuard } from "./components/auth/authentication-guard";
 import TopNavBar from "./components/TopNavBar";
+import Footer from "./components/Footer";
 import { CallbackPage } from "./components/auth/pages/callback-page";
 import CreateDate from "./routes/CreateDate";
 import Dashboard from "./routes/Dashboard";
 import LandingPage from "./routes/LandingPage";
 import { ProfilePage } from "./components/auth/pages/profile-page";
-import { PageLoader } from "./components/PageLoader";
+import LottieSpinner from "./components/LottieSpinner";
 import "./styles/layouts/page-layout.scss";
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
   if (isLoading) {
     return (
       <div className="page-layout">
-        <PageLoader />
+        <LottieSpinner />
       </div>
     );
   }
@@ -42,6 +43,7 @@ function App() {
         element={<AuthenticationGuard component={Dashboard} />}
         />
       </Routes>
+      <Footer />
     </>
   );
 }
