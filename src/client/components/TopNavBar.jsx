@@ -1,29 +1,32 @@
-import * as React from "react";
-import "../styles/TopNavBar.scss";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
-import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
-import ThistleCalendarLogo from "../assets/calendar_thistle_transparent.png"
+import AppBar from "@mui/material/AppBar";
+import Avatar from "@mui/material/Avatar";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
+import IconButton from "@mui/material/IconButton";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import Toolbar from "@mui/material/Toolbar";
+import Tooltip from "@mui/material/Tooltip";
+import Typography from "@mui/material/Typography";
+import * as React from "react";
+import { useAuth0 } from "@auth0/auth0-react";
+import { useNavigate, useLocation } from 'react-router-dom';
+import { LoginButton } from "./auth/buttons/login-button";
+import { LogoutButton } from "./auth/buttons/logout-button";
+import { SignupButton } from "./auth/buttons/signup-button";
+import ThistleCalendarLogo from "../assets/calendar_thistle_transparent.png";
+import "../styles/TopNavBar.scss";
 
-
-const settings = [
-  { label: "Dashboard", path: "/dashboard" },
-  { label: "Profile", path: "/" },
-  { label: "Account", path: "/" },
-  { label: "Logout", path: "/" },
-];
 
 function TopNavBar() {
+  const { isAuthenticated, user } = useAuth0();
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+  const navigate = useNavigate();
+
+  const location = useLocation();
 
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
@@ -32,6 +35,27 @@ function TopNavBar() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  const handleMenuItemClick = (setting) => {
+    if (setting.path) {
+      navigate(setting.path);
+    }
+    handleCloseUserMenu();
+  };
+
+  // location.pathname !== "/dashboard" and location.pathname !== "/profile" are conditions that check if the current path is not '/dashboard' or '/profile', respectively. If the condition is true, the corresponding menu item is included; otherwise, it is excluded. The filter(Boolean) function call at the end of the array will remove any false values, effectively excluding menu items based on the current path:
+  let settings = isAuthenticated
+  ? [
+      location.pathname !== "/dashboard" && { label: "Dashboard", path: "/dashboard" },
+      location.pathname !== "/profile" && { label: "Profile", path: "/profile" },
+      { label: "Logout", component: <LogoutButton /> },
+    ].filter(Boolean)
+  : [
+      { label: "Login", component: <LoginButton /> },
+      { label: "Signup", component: <SignupButton /> },
+    ];
+
+  const defaultAvatar = 'src/client/assets/calendar_whistle_transparent.png'
 
   return (
     <AppBar id="top-nav" position="fixed">
@@ -106,10 +130,11 @@ function TopNavBar() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                {/* Avatar with conditional source */}
                 <Avatar
                   id="profile-icon"
-                  alt="User"
-                  src="/static/images/avatar/2.jpg"
+                  alt="User Avatar"
+                  src={isAuthenticated && user && user.picture ? user.picture : defaultAvatar}
                 />
               </IconButton>
             </Tooltip>
@@ -129,8 +154,12 @@ function TopNavBar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
+
               {settings.map((setting) => (
-                <MenuItem key={setting.label} onClick={handleCloseUserMenu}>
+                <MenuItem key={setting.label} onClick={() => handleMenuItemClick(setting)}>
+                  {setting.component ? (
+                    setting.component
+                ) : (
                   <Typography textAlign="center">
                     <a
                       href={setting.path}
@@ -139,6 +168,7 @@ function TopNavBar() {
                       {setting.label}
                     </a>
                   </Typography>
+                )}
                 </MenuItem>
               ))}
             </Menu>
