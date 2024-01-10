@@ -37,26 +37,28 @@ body {
 
       .date-group {
         display: flex;
-        flex-wrap: wrap;
         justify-content: center;
+        background-color: #d8bfd8;
+        max-width: 50rem;
 
         article {
-          display: flex;
-          align-items: center;
-          background-color: #d8bfd8;
-          min-width: 85%;
-          max-width: 85%;
           margin: 0.75rem;
           padding: 0.1rem;
           border-radius: 10px;
           text-align: start;
-        }
 
-        img {
-          max-width: 25%;
-          max-height: 85%;
-          margin: 10px;
-          border-radius: 5px;
+          .date-component-cards {
+            padding: 1rem;
+            min-width: 280px;
+            max-width: 150px;
+            
+            img {
+              max-width: 10rem;
+              min-height: 12rem;
+              margin: 10px;
+              border-radius: 5px;
+            }
+          }
         }
 
         .date-component-info {
@@ -70,7 +72,8 @@ body {
   @media (min-width: 768px) {
     .dashboard {
       max-width: 90%;
-      margin-top: 70px;
+      margin-top: 80px;
+      
 
       .tabs {
         width: 90dvw;
@@ -88,6 +91,10 @@ body {
       .panel {
         max-width: 70dvw;
         padding-bottom: 50px;
+        display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
 
         h2.date-title {
           color: white;
@@ -103,24 +110,47 @@ body {
         }
 
         .date-group {
+          border: 1px solid beige;
+          border-radius: 20px;
+          min-width: 65vw;
 
           article {
-            display: flex;
-            align-items: center;
-            background-color: #d8bfd8;
             margin: 0.75rem;
             padding: 0.1rem;
             border-radius: 10px;
+
+            .date-component-cards {
+              padding: 1rem;
+              min-width: 280px;
+              max-width: 150px;
+
+              img {
+                margin: 0 auto;
+                max-width: 130px;
+                min-height: 12rem;
+              }
+            }
           }
 
-          img {
-            max-height: 160px;
-            margin: 10px;
-            border-radius: 5px;
+          .divider {
+            background: #662d91;
+            opacity: 75%;
+            width: 2px;
+            font-weight: bolder;
+            margin: 40px 20px;
+            border-radius: 20px;
           }
 
           .date-component-info {
             margin: 10px 5px;
+          }
+
+          .date-component-buttons {
+            align-self: center;
+
+            .btn-dashboard {
+              margin: 5px;
+            }
           }
         }
       }
