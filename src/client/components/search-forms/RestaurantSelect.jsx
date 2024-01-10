@@ -5,6 +5,7 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import ListSubheader from "@mui/material/ListSubheader";
 import FormGroup from "@mui/material/FormGroup";
+import Rating from "@mui/material/Rating";
 
 export default function RestaurantSelect() {
   const [restaurantType, setRestaurantType] = React.useState("");
@@ -23,12 +24,13 @@ export default function RestaurantSelect() {
 
   return (
     <FormGroup id="search-bar">
-      <FormControl sx={{ m: 1, minWidth: 165 }}>
+      <FormControl className="select" sx={{ m: 1, minWidth: 160 }}>
         <InputLabel htmlFor="restaurant-type">Restaurant Type</InputLabel>
         <Select
           defaultValue={restaurantType}
           id="restaurant-type"
           label="Restaurant Type"
+          onChange={handleRestaurantChange}
         >
           <MenuItem value="">
             <em>None</em>
@@ -50,40 +52,48 @@ export default function RestaurantSelect() {
           <MenuItem value={"Indian"}>Indian</MenuItem>
         </Select>
       </FormControl>
-      <FormControl sx={{ m: 1, minWidth: 90 }}>
-        <InputLabel id="rating">Rating</InputLabel>
-        <Select
-          labelId="demo-simple-select-autowidth-label"
-          id="demo-simple-select-autowidth"
-          value={rating}
-          label="Rating"
-          onChange={handleRatingChange}
-        >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-          <MenuItem value={5}>5 Stars</MenuItem>
-          <MenuItem value={4}>4+ Stars</MenuItem>
-          <MenuItem value={3}>3+ Stars</MenuItem>
-          <MenuItem value={2}>2+ Stars</MenuItem>
-        </Select>
-      </FormControl>
-      <FormControl sx={{ m: 1, minWidth: 126 }}>
+      <FormControl className="select" sx={{ m: 1, minWidth: 120 }}>
         <InputLabel id="price-level">Price Level</InputLabel>
         <Select
-          labelId="demo-simple-select-autowidth-label"
-          id="demo-simple-select-autowidth"
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
           value={priceLevel}
           label="Price Level"
           onChange={handlePriceChange}
         >
           <MenuItem value="">
-            <em>None</em>
+            <em>Any Price Level</em>
           </MenuItem>
           <MenuItem value={"$"}>$</MenuItem>
           <MenuItem value={"$$"}>$$</MenuItem>
           <MenuItem value={"$$$"}>$$$</MenuItem>
           <MenuItem value={"$$$$"}>$$$$</MenuItem>
+        </Select>
+      </FormControl>
+      <FormControl className="select" sx={{ m: 1, minWidth: 87, p: 0 }}>
+        <InputLabel id="rating">Rating</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={rating}
+          label="Rating"
+          onChange={handleRatingChange}
+        >
+          <MenuItem value="">
+            <em>Any Rating</em>
+          </MenuItem>
+          <MenuItem value={5}>
+            <Rating name="half-rating" value={5} precision={0.1} readOnly />
+          </MenuItem>
+          <MenuItem value={4}>
+            <Rating name="half-rating" value={4} precision={0.1} readOnly />
+          </MenuItem>
+          <MenuItem value={3}>
+            <Rating name="half-rating" value={3} precision={0.1} readOnly />
+          </MenuItem>
+          <MenuItem value={2}>
+            <Rating name="half-rating" value={2} precision={0.1} readOnly />
+          </MenuItem>
         </Select>
       </FormControl>
 

@@ -13,7 +13,7 @@ export default function EventAccordion({ eventData }) {
   };
 
   return (
-    <div className="results">
+    <div className="result">
       <Accordion
         expanded={expanded === "panel1"}
         onChange={handleChange("panel1")}

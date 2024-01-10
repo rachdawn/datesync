@@ -68,17 +68,19 @@ export default function ActivitiesModal() {
         aria-describedby="modal-modal-description"
       >
         <Box className="search-modal">
-          <button className="close-button" onClick={handleClose}>
-            <img src={closeSymbol} alt="close symbol" />
-          </button>
-          <Typography
-            className="modal-title"
-            id="modal-modal-title"
-            variant="h6"
-            component="h2"
-          >
-            Search Activities
-          </Typography>
+          <div className="modal-top">
+            <button className="close-button" onClick={handleClose}>
+              <img src={closeSymbol} alt="close symbol" />
+            </button>
+            <Typography
+              className="modal-title"
+              id="modal-modal-title"
+              variant="h6"
+              component="h2"
+            >
+              Search Activities
+            </Typography>
+          </div>
           <ActivitiesSelect />
           <ul>
             {activities.map((activity) => (

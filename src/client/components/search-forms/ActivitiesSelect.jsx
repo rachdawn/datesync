@@ -12,7 +12,7 @@ export default function ActivitiesSelect() {
   };
   return (
     <FormGroup id="search-bar">
-      <FormControl sx={{ m: 1, minWidth: 135 }}>
+      <FormControl className="select" sx={{ m: 1, minWidth: 135 }}>
         <InputLabel id="demo-simple-select-label">Activity Type</InputLabel>
         <Select
           labelId="demo-simple-select-autowidth-label"

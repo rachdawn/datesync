@@ -13,7 +13,7 @@ export default function ActivitiesAccordion({ activity }) {
   };
 
   return (
-    <div className="results">
+    <div className="result">
       <Accordion
         expanded={expanded === "panel1"}
         onChange={handleChange("panel1")}
@@ -24,12 +24,14 @@ export default function ActivitiesAccordion({ activity }) {
           id="panel1bh-header"
         >
           <div className="result-card">
-            <div>
-              <img className="result-img" src={activity.photo_url} alt="" />
-            </div>
-            <div className="info">
-              <h3>{activity.activity}</h3>
-              <p>{activity.description}</p>
+            <div className="card-mobile">
+              <div>
+                <img className="result-img" src={activity.photo_url} alt="" />
+              </div>
+              <div className="info">
+                <h3>{activity.activity}</h3>
+                <p>{activity.description}</p>
+              </div>
             </div>
             <div>
               <div className="actions">
