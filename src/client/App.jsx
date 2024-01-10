@@ -3,13 +3,14 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { AuthenticationGuard } from "./components/auth/authentication-guard";
 import TopNavBar from "./components/TopNavBar";
+import Footer from "./components/Footer";
 import { CallbackPage } from "./components/auth/pages/callback-page";
 import CreateDate from "./routes/CreateDate";
 import Dashboard from "./routes/Dashboard";
 import LandingPage from "./routes/LandingPage";
 import { ProfilePage } from "./components/auth/pages/profile-page";
-import { PageLoader } from "./components/PageLoader";
-import "./styles/layouts/page-layout.css";
+import LottieSpinner from "./components/LottieSpinner";
+import "./styles/layouts/page-layout.scss";
 
 function App() {
   // While the React SDK is loading, the PageLoader component renders, which shows up an animation. Log out and log back in to see this in action. No more UI flashing should happen:
@@ -18,7 +19,7 @@ function App() {
   if (isLoading) {
     return (
       <div className="page-layout">
-        <PageLoader />
+        <LottieSpinner />
       </div>
     );
   }
@@ -42,6 +43,7 @@ function App() {
         element={<AuthenticationGuard component={Dashboard} />}
         />
       </Routes>
+      <Footer />
     </>
   );
 }

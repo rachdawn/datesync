@@ -1,71 +1,82 @@
-import React, { useState } from 'react';
+import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from '@mui/material';
 import axios from 'axios';
-import { Container, Row, Col, Card, Button, Modal } from 'react-bootstrap';
+import React, { useState } from 'react';
+import LottieSpinner from './LottieSpinner';
+import Showtimes from './Showtimes';
+import useLoading from './hooks/useLoading.js';
 
 const MoviesNearMe = ({ movies }) => {
   const [showtimes, setShowtimes] = useState([]);
-  const [showShowtimesModal, setShowShowtimesModal] = useState(false);
   const [selectedMovie, setSelectedMovie] = useState(null);
+  const [showShowtimes, setShowShowtimes] = useState(false);
+  const [isLoading, startLoading, stopLoading] = useLoading();
 
-  const handleShowtimes = async (movieName) => {
+  const handleShowtimes = async (movie) => {
     try {
-      // Calling on a subsequent endpoint for the movie showtimes:
-      const response = await axios.get(`/api/movie-showtimes`, { params: { movieName } });
-      setShowtimes(response.data); 
-      setSelectedMovie(movieName);
-      setShowShowtimesModal(true);
+      startLoading();
+      const response = await axios.get(`/api/movie-showtimes`, { params: { movieName: movie.title } });
+      setShowtimes(response.data);
+      setSelectedMovie(movie);
+      setShowShowtimes(true);
+      stopLoading();
     } catch (error) {
       console.error('Error fetching showtimes:', error);
+      stopLoading();
     }
   };
 
+  const handleBackToMovies = () => {
+    // Goes back to the movies list:
+    setShowShowtimes(false); 
+  };
+
   return (
-    // Contains the display of movies near the user's location:
-    <Container>
-      <h1 className="text-center mt-4 mb-4">Movies Near Me</h1>
-      <Row>
-        {movies.map((movie, index) => (
-          <Col key={index} md={4} className="mb-3">
-            <Card>
-              <Card.Img variant="top" src={movie.image} alt={movie.title} />
-              <Card.Body>
-                <Card.Title>{movie.title}</Card.Title>
-                <Card.Text>{movie.details}</Card.Text>
-                <Button variant="primary" onClick={() => handleShowtimes(movie.title)}>Showtimes</Button>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
-      </Row>
-      
-      {/* This is the showtimes modal once you click the showtimes button on a specific movie the modal will open*/}
-      <Modal show={showShowtimesModal} onHide={() => setShowShowtimesModal(false)}>
-        <Modal.Header closeButton>
-          <Modal.Title>Showtimes for {selectedMovie}</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          {/* Map showtimes state and display the showtimes */}
-          {showtimes.map((day, dayIndex) => (
-              <div key={dayIndex}>
-                <h5>{day.day}, {day.date}</h5>
-                {day.theaters.map((theater, theaterIndex) => (
-                  <div key={theaterIndex}>
-                    <strong>{theater.name}</strong>
-                    <p>{theater.address}</p>
-                    {theater.showing.map((show, showIndex) => (
-                      <p key={showIndex}>{show.type}: {show.time.join(', ')}</p>
-                    ))}
-                  </div>
-                ))}
-              </div>
-            ))
-          }
-      </Modal.Body>
-      </Modal>
-    </Container>
+    <>
+      {!showShowtimes ? (
+        isLoading ? (
+          <LottieSpinner />
+        ) : (
+          <Grid container spacing={2}>
+            {movies.map((movie, index) => (
+              <Grid item key={index} xs={12} sm={6} md={4}>
+                <Card>
+                  <CardMedia
+                    component="img"
+                    height="140"
+                    image={movie.image}
+                    alt={movie.title}
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                      {movie.title}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {movie.details}
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button size="small" onClick={() => handleShowtimes(movie)}>
+                      Showtimes
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+        )
+      ) : (
+        isLoading ? (
+          <LottieSpinner />
+        ) : (
+          <Showtimes
+            showtimes={showtimes}
+            selectedMovie={selectedMovie}
+            handleBackToMovies={handleBackToMovies}
+          />
+        )
+      )}
+    </>
   );
 };
 
 export default MoviesNearMe;
-
-

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import MoviesNearMe from './MoviesNearMe';
+import MoviesNearMe from '../components/MoviesNearMe';
 import { Container, Button } from 'react-bootstrap';
 
 const TestMoviesApi = () => {

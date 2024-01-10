@@ -17,6 +17,7 @@ import { LoginButton } from "./auth/buttons/login-button";
 import { LogoutButton } from "./auth/buttons/logout-button";
 import { SignupButton } from "./auth/buttons/signup-button";
 import ThistleCalendarLogo from "../assets/calendar_thistle_transparent.png";
+import PersonIcon from '@mui/icons-material/Person';
 import "../styles/TopNavBar.scss";
 
 
@@ -54,8 +55,6 @@ function TopNavBar() {
       { label: "Login", component: <LoginButton /> },
       { label: "Signup", component: <SignupButton /> },
     ];
-
-  const defaultAvatar = 'src/client/assets/calendar_whistle_transparent.png'
 
   return (
     <AppBar id="top-nav" position="fixed">
@@ -129,13 +128,15 @@ function TopNavBar() {
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+              <IconButton onClick={handleOpenUserMenu}>
                 {/* Avatar with conditional source */}
                 <Avatar
                   id="profile-icon"
                   alt="User Avatar"
-                  src={isAuthenticated && user && user.picture ? user.picture : defaultAvatar}
-                />
+                  src={isAuthenticated && user && user.picture ? user.picture : undefined}
+                >
+                  {!isAuthenticated || !user || !user.picture ? <PersonIcon /> : null}
+                </Avatar>
               </IconButton>
             </Tooltip>
             <Menu

@@ -61,7 +61,7 @@ body {
       margin: 0 auto;
       margin-bottom: 25px;
       background-color: #e1cce6;
-      padding: 15px;
+      padding: 5px;
       width: 80dvw;
       border-radius: 12px;
       font-size: smaller;
@@ -149,6 +149,9 @@ body {
               .feature-mobile {
                 display: none;
               }
+              .feature-desktop {
+                display: contents;
+              }
 
               img {
                 max-width: 90%;
@@ -178,8 +181,8 @@ body {
         margin: 0 auto;
         margin-bottom: 55px;
         background-color: #e1cce6;
-        padding: 40px;
-        max-width: 50%;
+        padding: 10px;
+        max-width: 45%;
         border-radius: 12px;
 
         .add-button {

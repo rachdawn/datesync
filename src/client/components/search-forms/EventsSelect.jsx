@@ -13,7 +13,7 @@ export default function EventsSelect() {
   };
   return (
     <FormGroup id="search-bar">
-      <FormControl sx={{ m: 1, minWidth: 120 }}>
+      <FormControl className="select" sx={{ m: 1, minWidth: 120 }}>
         <InputLabel id="demo-simple-select-label">Event Type</InputLabel>
         <Select
           labelId="demo-simple-select-autowidth-label"
@@ -30,7 +30,7 @@ export default function EventsSelect() {
           <MenuItem value={"Comedy Shows"}>Comedy Shows</MenuItem>
         </Select>
       </FormControl>
-      <FormControl sx={{ m: 1, minWidth: 120 }}>
+      <FormControl className="select" sx={{ m: 1, minWidth: 120 }}>
         <InputLabel
           id="demo-simple-select-autowidth"
           htmlFor="event-search"
