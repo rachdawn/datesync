@@ -10,7 +10,7 @@ const AllDates = () => {
   useEffect(() => {
     axios.get("/api/dates").then((res) => {
       setDates(res.data);
-      console.log(res.data);
+      // console.log(res.data);
     });
   }, []);
 
@@ -23,7 +23,7 @@ const AllDates = () => {
     datesByGroup[dateId].push(date);
   });
 
-  console.log(datesByGroup);
+  // console.log(datesByGroup);
 
   return (
     <>

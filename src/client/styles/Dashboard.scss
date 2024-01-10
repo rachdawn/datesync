@@ -45,7 +45,6 @@ body {
           margin: 0.75rem;
           padding: 0.1rem;
           border-radius: 10px;
-          text-align: start;
 
           .date-component-cards {
             padding: 1rem;
@@ -61,6 +60,10 @@ body {
           }
         }
 
+          .divider {
+            display: none;
+          }
+
         .date-component-info {
           margin: 15px 5px;
           margin-bottom: 0px;
@@ -68,12 +71,12 @@ body {
       }
     }
   }
+  
 
   @media (min-width: 768px) {
     .dashboard {
       max-width: 90%;
       margin-top: 80px;
-      
 
       .tabs {
         width: 90dvw;
@@ -110,6 +113,7 @@ body {
         }
 
         .date-group {
+          position: relative;
           border: 1px solid beige;
           border-radius: 20px;
           min-width: 65vw;
@@ -147,6 +151,24 @@ body {
 
           .date-component-buttons {
             align-self: center;
+
+            .btn {
+              background-color: #662d91;
+              border: none;
+              margin: 15px;
+              color: white;
+            }
+
+            .btn:hover {
+              background-color: #e1cce6;
+              color: #662d91;
+            }
+
+            .badge {
+              position: absolute;
+              top: 10px;
+              right: 20px;
+            }
 
             .btn-dashboard {
               margin: 5px;
