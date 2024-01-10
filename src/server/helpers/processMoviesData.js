@@ -5,14 +5,21 @@
  * @returns {Array} An array of movie objects with necessary details.
  */
 function processMoviesData(moviesData) {
-  return moviesData.map(movie => {
-    return {
+  return moviesData.slice(0, 9).map(movie => {
+    // This is to create a movie object with mandatory fields:
+    let processedMovie = {
       title: movie.name,
-      details: movie.extensions.join(' • '), 
       showtimesLink: movie.link, 
       image: movie.image,
     };
+
+    // Add 'details' only if 'extensions' exists and is not empty:
+    if (movie.extensions && movie.extensions.length > 0) {
+      processedMovie.details = movie.extensions.join(' • ');
+    }
+
+    return processedMovie;
   });
-};
+}
 
 export default processMoviesData;
