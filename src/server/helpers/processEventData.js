@@ -14,7 +14,7 @@ function processEventData(eventData, limit = 5) {
       time: event.date?.when || 'Time Not Available',
       address: event.address?.join(', ') || 'Address Not Available',
       description: event.description || 'No Description Available',
-      thumbnail: event.thumbnail || 'default-thumbnail.jpg', // You can provide a default thumbnail URL
+      thumbnail: event.thumbnail,
       link: event.link || 'No link',
       ticketLinks: event.ticket_info?.map(ticket => ({
         source: cleanSourceField(ticket.source) || 'Unknown Source',
