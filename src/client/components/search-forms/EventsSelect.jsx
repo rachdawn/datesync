@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from 'react';
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -7,7 +7,7 @@ import TextField from "@mui/material/TextField";
 import FormGroup from "@mui/material/FormGroup";
 
 export default function EventsSelect() {
-  const [eventType, setEventType] = React.useState("");
+  const [eventType, setEventType] = useState("");
   const handleChange = (event) => {
     setEventType(event.target.value);
   };
