@@ -8,21 +8,21 @@
 function processEventData(eventData, limit = 5) {
   return eventData.map(event => {
     return {
-      title: event.title,
-      // Use event chaining '?' meaning that the function will try to access 'satrt_date' only if 'event_date' is not 'null' or 'undefined':
-      startDate: event.date?.start_date,
-      time: event.date?.when,
-      address: event.address?.join(', '),
-      description: event.description,
-      thumbnail: event.thumbnail,
-      link: event.link,
+      title: event.title || 'No Title Available',
+      // Use event chaining '?' meaning that the function will try to access 'start_date' only if 'event_date' is not 'null' or 'undefined':
+      startDate: event.date?.start_date || 'Date Not Available',
+      time: event.date?.when || 'Time Not Available',
+      address: event.address?.join(', ') || 'Address Not Available',
+      description: event.description || 'No Description Available',
+      thumbnail: event.thumbnail || 'default-thumbnail.jpg', // You can provide a default thumbnail URL
+      link: event.link || 'No link',
       ticketLinks: event.ticket_info?.map(ticket => ({
-        source: cleanSourceField(ticket.source),
-        link: ticket.link,
-        type: ticket.link_type
-      })),
-      venue: event.venue?.name,
-      venueLink: event.venue?.link
+        source: cleanSourceField(ticket.source) || 'Unknown Source',
+        link: ticket.link || 'No link',
+        type: ticket.link_type || 'Unknown Type'
+      })) || [],
+      venue: event.venue?.name || 'Venue Not Available',
+      venueLink: event.venue?.link || 'No link'
     };
   }).slice(0, limit);
 };
