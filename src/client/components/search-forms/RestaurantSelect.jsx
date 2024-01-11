@@ -7,11 +7,14 @@ import Select from "@mui/material/Select";
 import ListSubheader from "@mui/material/ListSubheader";
 import FormGroup from "@mui/material/FormGroup";
 import Rating from "@mui/material/Rating";
+import useLoading from "../hooks/useLoading";
+import LottieSpinner from "../LottieSpinner";
 
 export default function RestaurantSelect({ onDataFetched, coordinates }) {
   const [restaurantType, setRestaurantType] = useState("");
   const [rating, setRating] = useState("");
   const [priceLevel, setPriceLevel] = useState("");
+  const [isLoading, startLoading, stopLoading] = useLoading();
 
   const handleRestaurantChange = (event) => {
     setRestaurantType(event.target.value);
@@ -24,6 +27,7 @@ export default function RestaurantSelect({ onDataFetched, coordinates }) {
   };
 
   const handleSubmit = async () => {
+    startLoading();
     const queryParams = new URLSearchParams({
       type: restaurantType,
       rating: rating,
@@ -31,12 +35,14 @@ export default function RestaurantSelect({ onDataFetched, coordinates }) {
       latitude: coordinates.latitude,
       longitude: coordinates.longitude
     }).toString();
-  
+    
     try {
       const response = await axios.get(`/api/restaurants?${queryParams}`);
       onDataFetched(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
+    } finally {
+      stopLoading();
     }
   };
 
@@ -111,8 +117,9 @@ export default function RestaurantSelect({ onDataFetched, coordinates }) {
           </MenuItem>
         </Select>
       </FormControl>
-
-      <button className="submit-search" onClick={handleSubmit}>Submit</button>
+      {isLoading ? <LottieSpinner /> : (
+      <button className="submit-search" onClick={handleSubmit} type="button">Submit</button>
+      )}
     </FormGroup>
   );
 }
