@@ -26,6 +26,7 @@ export default function EventsSelect({ onEventsFetched, cityString }) {
     // Construct the search query:
     const combinedQuery = `${eventType} ${searchQuery}`.trim();
     startLoading();
+    onEventsFetched([]);
     try {
       // Send a GET request to the backend with the combined query and the city string:
       const response = await axios.get(`/api/events`, {
