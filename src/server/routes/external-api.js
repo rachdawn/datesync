@@ -89,9 +89,9 @@ router.get('/events', async (req, res) => {
 // This for the movies near the user; the api is the Google Search API:
 router.get('/movies', async (req, res) => {
   try {
-    const { location = 'Montreal, Quebec, Canada' } = req.query;
+    const { cityString } = req.query;
 
-    const apiUrl = `https://serpapi.com/search.json?q=movies+near+me&location=${location}&google_domain=google.ca&gl=ca&hl=en&api_key=${process.env.API_KEY}`
+    const apiUrl = `https://serpapi.com/search.json?q=movies+near+me&location=${cityString}&google_domain=google.ca&gl=ca&hl=en&api_key=${process.env.API_KEY}`
     
     const response = await axios.get(apiUrl);
 
@@ -109,12 +109,12 @@ router.get('/movies', async (req, res) => {
   }
 });
 
-// This is fo the movies showtimes obtained when a movie is selected by user:
+// This is for the movies showtimes obtained when a movie is selected by user:
 router.get('/movie-showtimes', async (req, res) => {
   try {
-  const { movieName, location = 'Montreal, Quebec, Canada' } = req.query;
+  const { movieName, cityString } = req.query;
 
-  const apiUrl = `https://serpapi.com/search.json?q=${movieName}+theater&location=${location}&hl=en&gl=us&api_key=${process.env.API_KEY}`;
+  const apiUrl = `https://serpapi.com/search.json?q=${movieName}+theater&location=${cityString}&hl=en&gl=us&api_key=${process.env.API_KEY}`;
 
     const response = await axios.get(apiUrl);
     res.json(response.data.showtimes || []);
