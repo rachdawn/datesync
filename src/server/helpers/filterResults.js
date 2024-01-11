@@ -3,16 +3,16 @@
  * 
  * @param {Array} results - The array of result objects to be filtered.
  * @param {Object} filters - An object containing the filter criteria.
- * @param {number} [limit=5] - The maximum number of results to return (default is 5).
+ * @param {number} [limit=10] - The maximum number of results to return (default is 5).
  * @returns {Array} A filtered and limited array of result objects.
  */
-function filterAndLimitResults(results, filters, limit = 5) {
+function filterAndLimitResults(results, filters, limit = 10) {
   let filteredResults = results;
 
   // Filter by type if the 'type' filter is provided:
   if (filters.type) {
     // Only include results that contain the specified 'type':
-    filteredResults = filteredResults.filter(result => result.type.includes(filters.type));
+    filteredResults = filteredResults.filter(result => result.type && result.type.includes(filters.type));
   }
 
   // Filter by rating if the 'rating' filter is provided:
