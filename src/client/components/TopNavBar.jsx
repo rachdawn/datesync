@@ -10,7 +10,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Toolbar from "@mui/material/Toolbar";
 import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
-import * as React from "react";
+import React, { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { LoginButton } from "./auth/buttons/login-button";
@@ -18,12 +18,11 @@ import { LogoutButton } from "./auth/buttons/logout-button";
 import { SignupButton } from "./auth/buttons/signup-button";
 import ThistleCalendarLogo from "../assets/calendar_thistle_transparent.png";
 import PersonIcon from "@mui/icons-material/Person";
-import { Link } from "react-router-dom";
 import "../styles/TopNavBar.scss";
 
 function TopNavBar() {
   const { isAuthenticated, user } = useAuth0();
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [anchorElUser, setAnchorElUser] = useState(null);
 
   const navigate = useNavigate();
 
