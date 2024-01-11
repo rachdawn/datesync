@@ -26,7 +26,7 @@ const cityDetails = {
     locationString: "Edmonton, Alberta, Canada"
   },
   Halifax: {
-    coordinates: { lat: 44.648764, lng: -63.575239 },
+    coordinates: { latitude: 44.648764, longitude: -63.575239 },
     locationString: "Halifax, Nova Scotia, Canada"
   }
 };
@@ -42,6 +42,8 @@ const CitySelector = ({ onCitySelect, onCityNameSelect }) => {
     if (city) {
       onCitySelect(city.coordinates);
       onCityNameSelect(city.locationString);
+      console.log("City coords:", city.coordinates)
+      console.log("City name:", city.locationString)
     }
   };
 
