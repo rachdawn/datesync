@@ -7,7 +7,7 @@ import processMoviesData from '../helpers/processMoviesData.js';
 const router = Router();
 
 ////////////////////////////////////////////////////////////////////////////////
-// Following routes are using Maps Local API & Local API:
+// Following routes are using Maps Local API:
 ////////////////////////////////////////////////////////////////////////////////
 
 // This is for restaurants; the route calls the SerpApi Google Maps Local API and filters results to be rendered by the frontend:
@@ -38,7 +38,7 @@ router.get('/restaurants', async (req, res) => {
   }
 });
 
-// This is for activities; the route calls the SerpApi Google Local API and filters results to be rendered by the frontend:
+// This is for activities; the route calls the SerpApi Google Local Maps API and filters results to be rendered by the frontend:
 router.get('/activities', async (req, res) => {
   try {
     const { type, latitude, longitude } = req.query;
