@@ -2,19 +2,23 @@
     background-color: #662d91;
     color: #d8bfd8;
 }
-.logo {
+.logo a {
     display: flex;
     margin: 0;
     padding: 0;
     align-items: center;
     height: 4rem;
+    text-decoration: none;
+    color: #d8bfd8;
 }
 .logo:hover,
 #create-button:hover {
-    filter: drop-shadow(0 0 1rem #fff);
+    filter: drop-shadow(0 0 0.5rem #fff);
 }
-#create-button {
+#create-button a {
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    text-decoration: none;
+    color: #d8bfd8;
 }
 .logo-icon {
     max-height: 2.4rem;

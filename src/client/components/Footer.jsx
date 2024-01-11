@@ -1,33 +1,42 @@
-import { Container, Row, Col } from 'react-bootstrap';
-import '../styles/Footer.scss';
-import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa';
+import { Container, Row, Col } from "react-bootstrap";
+import "../styles/Footer.scss";
+import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
+import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
+import PhoneOutlinedIcon from "@mui/icons-material/PhoneOutlined";
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
     <footer className="footer-container">
       <Container>
         <Row className="row-footer">
-          <Col xs={12} sm={2}>
+          <Col className="footer-socials">
             <h5 className="footer-title">Follow Us</h5>
-            <div className="social-icons">
+            <div className="footer-icons">
               <FaFacebookF />
               <FaTwitter />
               <FaInstagram />
             </div>
           </Col>
-          <Col xs={12} sm={2}>
+          <Col className="footer-navigation">
+            <Link to={"/"}>HOME</Link>
+            <Link to={"/create-date"}>CREATE YOUR PERFECT DATE</Link>
+            <Link to={"/dashboard"}>DASHBOARD</Link>
+          </Col>
+          <Col className="footer-contact">
             <h5 className="footer-title">Contact Us</h5>
-            <p className="footer-contact">Email: DateSync@</p>
-            <p className="footer-contact">Phone: (123) 456-7890</p>
+            <div className="footer-icons">
+              <EmailOutlinedIcon /> 
+              <PhoneOutlinedIcon /> 
+            </div>
           </Col>
         </Row>
+        <Row className="copyright">
+          <div>© {new Date().getFullYear()} DateSync</div>
+        </Row>
       </Container>
-      <div className="copy-right text-center">
-        © {new Date().getFullYear()} DateSync
-      </div>
     </footer>
   );
 };
 
 export default Footer;
-
