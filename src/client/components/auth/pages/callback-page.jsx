@@ -13,7 +13,7 @@ export const CallbackPage = () => {
         <LottieSpinner />
       </div>
       <div className="page-layout__content" />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
