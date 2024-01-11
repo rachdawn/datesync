@@ -12,10 +12,11 @@ import ActivitiesModal from "../components/date-modals/ActivitiesModal";
 import MoviesModal from "../components/date-modals/MoviesModal";
 import RestaurantsModal from "../components/date-modals/RestaurantsModal";
 import EventsModal from "../components/date-modals/EventsModal";
-import CitySelector from "../components/CitySelector";
+import CitySelector, { cityDetails } from "../components/CitySelector";
 
 const CreateDate = () => {
   const [coordinates, setCoordinates] = useState(null);
+  const [cityString, setCityString] = useState('');
 
   const featureDates = [
     {
@@ -44,9 +45,12 @@ const CreateDate = () => {
     },
   ];
 
-  const handleCityChange = (selectedCoordinates) => {
-    console.log("Selected Coordinates:", selectedCoordinates);
-    setCoordinates(selectedCoordinates);
+  const handleCityChange = (cityKey) => {
+    console.log("Selected City:", cityKey);
+    if (cityDetails[cityKey]) {
+      setCoordinates(cityDetails[cityKey].coordinates);
+      setCityString(cityDetails[cityKey].locationString);
+    }
   };
 
   return (
@@ -80,7 +84,7 @@ const CreateDate = () => {
           <div className="component">
             <div className="buttons">
               <RestaurantsModal coordinates={coordinates} />
-              <EventsModal />
+              <EventsModal cityString={cityString}/>
               <MoviesModal />
               <ActivitiesModal />
             </div>
