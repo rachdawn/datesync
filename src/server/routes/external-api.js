@@ -60,13 +60,14 @@ router.get('/activities', async (req, res) => {
 // This is for events using the Events API:
 router.get('/events', async (req, res) => {
   try {
-    const { query, location = 'Montreal' } = req.query;
+    // Extract query params from the frontend; cityString is the location string of the selected city from the user:
+    const { query, cityString } = req.query;
     // Handle case where user does not fill the query search field:
     if (!query) {
       return res.status(400).json({ error: 'Query parameter is required' });
     }
     
-    const apiUrl = `https://serpapi.com/search.json?engine=google_events&q=${query}&location=${location}&api_key=${process.env.API_KEY}`;
+    const apiUrl = `https://serpapi.com/search.json?engine=google_events&q=${query}&location=${cityString}&api_key=${process.env.API_KEY}`;
     
     const response = await axios.get(apiUrl);
     // Check if events_results exists in the response
