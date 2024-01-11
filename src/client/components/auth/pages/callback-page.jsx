@@ -8,12 +8,12 @@ import "../../../styles/layouts/page-layout.scss";
 export const CallbackPage = () => {
   return (
     <div className="page-layout">
-      <TopNavBar />
+      {/* <TopNavBar /> */}
       <div className="page-layout__loading">
         <LottieSpinner />
       </div>
       <div className="page-layout__content" />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
