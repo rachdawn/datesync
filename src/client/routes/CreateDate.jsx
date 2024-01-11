@@ -12,7 +12,7 @@ import ActivitiesModal from "../components/date-modals/ActivitiesModal";
 import MoviesModal from "../components/date-modals/MoviesModal";
 import RestaurantsModal from "../components/date-modals/RestaurantsModal";
 import EventsModal from "../components/date-modals/EventsModal";
-import CitySelector, { cityDetails } from "../components/CitySelector";
+import CitySelector from "../components/CitySelector";
 
 const CreateDate = () => {
   const [coordinates, setCoordinates] = useState(null);
@@ -45,12 +45,12 @@ const CreateDate = () => {
     },
   ];
 
-  const handleCityChange = (cityKey) => {
-    console.log("Selected City:", cityKey);
-    if (cityDetails[cityKey]) {
-      setCoordinates(cityDetails[cityKey].coordinates);
-      setCityString(cityDetails[cityKey].locationString);
-    }
+  const handleCityChange = (selectedCoordinates) => {
+    setCoordinates(selectedCoordinates);
+  };
+
+  const handleCityStringChange = (selectedCityString) => {
+    setCityString(selectedCityString);
   };
 
   return (
@@ -77,7 +77,10 @@ const CreateDate = () => {
           />
         </section>
         <section className="city-picker">
-          <CitySelector onCitySelect={handleCityChange} />
+          <CitySelector 
+          onCitySelect={handleCityChange} 
+          onCityNameSelect={handleCityStringChange}
+          />
         </section>
 
         <section className="date-components">
@@ -85,8 +88,8 @@ const CreateDate = () => {
             <div className="buttons">
               <RestaurantsModal coordinates={coordinates} />
               <EventsModal cityString={cityString}/>
-              <MoviesModal />
-              <ActivitiesModal />
+              <MoviesModal cityString={cityString}/>
+              <ActivitiesModal cityString={cityString}/>
             </div>
           </div>
           <div className="component">
