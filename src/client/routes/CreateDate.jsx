@@ -16,6 +16,7 @@ import CitySelector from "../components/CitySelector";
 
 const CreateDate = () => {
   const [coordinates, setCoordinates] = useState(null);
+  const [cityString, setCityString] = useState('');
 
   const featureDates = [
     {
@@ -45,8 +46,11 @@ const CreateDate = () => {
   ];
 
   const handleCityChange = (selectedCoordinates) => {
-    console.log("Selected Coordinates:", selectedCoordinates);
     setCoordinates(selectedCoordinates);
+  };
+
+  const handleCityStringChange = (selectedCityString) => {
+    setCityString(selectedCityString);
   };
 
   return (
@@ -73,16 +77,19 @@ const CreateDate = () => {
           />
         </section>
         <section className="city-picker">
-          <CitySelector onCitySelect={handleCityChange} />
+          <CitySelector 
+          onCitySelect={handleCityChange} 
+          onCityNameSelect={handleCityStringChange}
+          />
         </section>
 
         <section className="date-components">
           <div className="component">
             <div className="buttons">
               <RestaurantsModal coordinates={coordinates} />
-              <EventsModal />
-              <MoviesModal />
-              <ActivitiesModal />
+              <EventsModal cityString={cityString}/>
+              <MoviesModal cityString={cityString}/>
+              <ActivitiesModal cityString={cityString}/>
             </div>
           </div>
           <div className="component">
