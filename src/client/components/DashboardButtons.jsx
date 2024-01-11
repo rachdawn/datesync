@@ -1,7 +1,8 @@
-const DashboardButtons = ({ dateInfo, shareDate }) => {
+const DashboardButtons = ({ dateInfo, shareDate, deleteDate }) => {
   const today = new Date().toISOString();
 
-  const handleShare = (id) => shareDate(id)
+  const handleShare = (id) => shareDate(id);
+  const handleDelete = (id) => deleteDate(id);
 
   return (
     <>
@@ -19,7 +20,10 @@ const DashboardButtons = ({ dateInfo, shareDate }) => {
           <a href="" className="btn btn-secondary btn-dashboard">
             Edit
           </a>
-          <a href="" className="btn btn-secondary btn-dashboard">
+          <a
+            onClick={() => handleDelete(dateInfo.date_id)}
+            className="btn btn-secondary btn-dashboard"
+          >
             Delete
           </a>
         </span>
@@ -27,10 +31,11 @@ const DashboardButtons = ({ dateInfo, shareDate }) => {
 
       {dateInfo.scheduled_date < today && (
         <span className="date-component-buttons">
-          <a className="btn btn-secondary btn-dashboard">
-            Redo Date
-          </a>
-          <a href="" className="btn btn-secondary btn-dashboard">
+          <a className="btn btn-secondary btn-dashboard">Redo Date</a>
+          <a
+            onClick={() => handleDelete(dateInfo.date_id)}
+            className="btn btn-secondary btn-dashboard"
+          >
             Delete
           </a>
         </span>
@@ -47,7 +52,10 @@ const DashboardButtons = ({ dateInfo, shareDate }) => {
           >
             Share
           </a>
-          <a href="" className="btn btn-secondary btn-dashboard">
+          <a
+            onClick={() => handleDelete(dateInfo.date_id)}
+            className="btn btn-secondary btn-dashboard"
+          >
             Delete
           </a>
         </span>

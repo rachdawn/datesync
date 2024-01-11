@@ -4,7 +4,7 @@ import DashboardButtons from "../DashboardButtons";
 import Divider from "@mui/material/Divider";
 
 const PastDates = () => {
-  const {datesByGroup} = useDates("api/dates", { pastDates: true});
+  const {datesByGroup, deleteDate} = useDates("api/dates", { pastDates: true});
   
   return (
     <>
@@ -33,8 +33,9 @@ const PastDates = () => {
               variant="middle"
               flexItem
             />
-            <DashboardButtons
+            <DashboardButtons            
               dateInfo={datesByGroup[dateId][0]}
+              deleteDate={deleteDate}
             />
           </div>
         </div>

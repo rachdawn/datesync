@@ -52,4 +52,20 @@ queryString += `;`
   }
 }
 
-export default getDateComponents ;
+const deleteDate = async (dateId) => {
+  const queryString = `
+  DELETE FROM dates
+  WHERE id = $1
+  RETURNING *;`;
+
+  const queryParams = [dateId]
+
+  try {
+    const data = await db.query(queryString, queryParams);
+    return data.rows
+  } catch (err) {
+    console.log('Error executing deleteDate query', err.message);
+  }
+}
+
+export { getDateComponents, deleteDate };
