@@ -1,11 +1,11 @@
 INSERT INTO dates (owner_id, invited_user_id, scheduled_date, is_draft)
 VALUES
-(1, 2, '2024-01-15 18:00:00', TRUE),
+(1, 2, null, TRUE),
 (1, 3, '2023-01-29 20:00:00', FALSE),
-(3, 4, '2024-02-12 19:00:00', TRUE),
+(3, 4, null, TRUE),
 (4, 5, '2024-02-26 20:30:00', FALSE),
 (5, 6, '2024-03-11 18:45:00', FALSE),
-(6, 7, '2024-03-25 19:15:00', TRUE),
+(6, 7, null, TRUE),
 (7, 8, '2024-04-08 18:30:00', FALSE),
 (8, 1, '2024-04-22 20:00:00', FALSE)
 

@@ -7,7 +7,7 @@ export const PageLayout = ({ children }) => {
     <div className="page-layout">
       <TopNavBar />
       <div className="page-layout__content">{children}</div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

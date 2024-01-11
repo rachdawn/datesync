@@ -45,7 +45,7 @@ const CreateDate = () => {
       <main className="create-date">
         <section className="featured">
           <div className="feature-carousel">
-          <div id="feature-title">
+          <div className="feature-title">
             <h2>Feature Dates</h2>
           </div>
             <div className="cards">
