@@ -2,10 +2,10 @@
  * This is a helper function that processes and formats event data fetched from SerpAPI.
  *
  * @param {Array} eventData - The array of event objects from the SerpAPI response.
- * @param {number} [limit=5] - The maximum number of events to return.
+ * @param {number} [limit=10] - The maximum number of events to return.
  * @returns {Array} An array of formatted event objects.
  */
-function processEventData(eventData, limit = 5) {
+function processEventData(eventData, limit = 10) {
   return eventData.map(event => {
     return {
       title: event.title || 'No Title Available',
