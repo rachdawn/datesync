@@ -7,10 +7,16 @@ import EventsSelect from "../search-forms/EventsSelect";
 import closeSymbol from "/src/client/assets/closeSymbol.svg";
 import EventAccordion from "../result-accordions/EventAccordion";
 
-export default function EventsModal() {
+export default function EventsModal({ cityString }) {
   const [open, setOpen] = useState(false);
+  const [eventsData, setEventsData] = useState([]);
+
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const onEventsFetched = (fetchedData) => {
+    setEventsData(fetchedData);
+  };
 
   return (
     <div>
@@ -35,12 +41,12 @@ export default function EventsModal() {
               Search Events
             </Typography>
           </div>
-          <EventsSelect />
+          <EventsSelect onEventsFetched={onEventsFetched} cityString={cityString}/>
           <ul>
-            {eventsData.map((eventData) => (
+            {eventsData.map((event) => (
               <EventAccordion
-                key={eventData.component_id}
-                eventData={eventData}
+                key={event.id}
+                eventData={event}
               />
             ))}
           </ul>
