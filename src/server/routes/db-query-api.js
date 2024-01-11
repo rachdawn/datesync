@@ -15,4 +15,16 @@ router.get('/dates', (req, res) => {
   })
 });
 
+// POST route to add a new event to the db:
+router.post('/events', async (req, res) => {
+  try {
+    const eventData = req.body;
+    await insertEvent(eventData);
+    res.status(201).json({ message: 'Event added successfully' });
+  } catch (error) {
+    console.error('Error adding event:', error.message);
+    res.status(500).json({ error: 'Failed to add event' });
+  }
+});
+
 export default router;
