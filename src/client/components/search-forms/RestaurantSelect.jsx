@@ -1,4 +1,5 @@
-import * as React from "react";
+import React, { useState } from "react";
+import axios from 'axios';
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -7,10 +8,10 @@ import ListSubheader from "@mui/material/ListSubheader";
 import FormGroup from "@mui/material/FormGroup";
 import Rating from "@mui/material/Rating";
 
-export default function RestaurantSelect() {
-  const [restaurantType, setRestaurantType] = React.useState("");
-  const [rating, setRating] = React.useState("");
-  const [priceLevel, setPriceLevel] = React.useState("");
+export default function RestaurantSelect({ onDataFetched, coordinates }) {
+  const [restaurantType, setRestaurantType] = useState("");
+  const [rating, setRating] = useState("");
+  const [priceLevel, setPriceLevel] = useState("");
 
   const handleRestaurantChange = (event) => {
     setRestaurantType(event.target.value);
@@ -22,12 +23,29 @@ export default function RestaurantSelect() {
     setPriceLevel(event.target.value);
   };
 
+  const handleSubmit = async () => {
+    const queryParams = new URLSearchParams({
+      type: restaurantType,
+      rating: rating,
+      price: priceLevel,
+      latitude: coordinates.latitude,
+      longitude: coordinates.longitude
+    }).toString();
+  
+    try {
+      const response = await axios.get(`/api/restaurants?${queryParams}`);
+      onDataFetched(response.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
   return (
     <FormGroup id="search-bar">
       <FormControl className="select" sx={{ m: 1, minWidth: 160 }}>
         <InputLabel htmlFor="restaurant-type">Restaurant Type</InputLabel>
         <Select
-          defaultValue={restaurantType}
+          value={restaurantType}
           id="restaurant-type"
           label="Restaurant Type"
           onChange={handleRestaurantChange}
@@ -36,16 +54,13 @@ export default function RestaurantSelect() {
             <em>None</em>
           </MenuItem>
           <ListSubheader>Casual</ListSubheader>
-          <MenuItem value={"Cafes+Coffee Shops"}>Cafes & Coffee Shops</MenuItem>
-          <MenuItem value={"Pizza+Wings"}>Pizza & Wings</MenuItem>
-          <MenuItem value={"Pubs+Diners"}>Pubs & Diners</MenuItem>
-          <MenuItem value={"Breweries+Lounges"}>Breweries & Lounges</MenuItem>
-          <MenuItem value={"Breakfast+Brunch"}>Breakfast & Brunch</MenuItem>
+          <MenuItem value={"Coffee"}>Cafes & Coffee Shops</MenuItem>
+          <MenuItem value={"Pizza"}>Pizza</MenuItem>
+          <MenuItem value={"Pub"}>Pubs & Diners</MenuItem>
+          <MenuItem value={"Brewery"}>Breweries & Lounges</MenuItem>
+          <MenuItem value={"Breakfast"}>Breakfast & Brunch</MenuItem>
           <ListSubheader>Cuisine Type</ListSubheader>
-          <MenuItem value={"Steakhouse"}>Steakhouse</MenuItem>
-          <MenuItem value={"Wineries & Wine Bars"}>
-            Wineries & Wine Bars
-          </MenuItem>
+          <MenuItem value={"Steak"}>Steakhouse</MenuItem>
           <MenuItem value={"Italian"}>Italian</MenuItem>
           <MenuItem value={"Mexican"}>Mexican</MenuItem>
           <MenuItem value={"Asian"}>Asian</MenuItem>
@@ -97,7 +112,7 @@ export default function RestaurantSelect() {
         </Select>
       </FormControl>
 
-      <button className="submit-search">Submit</button>
+      <button className="submit-search" onClick={handleSubmit}>Submit</button>
     </FormGroup>
   );
 }

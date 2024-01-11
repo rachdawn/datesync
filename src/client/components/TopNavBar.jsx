@@ -12,7 +12,7 @@ import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { LoginButton } from "./auth/buttons/login-button";
 import { LogoutButton } from "./auth/buttons/logout-button";
 import { SignupButton } from "./auth/buttons/signup-button";
@@ -176,16 +176,13 @@ function TopNavBar() {
                 >
                   {setting.component ? (
                     setting.component
-                  ) : (
-                    <Typography textAlign="center">
-                      <a
-                        href={setting.path}
-                        style={{ textDecoration: "none", color: "inherit" }}
-                      >
-                        {setting.label}
-                      </a>
-                    </Typography>
-                  )}
+                ) : (
+                  <Typography textAlign="center">
+                   <Link to={setting.path} style={{ textDecoration: "none", color: "inherit" }}>
+                    {setting.label}
+                   </Link>
+                  </Typography>
+                )}
                 </MenuItem>
               ))}
             </Menu>
