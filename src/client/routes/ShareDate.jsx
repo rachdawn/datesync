@@ -8,9 +8,9 @@ const ShareDate = () => {
   const { datesByGroup } = useDates(`/api/share-date/${id}`, { share: true });
 
   return (
-    <>
+    <div className="content">
       {Object.keys(datesByGroup).map((dateId, index) => (
-        <span key={index}>
+        <div key={index} className="share-date">
           <section className="header">
             <div>
               <h3>Date with {datesByGroup[dateId][0].user_name}</h3>
@@ -31,9 +31,9 @@ const ShareDate = () => {
               </div>
             </div>
           </main>
-        </span>
+        </div>
       ))}
-    </>
+    </div>
   );
 };
 
