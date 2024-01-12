@@ -1,39 +1,98 @@
-.header {
-  margin: 50px;
-  margin-top: 95px;
-}
+.content {
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
 
-.date-components {
+  div.share-date {    
+    background-color: #e1cce6;
+    margin-top: 55px;
+    margin-bottom: 55px;
+    padding: 40px;
+    padding-top: 20px;
 
-  .date-group {
-    display: flex;
-    justify-content: center;
-    position: relative;
-    border: 1px solid beige;
-    border-radius: 20px;
-    min-width: 65vw;
-
-    .date-initial-info {
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
+    .header {
+      margin: 10px;
     }
 
-    article {
-      margin: 0.75rem;
-      padding: 0.1rem;
-      border-radius: 10px;
+    .date-components {
+      .date-group {
+        display: flex;
+        flex-direction: column;
+        border-radius: 20px;
+        margin: 0 auto;
+        min-width: 65vw;
 
-      .date-component-cards {
-        padding: 1rem;
-        min-width: 280px;
-        max-width: 150px;
+        article {
+          margin: 0.75rem;
+          padding: 0.1rem;
+          border-radius: 10px;
 
-        img {
+          .date-component-cards {
+            padding: 1rem;
+            min-width: 280px;
+            max-width: 150px;
+
+            img {
+              margin: 0 auto;
+              max-width: 130px;
+              min-height: 12rem;
+              border-radius: 5px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .content {
+
+    div.share-date {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      background-color: #e1cce6;
+      border: 1px solid beige;
+      box-shadow: 10px 11px 15px rgba(145, 138, 138, 0.747);
+      margin-top: 95px;
+      padding: 40px;
+      padding-top: 20px;
+      border-radius: 20px;
+
+      .header {
+        margin: 10px;
+      }
+
+      .date-components {
+        .date-group {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-evenly;
+          border-radius: 20px;
           margin: 0 auto;
-          max-width: 130px;
-          min-height: 12rem;
-          border-radius: 5px;
+          min-width: 65vw;
+
+          article {
+            margin: 0.75rem;
+            padding: 0.1rem;
+            border-radius: 10px;
+
+            .date-component-cards {
+              padding: 1rem;
+              min-width: 280px;
+              max-width: 150px;
+
+              img {
+                margin: 0 auto;
+                max-width: 130px;
+                min-height: 12rem;
+                border-radius: 5px;
+              }
+            }
+          }
         }
       }
     }

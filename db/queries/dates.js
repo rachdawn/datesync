@@ -5,7 +5,7 @@ const getDateComponents = async (id, options) => {
   SELECT d.id AS date_id,
   d.scheduled_date AS scheduled_date,
   d.is_draft,
-  u.first_name AS user_name,
+  u.given_name AS user_name,
   r.name AS restaurant_name,
   r.address AS restaurant_address,
   r.photo_url AS restaurant_photo_url,
