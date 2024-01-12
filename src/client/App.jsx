@@ -8,13 +8,15 @@ import { CallbackPage } from "./components/auth/pages/callback-page";
 import CreateDate from "./routes/CreateDate";
 import Dashboard from "./routes/Dashboard";
 import LandingPage from "./routes/LandingPage";
-import { ProfilePage } from "./components/auth/pages/profile-page";
 import LottieSpinner from "./components/LottieSpinner";
 import "./styles/layouts/page-layout.scss";
+import useAuth0UserHandler from "./components/hooks/useAuth0UserHandler";
 
 function App() {
   // While the React SDK is loading, the PageLoader component renders, which shows up an animation. Log out and log back in to see this in action. No more UI flashing should happen:
   const { isLoading } = useAuth0();
+  // This will handle the Auth0 user data:
+  useAuth0UserHandler();
 
   if (isLoading) {
     return (
@@ -34,10 +36,6 @@ function App() {
         {/* Callback route is used to diminish UI flashing when logging in */}
         <Route path="/callback" element={<CallbackPage />} />
         {/* Protected Routes: */}
-        <Route
-        path="/profile"
-        element={<AuthenticationGuard component={ProfilePage} />}
-        />
         <Route
         path="/dashboard"
         element={<AuthenticationGuard component={Dashboard} />}
