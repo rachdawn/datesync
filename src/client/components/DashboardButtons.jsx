@@ -1,10 +1,10 @@
 import useDates from "./hooks/useDates";
 
 const DashboardButtons = ({ dateInfo, deleteDate }) => {
-  const { copyToClipboard, copied } = useDates(`api/share-date/${dateInfo.date_id}`, {
-    dateId: dateInfo.date_id,
-    share: true,
-  });
+  const { copyToClipboard, copied } = useDates(
+    `api/share-date/${dateInfo.date_id}`,
+    { share: true }
+  );
   const today = new Date().toISOString();
 
   const handleDelete = (id) => deleteDate(id);
