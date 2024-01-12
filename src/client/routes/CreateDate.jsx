@@ -13,11 +13,15 @@ import MoviesModal from "../components/date-modals/MoviesModal";
 import RestaurantsModal from "../components/date-modals/RestaurantsModal";
 import EventsModal from "../components/date-modals/EventsModal";
 import CitySelector from "../components/CitySelector";
+import SearchButtons from "../components/SearchButtons";
 
 const CreateDate = () => {
   const [coordinates, setCoordinates] = useState(null);
   const [cityString, setCityString] = useState('');
-
+  const [componentsList, setComponentsList] = useState([
+    <SearchButtons coordinates={coordinates} cityString={cityString}  />
+  ]);
+  
   const featureDates = [
     {
       src: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -53,6 +57,12 @@ const CreateDate = () => {
     setCityString(selectedCityString);
   };
 
+  // Add a new SearchButtons component to componentsList and keep the existing ones:
+  const handleAddClick = () => {
+    setComponentsList([...componentsList, 
+    <SearchButtons coordinates={coordinates} cityString={cityString}  />]);
+  };
+
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <main className="create-date">
@@ -82,27 +92,25 @@ const CreateDate = () => {
           onCityNameSelect={handleCityStringChange}
           />
         </section>
-
         <section className="date-components">
-          <div className="component">
-            <div className="buttons">
-              <RestaurantsModal coordinates={coordinates} />
-              <EventsModal cityString={cityString} />
-              <MoviesModal cityString={cityString} />
-              <ActivitiesModal coordinates={coordinates} />
+          {/* Here the Component argument is an instance of the jsx of searchbuttons */}
+          {componentsList.map((Component, index) => (
+            <div key={index} className="component">
+              {Component}
             </div>
-          </div>
+          ))}
           <div className="component">
-            <Box sx={{ "& > :not(style)": { m: 1 } }}>
-              <Fab
-                className="add-button"
-                size="small"
-                color="secondary"
-                aria-label="add"
-              >
-                <AddIcon />
-              </Fab>
-            </Box>
+              <Box sx={{ "& > :not(style)": { m: 1 } }}>
+                 <Fab
+                  className="add-button"
+                  size="small"
+                  color="secondary"
+                  aria-label="add"
+                  onClick={handleAddClick}
+                >
+                  <AddIcon />
+                </Fab>
+              </Box>
           </div>
         </section>
         <section className="complete">
