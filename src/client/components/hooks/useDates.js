@@ -4,6 +4,7 @@ import axios from "axios"
 // This hook loads the date components information for all tabs in the Dashboard:
 const useDates = (apiEndpoint, queryParams) => {
   const [dates, setDates] = useState([]);
+  const [copied, setCopied] = useState(false); 
 
   // Function to fetch date components
   const fetchDates = async () => {
@@ -31,6 +32,17 @@ const useDates = (apiEndpoint, queryParams) => {
     }
   }
 
+  // Function that copies the address to shareDate page
+  const copyToClipboard = (dateId) => {
+    const shareLink = `${window.location.origin}/share-date/${dateId}`;
+
+    navigator.clipboard.writeText(shareLink)
+      .then(() => {
+        setCopied(true); 
+      })
+      .catch((error) => console.error('Error copying to clipboard:', error));
+  };
+
   // Group date components by their date_id
   const datesByGroup = {};
   dates.forEach((date) => {
@@ -41,7 +53,7 @@ const useDates = (apiEndpoint, queryParams) => {
     datesByGroup[dateId].push(date);
   });
 
-  return { datesByGroup, deleteDate };
+  return { datesByGroup, deleteDate, copyToClipboard, copied };
 }
 
 export default useDates;

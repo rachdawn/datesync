@@ -16,6 +16,7 @@ router.get('/dates', (req, res) => {
   })
 });
 
+//Route that will render date info to be shared
 router.get('/share-date/:dateId', (req, res) => {
   const { dateId } = req.params;
 
