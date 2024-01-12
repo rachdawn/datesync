@@ -1,34 +1,61 @@
-import { Typography, ButtonGroup, Button, Card, CardContent, CardActions, Grid } from '@mui/material';
-
+import {
+  Typography,
+  ButtonGroup,
+  Button,
+  Card,
+  CardContent,
+  CardActions,
+  Grid,
+} from "@mui/material";
+import backArrow from "../assets/backArrow.svg";
 const Showtimes = ({ showtimes, selectedMovie, handleBackToMovies }) => {
   return (
-    <>
-      <Typography variant="h4" gutterBottom>
-        Showtimes for {selectedMovie.title}
-      </Typography>
-      <Button size="small" onClick={handleBackToMovies}>
-        Back to Movies
+    <div>
+      <Button
+        className="movies-back-button"
+        size="small"
+        onClick={handleBackToMovies}
+      >
+        <img src={backArrow} alt="back to movies" className="back-arrow" /> Back
+        to Movies
       </Button>
+      <Typography className="showtime-title">
+        <h4>{selectedMovie.title} - Showtimes</h4>
+      </Typography>
 
       {showtimes.map((day, dayIndex) => (
-        <Card key={dayIndex} sx={{ mb: 2 }}>
-          <CardContent>
-            <Typography variant="h6">{day.day}, {day.date}</Typography>
-            <Grid container spacing={2}>
-              {day.theaters.map((theater, theaterIndex) => (
-                <Grid item key={theaterIndex} xs={12} sm={6} md={12}>
-                  <Card sx={{ p: 2 }}>
-                    <CardContent>
-                      <Typography variant="subtitle1">{theater.name}</Typography>
-                      <Typography variant="body2">{theater.address}</Typography>
+        <Card className="showtimes" key={dayIndex} sx={{ mb: 2 }}>
+          <CardContent sx={{ pt: 0 }}>
+            <Typography className="showtime-date" variant="h6">
+              {day.day}, {day.date}
+            </Typography>
+            <Grid container spacing={1}>
+              {day.theaters.slice(0, 6).map((theater, theaterIndex) => (
+                <Grid item key={theaterIndex} className="card-width">
+                  <Card sx={{ p: 0 }}>
+                    <CardContent className="theater-card">
+                      <div className="theater-details">
+                        <Typography className="theater-name">
+                          {theater.name}
+                        </Typography>
+                        <Typography className="theater-address">
+                          {theater.address}
+                        </Typography>
+                      </div>
+
                       {theater.showing.map((show, showIndex) => (
-                        <ButtonGroup key={showIndex} variant="text" aria-label="text button group" fullWidth>
+                        <div className="theater-times" key={showIndex}>
                           {show.time.map((time, timeIndex) => (
-                            <Button key={timeIndex}>
-                              {time} ({show.type})
+                            <Button
+                              variant="outlined"
+                              className="movie-time"
+                              key={timeIndex}
+                            >
+                              <p className="show-time">{time}</p>
+                              <p className="show-type">({show.type})</p>
                             </Button>
                           ))}
-                        </ButtonGroup>
+                        </div>
                       ))}
                     </CardContent>
                   </Card>
@@ -38,7 +65,7 @@ const Showtimes = ({ showtimes, selectedMovie, handleBackToMovies }) => {
           </CardContent>
         </Card>
       ))}
-    </>
+    </div>
   );
 };
 
