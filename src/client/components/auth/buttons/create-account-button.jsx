@@ -7,7 +7,7 @@ const CreateAccountButton = ({ className }) => {
   const handleCreateAccount = async () => {
     await loginWithRedirect({
       appState: {
-        returnTo: "/profile",
+        returnTo: "/dashboard",
       },
       authorizationParams: {
         screen_hint: "signup",
