@@ -3,6 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { getDashboardData } from "../services/backend-data.service";
 import DashboardTabs from "../components/DashboardTabs";
 import "../styles/Dashboard.scss";
+import "../styles/layouts/page-layout.scss"
 import LottieSpinner from "../components/LottieSpinner";
 
 const Dashboard = () => {
@@ -45,7 +46,11 @@ const Dashboard = () => {
           // For example, we pass data to DashboardTabs as a prop
           <DashboardTabs data={dashboardData} />
         )}
-        {!dashboardData && !error && <LottieSpinner />}
+        {!dashboardData && !error && (
+        <div className="page-layout">
+          <LottieSpinner />
+        </div>
+        )}
       </section>
     </main>
   );

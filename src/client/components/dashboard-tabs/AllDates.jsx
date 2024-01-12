@@ -1,29 +1,10 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import useDates from "../hooks/useDates";
 import DateComponents from "../DateComponents";
 import DashboardButtons from "../DashboardButtons";
 import Divider from "@mui/material/Divider";
 
 const AllDates = () => {
-  const [dates, setDates] = useState([]);
-
-  useEffect(() => {
-    axios.get("/api/dates").then((res) => {
-      setDates(res.data);
-      // console.log(res.data);
-    });
-  }, []);
-
-  const datesByGroup = {};
-  dates.forEach((date) => {
-    const dateId = date.date_id;
-    if (!datesByGroup[dateId]) {
-      datesByGroup[dateId] = [];
-    }
-    datesByGroup[dateId].push(date);
-  });
-
-  // console.log(datesByGroup);
+  const { datesByGroup, deleteDate } = useDates("/api/dates", {});
 
   return (
     <>
@@ -31,13 +12,12 @@ const AllDates = () => {
       {Object.keys(datesByGroup).map((dateId, index) => (
         <div key={index}>
           <div className="date-group">
-            <div>
+            <div className="date-initial-info">
               <h4 className="date-title">Date ID #{dateId}</h4>
               <p>
                 {" "}
-                Date & Time: {datesByGroup[dateId][0].scheduled_date}
-                {" "}
-                {!datesByGroup[dateId][0].scheduled_date && 'To be defined'}
+                Date & Time: {datesByGroup[dateId][0].scheduled_date}{" "}
+                {!datesByGroup[dateId][0].scheduled_date && "To be defined"}
               </p>
             </div>
 
@@ -57,9 +37,9 @@ const AllDates = () => {
               flexItem
             />
 
-            <DashboardButtons
-              key={dateId + 1}
-              dateInfo={datesByGroup[dateId][0]}
+            <DashboardButtons              
+              dateInfo={datesByGroup[dateId][0]}              
+              deleteDate={deleteDate}
             />
           </div>
         </div>

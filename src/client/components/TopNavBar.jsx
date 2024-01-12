@@ -10,20 +10,19 @@ import MenuItem from "@mui/material/MenuItem";
 import Toolbar from "@mui/material/Toolbar";
 import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
-import * as React from "react";
+import React, { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { LoginButton } from "./auth/buttons/login-button";
 import { LogoutButton } from "./auth/buttons/logout-button";
 import { SignupButton } from "./auth/buttons/signup-button";
 import ThistleCalendarLogo from "../assets/calendar_thistle_transparent.png";
-import PersonIcon from '@mui/icons-material/Person';
+import PersonIcon from "@mui/icons-material/Person";
 import "../styles/TopNavBar.scss";
-
 
 function TopNavBar() {
   const { isAuthenticated, user } = useAuth0();
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [anchorElUser, setAnchorElUser] = useState(null);
 
   const navigate = useNavigate();
 
@@ -46,15 +45,17 @@ function TopNavBar() {
 
   // location.pathname !== "/dashboard" and location.pathname !== "/profile" are conditions that check if the current path is not '/dashboard' or '/profile', respectively. If the condition is true, the corresponding menu item is included; otherwise, it is excluded. The filter(Boolean) function call at the end of the array will remove any false values, effectively excluding menu items based on the current path:
   let settings = isAuthenticated
-  ? [
-      location.pathname !== "/dashboard" && { label: "Dashboard", path: "/dashboard" },
-      location.pathname !== "/profile" && { label: "Profile", path: "/profile" },
-      { label: "Logout", component: <LogoutButton /> },
-    ].filter(Boolean)
-  : [
-      { label: "Login", component: <LoginButton /> },
-      { label: "Signup", component: <SignupButton /> },
-    ];
+    ? [
+        location.pathname !== "/dashboard" && {
+          label: "Dashboard",
+          path: "/dashboard",
+        },
+        { label: "Logout", component: <LogoutButton /> },
+      ].filter(Boolean)
+    : [
+        { label: "Login", component: <LoginButton /> },
+        { label: "Signup", component: <SignupButton /> },
+      ];
 
   return (
     <AppBar id="top-nav" position="fixed">
@@ -64,8 +65,6 @@ function TopNavBar() {
             className="logo"
             variant="h4"
             noWrap
-            component="a"
-            href="/"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -73,11 +72,12 @@ function TopNavBar() {
               fontWeight: 400,
               letterSpacing: ".1rem",
               color: "inherit",
-              textDecoration: "none",
             }}
           >
-            <img src={ThistleCalendarLogo} alt="logo" className="logo-icon" />
-            <span>DateSync</span>
+            <Link to={"/"}>
+              <img src={ThistleCalendarLogo} alt="logo" className="logo-icon" />
+              DateSync
+            </Link>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -86,18 +86,18 @@ function TopNavBar() {
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
-              href="/create-date"
               color="inherit"
+              id="create-button"
             >
-              <AddCircleOutlineIcon />
+              <Link to={"/create-date"}>
+                <AddCircleOutlineIcon />
+              </Link>
             </IconButton>
           </Box>
           <Typography
             className="logo"
             variant="h4"
             noWrap
-            component="a"
-            href="/"
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
@@ -109,8 +109,10 @@ function TopNavBar() {
               textDecoration: "none",
             }}
           >
-            <img src={ThistleCalendarLogo} alt="DateSync logo" className="logo-icon" />
-            DateSync
+            <Link to={"/"}>
+              <img src={ThistleCalendarLogo} alt="logo" className="logo-icon" />
+              DateSync
+            </Link>
           </Typography>
           <Box
             className="nav-menu"
@@ -118,11 +120,12 @@ function TopNavBar() {
           >
             <Button
               id="create-button"
-              href="/create-date"
               sx={{ my: 2, color: "inherit", display: "flex" }}
             >
-              <AddCircleOutlineIcon className="nav-plus-icon" />
-              Create Your Perfect Date
+              <Link to={"/create-date"}>
+                <AddCircleOutlineIcon className="nav-plus-icon" />
+                Create Your Perfect Date
+              </Link>
             </Button>
           </Box>
 
@@ -133,9 +136,15 @@ function TopNavBar() {
                 <Avatar
                   id="profile-icon"
                   alt="User Avatar"
-                  src={isAuthenticated && user && user.picture ? user.picture : undefined}
+                  src={
+                    isAuthenticated && user && user.picture
+                      ? user.picture
+                      : undefined
+                  }
                 >
-                  {!isAuthenticated || !user || !user.picture ? <PersonIcon /> : null}
+                  {!isAuthenticated || !user || !user.picture ? (
+                    <PersonIcon />
+                  ) : null}
                 </Avatar>
               </IconButton>
             </Tooltip>
@@ -155,19 +164,18 @@ function TopNavBar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-
               {settings.map((setting) => (
-                <MenuItem key={setting.label} onClick={() => handleMenuItemClick(setting)}>
+                <MenuItem
+                  key={setting.label}
+                  onClick={() => handleMenuItemClick(setting)}
+                >
                   {setting.component ? (
                     setting.component
                 ) : (
                   <Typography textAlign="center">
-                    <a
-                      href={setting.path}
-                      style={{ textDecoration: "none", color: "inherit" }}
-                    >
-                      {setting.label}
-                    </a>
+                   <Link to={setting.path} style={{ textDecoration: "none", color: "inherit" }}>
+                    {setting.label}
+                   </Link>
                   </Typography>
                 )}
                 </MenuItem>

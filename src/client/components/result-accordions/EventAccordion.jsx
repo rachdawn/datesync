@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from 'react';
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 export default function EventAccordion({ eventData }) {
-  const [expanded, setExpanded] = React.useState(false);
+  const [expanded, setExpanded] = useState(false);
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
@@ -15,17 +15,17 @@ export default function EventAccordion({ eventData }) {
   return (
     <div className="result">
       <Accordion
-        expanded={expanded === "panel1"}
-        onChange={handleChange("panel1")}
+        expanded={expanded === eventData.id}
+        onChange={handleChange(eventData.id)}
       >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1bh-content"
-          id="panel1bh-header"
+          aria-controls={`${eventData.id}-content`}
+          id={`${eventData.id}-header`}
         >
           <div className="result-card">
             <div>
-              <img className="result-img" src={eventData.photo_url} alt="" />
+              <img className="result-img" src={eventData.thumbnail} alt={eventData.title} />
             </div>
             <div className="info">
               <h3>{eventData.title}</h3>
@@ -33,8 +33,8 @@ export default function EventAccordion({ eventData }) {
             </div>
             <div>
               <div className="actions">
-                <button>Add to Date</button>
-                <a href={eventData.event_url} target="_blank">
+              <button>Add to Date</button>
+                <a href={eventData.link} target="_blank" rel="noopener noreferrer">
                   <button>Visit Website</button>
                 </a>
               </div>
@@ -43,7 +43,7 @@ export default function EventAccordion({ eventData }) {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            {eventData.location_name} {eventData.address} || Price: $
+            {eventData.venue} {eventData.address} || Price: $
             {eventData.price}
           </Typography>
         </AccordionDetails>

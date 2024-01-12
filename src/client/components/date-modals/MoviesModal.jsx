@@ -9,7 +9,7 @@ import LottieSpinner from "../LottieSpinner";
 import useLoading from "../hooks/useLoading";
 import Typography from "@mui/material/Typography";
 
-export default function MoviesModal() {
+export default function MoviesModal({ cityString }) {
   const [open, setOpen] = useState(false);
   const [movies, setMovies] = useState([]);
   const [isLoading, startLoading, stopLoading] = useLoading();
@@ -24,14 +24,22 @@ export default function MoviesModal() {
   const handleClose = () => setOpen(false);
 
   const fetchMovies = async () => {
+    if (!cityString) {
+      console.warn("City location is not defined.");
+      return;
+    }
+
     startLoading();
     try {
-      const response = await axios.get('/api/movies');
+      const response = await axios.get('/api/movies', {
+        params: { cityString }
+      });
       setMovies(response.data);
     } catch (error) {
       console.error('Error fetching movies:', error);
-    }
+    } finally {
     stopLoading();
+    }
   };
 
   return (
@@ -61,7 +69,7 @@ export default function MoviesModal() {
                   Search Movies
                 </Typography>
               </div>
-              <MoviesNearMe movies={movies} />
+              <MoviesNearMe movies={movies} cityString={cityString} />
             </>
           )}
         </Box>
