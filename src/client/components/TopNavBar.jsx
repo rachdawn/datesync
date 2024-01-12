@@ -10,20 +10,19 @@ import MenuItem from "@mui/material/MenuItem";
 import Toolbar from "@mui/material/Toolbar";
 import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
-import * as React from "react";
+import React, { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { LoginButton } from "./auth/buttons/login-button";
 import { LogoutButton } from "./auth/buttons/logout-button";
 import { SignupButton } from "./auth/buttons/signup-button";
 import ThistleCalendarLogo from "../assets/calendar_thistle_transparent.png";
 import PersonIcon from "@mui/icons-material/Person";
-import { Link } from "react-router-dom";
 import "../styles/TopNavBar.scss";
 
 function TopNavBar() {
   const { isAuthenticated, user } = useAuth0();
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [anchorElUser, setAnchorElUser] = useState(null);
 
   const navigate = useNavigate();
 
@@ -50,10 +49,6 @@ function TopNavBar() {
         location.pathname !== "/dashboard" && {
           label: "Dashboard",
           path: "/dashboard",
-        },
-        location.pathname !== "/profile" && {
-          label: "Profile",
-          path: "/profile",
         },
         { label: "Logout", component: <LogoutButton /> },
       ].filter(Boolean)
@@ -176,16 +171,13 @@ function TopNavBar() {
                 >
                   {setting.component ? (
                     setting.component
-                  ) : (
-                    <Typography textAlign="center">
-                      <a
-                        href={setting.path}
-                        style={{ textDecoration: "none", color: "inherit" }}
-                      >
-                        {setting.label}
-                      </a>
-                    </Typography>
-                  )}
+                ) : (
+                  <Typography textAlign="center">
+                   <Link to={setting.path} style={{ textDecoration: "none", color: "inherit" }}>
+                    {setting.label}
+                   </Link>
+                  </Typography>
+                )}
                 </MenuItem>
               ))}
             </Menu>

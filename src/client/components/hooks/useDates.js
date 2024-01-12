@@ -1,22 +1,49 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
-import { useNavigate } from "react-router-dom";
 
 // This hook loads the date components information for all tabs in the Dashboard:
 const useDates = (apiEndpoint, queryParams) => {
   const [dates, setDates] = useState([]);
-  const navigate = useNavigate();
+  const [copied, setCopied] = useState(false); 
 
-  useEffect(() => {
-    axios.get(apiEndpoint, { params: queryParams }).then((res) => {
+  // Function to fetch date components
+  const fetchDates = async () => {
+    
+    try {
+      const res = await axios.get(apiEndpoint, { params: queryParams });
       setDates(res.data);
-    });
-  }, []);
-
-  const shareDate = (dateId) => {
-    navigate(`/dashboard/${dateId}`); // Navigate to details page with the specific dateId
+    } catch (error) {
+      console.error("Error fetching dates:", error);
+    }
   };
 
+  // Get components when mounted
+  useEffect(() => {
+    fetchDates(); 
+  }, []);
+  
+  // Call to DB to delete dates
+  const deleteDate = async (dateId) => {
+    try {
+      await axios.post(`api/delete/${dateId}`);
+      fetchDates();
+    } catch (error) {
+      console.error("Error deleting date:", error);
+    }
+  }
+
+  // Function that copies the address to shareDate page
+  const copyToClipboard = (dateId) => {
+    const shareLink = `${window.location.origin}/share-date/${dateId}`;
+
+    navigator.clipboard.writeText(shareLink)
+      .then(() => {
+        setCopied(true); 
+      })
+      .catch((error) => console.error('Error copying to clipboard:', error));
+  };
+
+  // Group date components by their date_id
   const datesByGroup = {};
   dates.forEach((date) => {
     const dateId = date.date_id;
@@ -26,7 +53,7 @@ const useDates = (apiEndpoint, queryParams) => {
     datesByGroup[dateId].push(date);
   });
 
-  return { datesByGroup, shareDate };
+  return { datesByGroup, deleteDate, copyToClipboard, copied };
 }
 
 export default useDates;

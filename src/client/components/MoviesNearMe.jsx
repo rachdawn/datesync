@@ -5,7 +5,7 @@ import LottieSpinner from './LottieSpinner';
 import Showtimes from './Showtimes';
 import useLoading from './hooks/useLoading.js';
 
-const MoviesNearMe = ({ movies }) => {
+const MoviesNearMe = ({ movies, cityString }) => {
   const [showtimes, setShowtimes] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [showShowtimes, setShowShowtimes] = useState(false);
@@ -14,13 +14,19 @@ const MoviesNearMe = ({ movies }) => {
   const handleShowtimes = async (movie) => {
     try {
       startLoading();
-      const response = await axios.get(`/api/movie-showtimes`, { params: { movieName: movie.title } });
+      const response = await axios.get(`/api/movie-showtimes`, { 
+        params: { 
+          movieName: movie.title,
+          cityString
+        } 
+      });
       setShowtimes(response.data);
       setSelectedMovie(movie);
       setShowShowtimes(true);
       stopLoading();
     } catch (error) {
       console.error('Error fetching showtimes:', error);
+    } finally {
       stopLoading();
     }
   };

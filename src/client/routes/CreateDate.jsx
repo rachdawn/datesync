@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import "../styles/CreateDate.scss";
 import "../styles/SearchModals.scss";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -11,8 +12,12 @@ import ActivitiesModal from "../components/date-modals/ActivitiesModal";
 import MoviesModal from "../components/date-modals/MoviesModal";
 import RestaurantsModal from "../components/date-modals/RestaurantsModal";
 import EventsModal from "../components/date-modals/EventsModal";
+import CitySelector from "../components/CitySelector";
 
 const CreateDate = () => {
+  const [coordinates, setCoordinates] = useState(null);
+  const [cityString, setCityString] = useState('');
+
   const featureDates = [
     {
       src: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -40,6 +45,14 @@ const CreateDate = () => {
     },
   ];
 
+  const handleCityChange = (selectedCoordinates) => {
+    setCoordinates(selectedCoordinates);
+  };
+
+  const handleCityStringChange = (selectedCityString) => {
+    setCityString(selectedCityString);
+  };
+
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <main className="create-date">
@@ -63,14 +76,20 @@ const CreateDate = () => {
             label="Choose event date and time"
           />
         </section>
+        <section className="city-picker">
+          <CitySelector 
+          onCitySelect={handleCityChange} 
+          onCityNameSelect={handleCityStringChange}
+          />
+        </section>
 
         <section className="date-components">
           <div className="component">
             <div className="buttons">
-              <RestaurantsModal />
-              <EventsModal />
-              <MoviesModal />
-              <ActivitiesModal />
+              <RestaurantsModal coordinates={coordinates} />
+              <EventsModal cityString={cityString} />
+              <MoviesModal cityString={cityString} />
+              <ActivitiesModal coordinates={coordinates} />
             </div>
           </div>
           <div className="component">
