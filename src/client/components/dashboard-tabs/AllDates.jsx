@@ -4,7 +4,7 @@ import DashboardButtons from "../DashboardButtons";
 import Divider from "@mui/material/Divider";
 
 const AllDates = () => {
-  const { datesByGroup, shareDate, deleteDate } = useDates("/api/dates", {});
+  const { datesByGroup, deleteDate } = useDates("/api/dates", {});
 
   return (
     <>
@@ -38,8 +38,7 @@ const AllDates = () => {
             />
 
             <DashboardButtons              
-              dateInfo={datesByGroup[dateId][0]}
-              shareDate={shareDate}
+              dateInfo={datesByGroup[dateId][0]}              
               deleteDate={deleteDate}
             />
           </div>

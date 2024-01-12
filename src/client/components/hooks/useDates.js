@@ -1,11 +1,9 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
-import { useNavigate } from "react-router-dom";
 
 // This hook loads the date components information for all tabs in the Dashboard:
 const useDates = (apiEndpoint, queryParams) => {
   const [dates, setDates] = useState([]);
-  const navigate = useNavigate();
 
   // Function to fetch date components
   const fetchDates = async () => {
@@ -22,12 +20,6 @@ const useDates = (apiEndpoint, queryParams) => {
   useEffect(() => {
     fetchDates(); 
   }, []);
-
-  // Navigate to details page with the specific dateId
-  const shareDate = (dateId) => {
-    navigate(`/dashboard/${dateId}`); 
-  };
-
   
   // Call to DB to delete dates
   const deleteDate = async (dateId) => {
@@ -49,7 +41,7 @@ const useDates = (apiEndpoint, queryParams) => {
     datesByGroup[dateId].push(date);
   });
 
-  return { datesByGroup, shareDate, deleteDate };
+  return { datesByGroup, deleteDate };
 }
 
 export default useDates;

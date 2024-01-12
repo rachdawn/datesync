@@ -1,9 +1,11 @@
+import { useParams } from "react-router-dom";
 import DateComponents from "../components/DateComponents";
 import useDates from "../components/hooks/useDates";
 import "../styles/ShareDate.scss";
 
 const ShareDate = () => {
-  const { datesByGroup } = useDates("api/dates", { share: true });
+  const { id } = useParams();
+  const { datesByGroup } = useDates(`/api/share-date/${id}`, { share: true });
 
   return (
     <>

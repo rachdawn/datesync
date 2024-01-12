@@ -33,7 +33,7 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/create-date" element={<CreateDate />} />
         {/* Share Date route with no explicit path, but contains data to be shared */}
-        <Route path="/share-date" element={<ShareDate />} />
+        <Route path="/share-date/:id" element={<ShareDate />} />
         {/* Callback route is used to diminish UI flashing when logging in */}
         <Route path="/callback" element={<CallbackPage />} />
         {/* Protected Routes: */}

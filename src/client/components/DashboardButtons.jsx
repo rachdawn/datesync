@@ -1,7 +1,6 @@
-const DashboardButtons = ({ dateInfo, shareDate, deleteDate }) => {
+const DashboardButtons = ({ dateInfo, deleteDate }) => {
   const today = new Date().toISOString();
 
-  const handleShare = (id) => shareDate(id);
   const handleDelete = (id) => deleteDate(id);
 
   return (
@@ -12,7 +11,7 @@ const DashboardButtons = ({ dateInfo, shareDate, deleteDate }) => {
             <span className="badge rounded-pill text-bg-danger">Draft</span>
           </h5>
           <a
-            onClick={() => handleShare(dateInfo.date_id)}
+            href={`/share-date/${dateInfo.date_id}`}
             className="btn btn-secondary btn-dashboard"
           >
             Share
@@ -47,7 +46,7 @@ const DashboardButtons = ({ dateInfo, shareDate, deleteDate }) => {
             Edit
           </a>
           <a
-            onClick={() => handleShare(dateInfo.date_id)}
+            href={`/share-date/${dateInfo.date_id}`}
             className="btn btn-secondary btn-dashboard"
           >
             Share
