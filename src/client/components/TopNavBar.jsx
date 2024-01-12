@@ -50,10 +50,6 @@ function TopNavBar() {
           label: "Dashboard",
           path: "/dashboard",
         },
-        location.pathname !== "/profile" && {
-          label: "Profile",
-          path: "/profile",
-        },
         { label: "Logout", component: <LogoutButton /> },
       ].filter(Boolean)
     : [
