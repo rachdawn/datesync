@@ -8,6 +8,7 @@ import { CallbackPage } from "./components/auth/pages/callback-page";
 import CreateDate from "./routes/CreateDate";
 import Dashboard from "./routes/Dashboard";
 import LandingPage from "./routes/LandingPage";
+import ShareDate from "./routes/ShareDate";
 import LottieSpinner from "./components/LottieSpinner";
 import "./styles/layouts/page-layout.scss";
 import useAuth0UserHandler from "./components/hooks/useAuth0UserHandler";
@@ -33,6 +34,8 @@ function App() {
         {/* Public Routes: */}
         <Route path="/" element={<LandingPage />} />
         <Route path="/create-date" element={<CreateDate />} />
+        {/* Share Date route with no explicit path, but contains data to be shared */}
+        <Route path="/share-date/:id" element={<ShareDate />} />
         {/* Callback route is used to diminish UI flashing when logging in */}
         <Route path="/callback" element={<CallbackPage />} />
         {/* Protected Routes: */}
