@@ -16,6 +16,20 @@ router.get('/dates', (req, res) => {
   })
 });
 
+router.get('/share-date/:dateId', (req, res) => {
+  const { dateId } = req.params;
+
+  getDateComponents(dateId, req.query)
+  .then((rows) => {
+    res.json(rows);
+  })
+  .catch(error => {
+    console.error(error);
+    res.send(error);
+  })
+})
+
+//Route to delete date from dashboard
 router.post('/delete/:dateId', (req, res) => {
   const {dateId} = req.params;
 
@@ -27,6 +41,6 @@ router.post('/delete/:dateId', (req, res) => {
     console.error(error);
     res.send(error);
   })
-})
+});
 
 export default router;
