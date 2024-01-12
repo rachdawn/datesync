@@ -1,6 +1,6 @@
 import db from '../connection.js';
 
-const getDateComponents = async (userId, options) => {
+const getDateComponents = async (id, options) => {
   let queryString = `
   SELECT d.id AS date_id,
   d.scheduled_date AS scheduled_date,
@@ -31,33 +31,33 @@ const getDateComponents = async (userId, options) => {
   LEFT JOIN movies m ON dc.id = m.component_id
   WHERE d.owner_id = $1 `;
 
-  const queryParams = [userId || 1];
+  if (options.upcoming) {
+    queryString += `AND d.scheduled_date > CURRENT_DATE`;
+  }
 
-if (options.upcoming) {
-  queryString += `AND d.scheduled_date > CURRENT_DATE`
-}
+  if (options.drafts) {
+    queryString += `AND d.is_draft IS TRUE`;
+  }
 
-if (options.drafts) {
-  queryString += `AND d.is_draft IS TRUE`
-}
+  if (options.pastDates) {
+    queryString += `AND d.scheduled_date < CURRENT_DATE`;
+  }
 
-if (options.pastDates) {
-  queryString += `AND d.scheduled_date < CURRENT_DATE`
-}
+  if (options.share) {
+    queryString = queryString.replace(`WHERE d.owner_id = $1 `, `WHERE d.id = $1`);
+  }
 
-if (options.share) {
-  queryString = queryString.replace(`WHERE d.owner_id = $1 `, `WHERE d.id = $1`);
-}
+  queryString += `;`;
+  
+  const queryParams = [id || 1];
 
-queryString += `;`
-
-try {
+  try {
     const data = await db.query(queryString, queryParams);
     return data.rows;
   } catch (err) {
     console.log('Error executing getDates query', err.message);
   }
-}
+};
 
 const deleteDate = async (dateId) => {
   const queryString = `
@@ -69,10 +69,10 @@ const deleteDate = async (dateId) => {
 
   try {
     const data = await db.query(queryString, queryParams);
-    return data.rows
+    return data.rows;
   } catch (err) {
     console.log('Error executing deleteDate query', err.message);
   }
-}
+};
 
 export { getDateComponents, deleteDate };
