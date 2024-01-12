@@ -18,9 +18,7 @@ import SearchButtons from "../components/SearchButtons";
 const CreateDate = () => {
   const [coordinates, setCoordinates] = useState(null);
   const [cityString, setCityString] = useState('');
-  const [componentsList, setComponentsList] = useState([
-    <SearchButtons coordinates={coordinates} cityString={cityString}  />
-  ]);
+  const [componentsList, setComponentsList] = useState([1]);
   
   const featureDates = [
     {
@@ -59,8 +57,7 @@ const CreateDate = () => {
 
   // Add a new SearchButtons component to componentsList and keep the existing ones:
   const handleAddClick = () => {
-    setComponentsList([...componentsList, 
-    <SearchButtons coordinates={coordinates} cityString={cityString}  />]);
+    setComponentsList([...componentsList, componentsList.length + 1]);
   };
 
   return (
@@ -93,10 +90,9 @@ const CreateDate = () => {
           />
         </section>
         <section className="date-components">
-          {/* Here the Component argument is an instance of the jsx of searchbuttons */}
-          {componentsList.map((Component, index) => (
-            <div key={index} className="component">
-              {Component}
+          {componentsList.map((id, index) => (
+            <div key={id} className="component">
+              <SearchButtons coordinates={coordinates} cityString={cityString} />
             </div>
           ))}
           <div className="component">
