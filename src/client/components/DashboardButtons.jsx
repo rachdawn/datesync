@@ -17,7 +17,6 @@ const DashboardButtons = ({ dateInfo, deleteDate }) => {
             <span className="badge rounded-pill text-bg-danger">Draft</span>
           </h5>
           <a
-            // href={`/share-date/${dateInfo.date_id}`}
             onClick={() => copyToClipboard(dateInfo.date_id)}
             className="btn btn-secondary btn-dashboard"
           >
@@ -53,10 +52,10 @@ const DashboardButtons = ({ dateInfo, deleteDate }) => {
             Edit
           </a>
           <a
-            href={`/share-date/${dateInfo.date_id}`}
+            onClick={() => copyToClipboard(dateInfo.date_id)}
             className="btn btn-secondary btn-dashboard"
           >
-            Share
+            {copied ? "Copied!" : "Share"}
           </a>
           <a
             onClick={() => handleDelete(dateInfo.date_id)}
