@@ -7,7 +7,7 @@ import processMoviesData from '../helpers/processMoviesData.js';
 const router = Router();
 
 ////////////////////////////////////////////////////////////////////////////////
-// Following routes are using Maps Local API & Local API:
+// Following routes are using Maps Local API:
 ////////////////////////////////////////////////////////////////////////////////
 
 // This is for restaurants; the route calls the SerpApi Google Maps Local API and filters results to be rendered by the frontend:
@@ -38,12 +38,22 @@ router.get('/restaurants', async (req, res) => {
   }
 });
 
-// This is for activities; the route calls the SerpApi Google Local API and filters results to be rendered by the frontend:
+// This is for activities; the route calls the SerpApi Google Local Maps API and filters results to be rendered by the frontend:
 router.get('/activities', async (req, res) => {
   try {
-    const { type, location = 'Montreal' } = req.query;
+    const { type, latitude, longitude } = req.query;
+
+    const queryParams = new URLSearchParams({
+      engine: "google_maps",
+      type: "search",
+      q: type, 
+      ll: `@${latitude},${longitude},15z`,
+      google_domain: "google.com",
+      hl: "en",
+      api_key: process.env.API_KEY
+    });
    
-    const apiUrl = `https://serpapi.com/search.json?engine=google_local&q=${type}&location=${location}&api_key=${process.env.API_KEY}`;
+    const apiUrl = `https://serpapi.com/search.json?${queryParams}`;
 
     const response = await axios.get(apiUrl);
     const results = filterAndLimitResults(response.data.local_results, { type });

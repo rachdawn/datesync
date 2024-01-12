@@ -87,9 +87,9 @@ const CreateDate = () => {
           <div className="component">
             <div className="buttons">
               <RestaurantsModal coordinates={coordinates} />
-              <EventsModal cityString={cityString}/>
-              <MoviesModal cityString={cityString}/>
-              <ActivitiesModal cityString={cityString}/>
+              <EventsModal cityString={cityString} />
+              <MoviesModal cityString={cityString} />
+              <ActivitiesModal coordinates={coordinates} />
             </div>
           </div>
           <div className="component">

@@ -28,6 +28,7 @@ export default function RestaurantSelect({ onDataFetched, coordinates }) {
 
   const handleSubmit = async () => {
     startLoading();
+    onDataFetched([]);
     const queryParams = new URLSearchParams({
       type: restaurantType,
       rating: rating,
