@@ -1,0 +1,41 @@
+.header {
+  margin: 50px;
+  margin-top: 95px;
+}
+
+.date-components {
+
+  .date-group {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    border: 1px solid beige;
+    border-radius: 20px;
+    min-width: 65vw;
+
+    .date-initial-info {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    article {
+      margin: 0.75rem;
+      padding: 0.1rem;
+      border-radius: 10px;
+
+      .date-component-cards {
+        padding: 1rem;
+        min-width: 280px;
+        max-width: 150px;
+
+        img {
+          margin: 0 auto;
+          max-width: 130px;
+          min-height: 12rem;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+}

@@ -8,19 +8,19 @@ const useDates = (apiEndpoint, queryParams) => {
   const navigate = useNavigate();
 
   // Function to fetch date components
-  const fetchData = async () => {
-    axios.get(apiEndpoint, { params: queryParams })
-      .then((res) => {
-        setDates(res.data);
-      }) 
-      .catch(error => {
+  const fetchDates = async () => {
+    
+    try {
+      const res = await axios.get(apiEndpoint, { params: queryParams });
+      setDates(res.data);
+    } catch (error) {
       console.error("Error fetching dates:", error);
-    })
+    }
   };
 
   // Get components when mounted
   useEffect(() => {
-    fetchData(); 
+    fetchDates(); 
   }, []);
 
   // Navigate to details page with the specific dateId
@@ -33,7 +33,7 @@ const useDates = (apiEndpoint, queryParams) => {
   const deleteDate = async (dateId) => {
     try {
       await axios.post(`api/delete/${dateId}`);
-      fetchData();
+      fetchDates();
     } catch (error) {
       console.error("Error deleting date:", error);
     }
