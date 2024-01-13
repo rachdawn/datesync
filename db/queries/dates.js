@@ -55,7 +55,7 @@ const getDateComponents = async (id, options) => {
     const data = await db.query(queryString, queryParams);
     return data.rows;
   } catch (err) {
-    console.log('Error executing getDates query', err.message);
+    console.log('Error executing getDateComponents query', err.message);
   }
 };
 

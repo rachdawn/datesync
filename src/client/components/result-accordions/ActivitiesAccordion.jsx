@@ -4,8 +4,10 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import OpenInBrowser from "../../assets/open_in_browser.svg";
 
-export default function ActivitiesAccordion({ activity }) {
+export default function ActivitiesAccordion({ activity, onAddToDate }) {
   const [expanded, setExpanded] = useState(false);
 
   const handleChange = (panel) => (event, isExpanded) => {
@@ -35,9 +37,14 @@ export default function ActivitiesAccordion({ activity }) {
             </div>
             <div>
               <div className="actions">
-                <button>Add to Date</button>
-                <a href={activity.website} target="_blank" rel="noopener noreferrer">
-                  <button>Visit Website</button>
+              <button onClick={() => onAddToDate(activity)}>
+                  <AddCircleOutlineIcon className="add-to-date-icon"/>
+                  Add to Date
+                </button>
+                <a href={activity.website} target="_blank">
+                  <button>
+                    <img className="open-in-browser-icon" src={OpenInBrowser} alt="Visit Website" />
+                    Visit Website</button>
                 </a>
               </div>
             </div>

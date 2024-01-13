@@ -7,7 +7,7 @@ import ActivitiesSelect from "../search-forms/ActivitiesSelect";
 import closeSymbol from "/src/client/assets/closeSymbol.svg";
 import ActivitiesAccordion from "../result-accordions/ActivitiesAccordion";
 
-export default function ActivitiesModal({ coordinates }) {
+export default function ActivitiesModal({ coordinates, onActivitySelect }) {
   const [open, setOpen] = useState(false);
   const [activities, setActivities] = useState([]); 
 
@@ -16,6 +16,12 @@ export default function ActivitiesModal({ coordinates }) {
 
   const onActivitiesFetched = (fetchedData) => {
     setActivities(fetchedData);
+  };
+
+  // This function will be called when "Add to Date" is clicked:
+  const handleAddToDateClick = (activity) => {
+    onActivitySelect(activity);
+    handleClose(); 
   };
 
   return (
@@ -47,6 +53,7 @@ export default function ActivitiesModal({ coordinates }) {
               <ActivitiesAccordion
                 key={activity.id}
                 activity={activity}
+                onAddToDate={() => handleAddToDateClick(activity)}
               />
             ))}
           </ul>

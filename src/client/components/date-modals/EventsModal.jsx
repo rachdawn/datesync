@@ -7,7 +7,7 @@ import EventsSelect from "../search-forms/EventsSelect";
 import closeSymbol from "/src/client/assets/closeSymbol.svg";
 import EventAccordion from "../result-accordions/EventAccordion";
 
-export default function EventsModal({ cityString }) {
+export default function EventsModal({ cityString, onEventSelect }) {
   const [open, setOpen] = useState(false);
   const [eventsData, setEventsData] = useState([]);
 
@@ -16,6 +16,12 @@ export default function EventsModal({ cityString }) {
 
   const onEventsFetched = (fetchedData) => {
     setEventsData(fetchedData);
+  };
+
+  // This function will be called when "Add to Date" is clicked:
+  const handleAddToDateClick = (event) => {
+    onEventSelect(event);
+    handleClose(); 
   };
 
   return (
@@ -47,6 +53,7 @@ export default function EventsModal({ cityString }) {
               <EventAccordion
                 key={event.id}
                 eventData={event}
+                onAddToDate={() => handleAddToDateClick(event)}
               />
             ))}
           </ul>
