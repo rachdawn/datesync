@@ -16,7 +16,7 @@ import CitySelector from "../components/CitySelector";
 
 const CreateDate = () => {
   const [coordinates, setCoordinates] = useState(null);
-  const [cityString, setCityString] = useState('');
+  const [cityString, setCityString] = useState("");
 
   const featureDates = [
     {
@@ -58,9 +58,9 @@ const CreateDate = () => {
       <main className="create-date">
         <section className="featured">
           <div className="feature-carousel">
-          <div className="feature-title">
-            <h2>Feature Dates</h2>
-          </div>
+            <div className="feature-title">
+              <h2>Feature Dates</h2>
+            </div>
             <div className="cards">
               {featureDates.map((date, index) => (
                 <div key={index}>
@@ -70,19 +70,22 @@ const CreateDate = () => {
             </div>
           </div>
         </section>
-        <section className="time-picker">
-          <DateTimePicker
-            className="picker"
-            label="Choose event date and time"
-          />
-        </section>
+        <div className="date-time-pickers">
         <section className="city-picker">
-          <CitySelector 
-          onCitySelect={handleCityChange} 
-          onCityNameSelect={handleCityStringChange}
-          />
-        </section>
-
+            <CitySelector
+              onCitySelect={handleCityChange}
+              onCityNameSelect={handleCityStringChange}
+            />
+          </section>
+          <section className="time-picker">
+            <DateTimePicker
+              className="picker"
+              labelId="time-picker"
+              label="Select Date & Time"
+              sx={{ minWidth: 200 }}
+            />
+          </section>
+        </div>
         <section className="date-components">
           <div className="component">
             <div className="buttons">

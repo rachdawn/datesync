@@ -1,5 +1,5 @@
 .footer-container {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
   max-height: 9rem;
@@ -55,7 +55,7 @@
 
 @media (min-width: 768px) {
   .footer-container {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     background-color: #662d91;
     color: #d8bfd8;

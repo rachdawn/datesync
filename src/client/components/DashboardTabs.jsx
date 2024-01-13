@@ -72,7 +72,7 @@ function Styles() {
       }
 
       .CustomTab {
-        font-family: "Roboto","Helvetica","Arial",sans-serif;
+        font-family: 'Quicksand', sans-serif;
         color: #662d91;;
         cursor: pointer;
         font-size: 0.9rem;
@@ -111,7 +111,7 @@ function Styles() {
 
       .CustomTabPanel {
         width: 100%;
-        font-family: 'IBM Plex Sans', sans-serif;
+        font-family: 'Quicksand', sans-serif;
         font-size: 0.875rem;
         color: #662d91;
         background-color: #d8bfd8;
