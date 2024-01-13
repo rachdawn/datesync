@@ -1,35 +1,54 @@
 body {
-  width: 99vw;
-  overflow-y: scroll;
+  width: 100dvw;
+  overflow: scroll;
+  margin-bottom: 8rem;
 
   .create-date {
     justify-content: center;
-    width: 99vw;
+    width: 100dvw;
 
+    .date-time-pickers {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+        margin: 0 auto;
+        padding: 1rem;
+        max-width: 60dvw;
 
-    .time-picker {
-      margin: 0 auto;
-      padding: 30px;
-    }
+        .time-picker {
+          width: 100%;
+          border-radius: 12px;
+        }
+        .city-picker {
+          width: 100%;
+          border-radius: 12px;
+        }
+        .picker {
+        //   background-color: #e1cce6;
+        //   width: 90%;
+          #time-picker {
+          font-weight: 500;
+            font-family: "Quicksand", sans-serif;
+          }
 
-    // #city-selector-label {
-      
-    //   border-radius: 12px;
-    //   padding: 10px;
-    //   border: 1px solid grey;
-    //   color: rgb(85, 84, 84);
-    // }
-
-    .picker {
-      background-color: #e1cce6;
-    }
+          #select-city {
+              font-weight: 500;
+              font-family: "Quicksand", sans-serif;
+          }
+          .select-required {
+            background-color: #fff;
+            // margin: 1rem;
+          }
+        }
+      }
 
     .component {
       margin: 0 auto;
       margin-bottom: 25px;
       background-color: #e1cce6;
       padding: 5px;
-      width: 80dvw;
+      width: 95dvw;
       border-radius: 12px;
       font-size: smaller;
 
@@ -47,6 +66,7 @@ body {
         overflow-x: auto;
 
         button {
+          font-family: "Quicksand", sans-serif;
           margin: 5px;
           color: white;
           background-color: #662d91;
@@ -81,27 +101,45 @@ body {
   @media (min-width: 768px) {
     .create-date {
       justify-content: center;
-      width: 99vw;
+      width: 100dvw;
 
-      .time-picker, .city-picker {
-        padding-top: 20px;
-        padding-bottom: 20px;
-        max-width: 50%;
-        border-radius: 12px;
-        margin: 25px auto;
-        padding: 40px;
-      }
+      .date-time-pickers {
+        display: flex;
+        flex-direction: row;
+        align-items: first baseline;
+        justify-content: center;
+        margin: 0 auto;
+        width: 30dvw;
 
-      .picker {
-        background-color: #e1cce6;
+        .time-picker {
+          width: 100%;
+          border-radius: 12px;
+          font-family: "Quicksand", sans-serif;
+
+        }
+        .city-picker {
+          width: 100%;
+          font-family: "Quicksand", sans-serif;
+          border-radius: 12px;
+        }
+        .picker {
+          #time-picker {
+            font-weight: 500;
+            font-family: "Quicksand", sans-serif;
+          }
+          #select-city {
+            font-weight: 500;
+            font-family: "Quicksand", sans-serif;
+          }
+        }
       }
 
       .component {
         margin: 0 auto;
-        margin-bottom: 55px;
+        margin-bottom: 2.5rem;
         background-color: #e1cce6;
         padding: 10px;
-        max-width: 45%;
+        width: 60dvw;
         border-radius: 12px;
 
         .add-button {

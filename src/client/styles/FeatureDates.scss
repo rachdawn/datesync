@@ -11,16 +11,17 @@
     text-align: left;
 
     h2 {
-      font-family: Neuton;
-      font-size: 1.8rem;
+      font-family: "Quicksand", sans-serif;
+      font-size: 1.25rem;
       margin: 0;
-    }
+      padding-left: 0.5rem;    }
   }
 
   .feature-carousel {
     color: #662d91;
-    padding: 1rem;
-    width: 99vw;
+    padding-bottom: 0.75rem;
+    padding-top: 0.5rem;
+    // width: 99vw;
 
     .cards {
       display: flex;
@@ -47,9 +48,9 @@
 
 @media (min-width: 768px) {
   .create-date .featured {
-  margin-top: 50px;
-  padding-top: 1rem;
-}
+    margin-top: 50px;
+    padding-top: 1rem;
+  }
 
   .featured {
     margin-top: 20px;
@@ -60,8 +61,8 @@
       text-align: center;
 
       h2 {
-        font-family: Neuton;
-        font-size: 1.8rem;
+        font-family: 'Quicksand', sans-serif;
+        font-size: 1.5rem;
         margin: 0;
       }
     }
@@ -78,9 +79,8 @@
         .feature-card {
           margin: 0.5rem;
           padding: 0.5rem;
-          min-width: 220px;
-          height: 300px;
-          max-width: 240px;
+          width: 14rem;
+          height: 20rem;
 
           .feature-mobile {
             display: none;

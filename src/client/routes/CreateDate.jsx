@@ -98,9 +98,9 @@ const CreateDate = () => {
       <main className="create-date">
         <section className="featured">
           <div className="feature-carousel">
-          <div className="feature-title">
-            <h2>Feature Dates</h2>
-          </div>
+            <div className="feature-title">
+              <h2>Feature Dates</h2>
+            </div>
             <div className="cards">
               {featureDates.map((date, index) => (
                 <div key={index}>
@@ -110,21 +110,27 @@ const CreateDate = () => {
             </div>
           </div>
         </section>
-        <section className="time-picker">
-          <DateTimePicker
-            className="picker"
-            label="Choose event date and time"
-            value={selectedDateTime}
-            onChange={setSelectedDateTime}
-            textField={(params) => <TextField {...params} />}
-          />
-        </section>
+
+        <div className="date-time-pickers">
         <section className="city-picker">
-          <CitySelector 
-          onCitySelect={handleCityChange} 
-          onCityNameSelect={handleCityStringChange}
-          />
-        </section>
+            <CitySelector
+              onCitySelect={handleCityChange}
+              onCityNameSelect={handleCityStringChange}
+            />
+          </section>
+          <section className="time-picker">
+            <DateTimePicker
+              className="picker"
+              labelId="time-picker"
+              label="Select Date & Time"
+              sx={{ minWidth: 200 }}
+              value={selectedDateTime}
+              onChange={setSelectedDateTime}
+              textField={(params) => <TextField {...params} />}
+            />
+          </section>
+        </div>
+
         <section className="date-components">
             <div className="component">
               <SearchButtons 

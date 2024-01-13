@@ -1,38 +1,39 @@
 #top-nav {
     background-color: #662d91;
     color: #d8bfd8;
-}
-.logo a {
-    display: flex;
-    margin: 0;
-    padding: 0;
-    align-items: center;
-    height: 4rem;
-    text-decoration: none;
-    color: #d8bfd8;
-}
-.logo:hover,
-#create-button:hover {
-    filter: drop-shadow(0 0 0.5rem #fff);
-}
-#create-button a {
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-    text-decoration: none;
-    color: #d8bfd8;
-}
-.logo-icon {
-    max-height: 2.4rem;
-    padding-right: 0.5rem;
-}
-.nav-menu {
-    justify-content: right;
-    padding: 0 1rem;
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-}
-.nav-plus-icon {
-    padding-right: 0.5rem;
-}
-#profile-icon {
-    background-color: #d8bfd8;
-    color: #662d91;
+    .logo a {
+        display: flex;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+        height: 4rem;
+        text-decoration: none;
+        color: #d8bfd8;
+    }
+    .logo-icon {
+        max-height: 2.4rem;
+        padding-right: 0.5rem;
+    }
+    .logo:hover,
+    #create-button:hover {
+        filter: drop-shadow(0 0 0.5rem #fff);
+    }
+    #create-button a {
+        font-family: 'Quicksand', sans-serif;
+        text-decoration: none;
+        color: #d8bfd8;
+        font-weight: 600;
+    }
+    .nav-menu {
+        justify-content: right;
+        padding: 0 1rem;
+        font-family: 'Quicksand', sans-serif;
+    }
+    .nav-plus-icon {
+        padding-right: 0.5rem;
+    }
+    #profile-icon {
+        background-color: #d8bfd8;
+        color: #662d91;
+    }
 }
