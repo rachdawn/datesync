@@ -1,16 +1,27 @@
 import { Router } from 'express';
 import { getDateComponents, deleteDate } from '../../../db/queries/dates.js';
-import { addUser, checkUserExists } from '../../../db/queries/auth0users.js';
+import { addUser, checkUserExists, getUserByEmail } from '../../../db/queries/auth0users.js';
 
 const router = Router();
-const id = 1;
+// const email = 'ana@email.com';
 
 // Route to load date components in dashboard
 router.get('/dates', (req, res) => {
-  getDateComponents(id, req.query)
-  .then((rows) => {
-    res.json(rows);
-  })
+  const email = req.query.email;
+
+  getUserByEmail(email)
+    .then((user) => {
+      if (!user || !user.length) {
+        res.status(404).json({ error: 'User not found' });
+        return Promise.reject('User not found');
+      }
+
+      const userId = user[0].id;
+      return getDateComponents(userId, req.query);
+    })
+    .then((rows) => {
+      res.json(rows);
+    })
   .catch(error => {
     console.error(error);
     res.send(error);

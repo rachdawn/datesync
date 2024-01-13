@@ -59,7 +59,7 @@ function TopNavBar() {
 
   return (
     <AppBar id="top-nav" position="fixed">
-      <Container maxWidth="xl">
+      <Container maxWidth="100dvw">
         <Toolbar disableGutters>
           <Typography
             className="logo"

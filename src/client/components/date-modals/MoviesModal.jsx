@@ -9,7 +9,7 @@ import LottieSpinner from "../LottieSpinner";
 import useLoading from "../hooks/useLoading";
 import Typography from "@mui/material/Typography";
 
-export default function MoviesModal({ cityString }) {
+export default function MoviesModal({ cityString, onMovieSelection }) {
   const [open, setOpen] = useState(false);
   const [movies, setMovies] = useState([]);
   const [isLoading, startLoading, stopLoading] = useLoading();
@@ -22,6 +22,11 @@ export default function MoviesModal({ cityString }) {
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const handleShowtimeSelect = (selectedShowtime) => {
+    onMovieSelection(selectedShowtime); 
+    handleClose(); 
+  };
 
   const fetchMovies = async () => {
     if (!cityString) {
@@ -69,7 +74,11 @@ export default function MoviesModal({ cityString }) {
                   Search Movies
                 </Typography>
               </div>
-              <MoviesNearMe movies={movies} cityString={cityString} />
+              <MoviesNearMe 
+              movies={movies} 
+              cityString={cityString} 
+              onShowtimeSelect={handleShowtimeSelect}
+              />
             </>
           )}
         </Box>
