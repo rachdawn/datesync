@@ -8,17 +8,18 @@ import Box from "@mui/material/Box";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
 import FeatureDates from "../components/FeatureDates";
-import ActivitiesModal from "../components/date-modals/ActivitiesModal";
-import MoviesModal from "../components/date-modals/MoviesModal";
-import RestaurantsModal from "../components/date-modals/RestaurantsModal";
-import EventsModal from "../components/date-modals/EventsModal";
 import CitySelector from "../components/CitySelector";
 import SearchButtons from "../components/SearchButtons";
+import SelectedRestaurantCard from "../components/add-to-date-displays/SelectedRestaurantCard";
+import SelectedEventCard from "../components/add-to-date-displays/SelectedEventCard";
+import SelectedActivityCard from "../components/add-to-date-displays/SelectedActivityCard";
+import SelectedMovieCard from "../components/add-to-date-displays/SelectedMovieCard";
 
 const CreateDate = () => {
   const [coordinates, setCoordinates] = useState(null);
   const [cityString, setCityString] = useState('');
-  const [componentsList, setComponentsList] = useState([1]);
+  const [componentsList, setComponentsList] = useState([{ category:'add' }]);
+  const [selectedDateTime, setSelectedDateTime] = useState(null);
   
   const featureDates = [
     {
@@ -55,9 +56,41 @@ const CreateDate = () => {
     setCityString(selectedCityString);
   };
 
-  // Add a new SearchButtons component to componentsList and keep the existing ones:
-  const handleAddClick = () => {
-    setComponentsList([...componentsList, componentsList.length + 1]);
+  // Function to handle selections of any category of date component such as restaurant, activity, event and movie:
+  const handleSelection = (category, data) => {
+    // Add the selected item to componentsList and a new empty container:
+    setComponentsList([...componentsList.slice(0, -1), { category, data }, { category: 'add' }]);
+  };
+
+  // Function to render an added date component container based on its category:
+  const renderContainer = (item, index) => {
+    switch (item.category) {
+      case 'restaurant':
+        return <SelectedRestaurantCard key={index} restaurant={item.data} />;
+      case 'event':
+        return <SelectedEventCard key={index} eventData={item.data} />;
+      case 'movie':
+        return <SelectedMovieCard key={index} movie={item.data} />;
+      case 'activity':
+        return <SelectedActivityCard key={index} activity={item.data} />;
+      case 'add':
+        return (
+          <div key={index} className="component">
+              <Box sx={{ "& > :not(style)": { m: 1 } }}>
+                 <Fab
+                  className="add-button"
+                  size="small"
+                  color="secondary"
+                  aria-label="add"
+                >
+                  <AddIcon />
+                </Fab>
+              </Box>
+          </div>
+        );
+      default:
+        return null;
+    }
   };
 
   return (
@@ -81,6 +114,9 @@ const CreateDate = () => {
           <DateTimePicker
             className="picker"
             label="Choose event date and time"
+            value={selectedDateTime}
+            onChange={setSelectedDateTime}
+            textField={(params) => <TextField {...params} />}
           />
         </section>
         <section className="city-picker">
@@ -90,24 +126,15 @@ const CreateDate = () => {
           />
         </section>
         <section className="date-components">
-          {componentsList.map((id, index) => (
-            <div key={id} className="component">
-              <SearchButtons coordinates={coordinates} cityString={cityString} />
+            <div className="component">
+              <SearchButtons 
+                coordinates={coordinates} 
+                cityString={cityString} 
+                handleSelection={handleSelection}
+                />
             </div>
-          ))}
-          <div className="component">
-              <Box sx={{ "& > :not(style)": { m: 1 } }}>
-                 <Fab
-                  className="add-button"
-                  size="small"
-                  color="secondary"
-                  aria-label="add"
-                  onClick={handleAddClick}
-                >
-                  <AddIcon />
-                </Fab>
-              </Box>
-          </div>
+          {/* Map over componentsList and render based on the category */}
+          {componentsList.map((item, index) => renderContainer(item, index))} 
         </section>
         <section className="complete">
           <div className="buttons">
