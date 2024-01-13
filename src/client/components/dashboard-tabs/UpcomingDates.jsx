@@ -1,10 +1,15 @@
+import { useAuth0 } from "@auth0/auth0-react";
 import useDates from "../hooks/useDates";
 import DateComponents from "../DateComponents";
 import DashboardButtons from "../DashboardButtons";
 import Divider from "@mui/material/Divider";
 
 const UpcomingDates = () => {
-  const { datesByGroup, deleteDate } = useDates("api/dates", { upcoming: true });
+  const { user } = useAuth0();
+  const { datesByGroup, deleteDate } = useDates("api/dates", {
+    upcoming: true,
+    email: user.email
+  });
 
   return (
     <>
@@ -35,7 +40,7 @@ const UpcomingDates = () => {
               flexItem
             />
             <DashboardButtons
-              dateInfo={datesByGroup[dateId][0]}              
+              dateInfo={datesByGroup[dateId][0]}
               deleteDate={deleteDate}
             />
           </div>

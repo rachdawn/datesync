@@ -1,11 +1,17 @@
+import { useAuth0 } from "@auth0/auth0-react";
 import useDates from "../hooks/useDates";
 import DateComponents from "../DateComponents";
 import DashboardButtons from "../DashboardButtons";
 import Divider from "@mui/material/Divider";
 
 const PastDates = () => {
-  const {datesByGroup, deleteDate} = useDates("api/dates", { pastDates: true});
-  
+  const { user } = useAuth0();
+
+  const { datesByGroup, deleteDate } = useDates("api/dates", {
+    pastDates: true,
+    email: user.email
+  });
+
   return (
     <>
       <h2 className="date-title">Dates</h2>
@@ -33,7 +39,7 @@ const PastDates = () => {
               variant="middle"
               flexItem
             />
-            <DashboardButtons            
+            <DashboardButtons
               dateInfo={datesByGroup[dateId][0]}
               deleteDate={deleteDate}
             />
