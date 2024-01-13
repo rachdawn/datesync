@@ -8,7 +8,7 @@ import Rating from "@mui/material/Rating";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import OpenInBrowser from "../../assets/open_in_browser.svg";
 
-export default function RestaurantAccordion({ restaurant }) {
+export default function RestaurantAccordion({ restaurant, onAddToDate }) {
   const [expanded, setExpanded] = useState(false);
 
   const handleChange = (panel) => (event, isExpanded) => {
@@ -53,7 +53,7 @@ export default function RestaurantAccordion({ restaurant }) {
             </div>
             <div>
               <div className="actions">
-                <button>
+                <button onClick={() => onAddToDate(restaurant)}>
                   <AddCircleOutlineIcon className="add-to-date-icon"/>
                   Add to Date
                 </button>

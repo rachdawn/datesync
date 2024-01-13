@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Select, MenuItem, FormControl, InputLabel } from '@mui/material';
 
 const cityDetails = {
   Toronto: {
@@ -48,12 +49,19 @@ const CitySelector = ({ onCitySelect, onCityNameSelect }) => {
   };
 
   return (
-    <select value={selectedCity} onChange={handleCityChange}>
-      <option value="">Select a city</option>
-      {Object.keys(cityDetails).map((cityKey) => (
-        <option key={cityKey} value={cityKey}>{cityKey}</option>
-      ))}
-    </select>
+    <FormControl className="select" sx={{ m: 1, minWidth: 120 }}>
+      <InputLabel id="city-selector-label">Select a City</InputLabel>
+      <Select
+        labelId="city-selector-label"
+        value={selectedCity}
+        label="Select a City"
+        onChange={handleCityChange}
+      >
+        {Object.keys(cityDetails).map((cityKey) => (
+          <MenuItem key={cityKey} value={cityKey}>{cityKey}</MenuItem>
+        ))}
+      </Select>
+    </FormControl>
   );
 };
 

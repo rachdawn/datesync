@@ -12,6 +12,14 @@ body {
       padding: 30px;
     }
 
+    // #city-selector-label {
+      
+    //   border-radius: 12px;
+    //   padding: 10px;
+    //   border: 1px solid grey;
+    //   color: rgb(85, 84, 84);
+    // }
+
     .picker {
       background-color: #e1cce6;
     }
@@ -75,7 +83,7 @@ body {
       justify-content: center;
       width: 99vw;
 
-      .time-picker {
+      .time-picker, .city-picker {
         padding-top: 20px;
         padding-bottom: 20px;
         max-width: 50%;
