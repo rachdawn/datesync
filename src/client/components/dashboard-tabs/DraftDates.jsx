@@ -1,10 +1,15 @@
+import { useAuth0 } from "@auth0/auth0-react";
 import useDates from "../hooks/useDates";
 import DateComponents from "../DateComponents";
 import DashboardButtons from "../DashboardButtons";
 import Divider from "@mui/material/Divider";
 
 const DraftDates = () => {
-  const {datesByGroup} = useDates("api/dates", { drafts: true});
+  const { user } = useAuth0();
+  const { datesByGroup, deleteDate } = useDates("api/dates", {
+    drafts: true,
+    email: user.email
+  });
 
   return (
     <>
@@ -20,7 +25,7 @@ const DraftDates = () => {
                 {!datesByGroup[dateId][0].scheduled_date && "To be defined"}
               </p>
             </div>
-            
+
             <Divider
               className="divider"
               orientation="vertical"
@@ -36,6 +41,7 @@ const DraftDates = () => {
             />
             <DashboardButtons
               dateInfo={datesByGroup[dateId][0]}
+              deleteDate={deleteDate}
             />
           </div>
         </div>

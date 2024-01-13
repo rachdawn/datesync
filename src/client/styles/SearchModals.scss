@@ -8,158 +8,19 @@
   background-color: #f0e0f4;
   color: #652c91;
   overflow-y: scroll;
-}
-.modal-top {
-  display: flex;
-  top: 0;
-  .modal-title {
-    padding-top: 0.5rem;
-    font-weight: 600;
-    letter-spacing: 0.6px;
-    text-transform: uppercase;
-  }
-  .close-button {
-    background-color: #f0e0f4;
-    border: none;
-    border-radius: 60%;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    position: sticky;
-  }
-}
-#search-bar {
-  display: flex;
-  flex-direction: row;
-  .select {
-    color: #652c91;
-    background-color: #fff;
-    margin: 0.1rem auto;
-    height: fit-content;
-    #rating {
-      padding: 5px auto;
-    }
-  }
-}
-ul {
-  padding: 0;
-}
-.submit-search {
-  background-color: #662d91;
-  color: #fff;
-  padding: 0.4rem;
-  border-radius: 12px;
-  height: fit-content;
-  margin: 0.5rem auto;
-}
-.result {
-  margin: 0.75rem;
-  background-color: #e1cce6;
-  .expand-icon {
-    padding-right: 0.5rem;
-  }
-  .result-card {
-    padding: 0;
-    width: 95%;
-    //display: flex;
-    //padding-right: 1rem;
-    // margin: 0;
-    .card-mobile {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-evenly;
-      .result-img {
-        width: auto;
-        height: auto;
-        max-height: 8rem;
-        max-width: 9rem;
-        margin: 0 auto;
-        border-radius: 6px;
-        justify-content: center;
-        margin-right: 0.5rem;
-      }
-      .info {
-        margin-left: 0.5rem;
-        h4 {
-          color: #662d91;
-          font-weight: 600;
-          margin: 0;
-          font-size: 1.15rem;
-        }
-        p,
-        div {
-          margin: 0;
-          padding-top: 0.3rem;
-          font-size: 1rem;
-          font-weight: 400;
-          line-height: 1rem;
-        }
-      }
-    }
-    .actions {
-      display: flex;
-      justify-content: space-between;
-      padding: 0.5rem;
-      padding-bottom: 0;
-      button {
-        max-width: 8.75rem;
-        background-color: #662d91;
-        color: #fff;
-        margin-top: 0.25rem;
-        padding: 0.4rem;
-        border-radius: 12px;
-        .add-to-date-icon {
-          padding-right: 0.25rem;
-        }
-        .open-in-browser-icon {
-          padding-right: 0.25rem;
-          color: #fff;
-        }
-      }
-    }
-  }
-  .details {
-    margin: 0;
-    padding: 0.5rem;
-    p,
-    hr {
-      font-weight: 500;
-      margin: 0.25rem;
-    }
-  }
-}
-
-@media (min-width: 768px) {
-  .search-modal {
-    position: absolute;
-    top: 5rem;
-    left: 8.5rem;
-    right: 8.5rem;
-    bottom: 5rem;
-    padding: 0.5rem;
-    border-radius: 12px;
-    overflow-y: scroll;
-    background-color: #f0e0f4;
-    color: #662d91;
-  }
   .modal-top {
     display: flex;
     top: 0;
     .modal-title {
       padding-top: 0.5rem;
       font-weight: 600;
-      letter-spacing: 0.8px;
+      letter-spacing: 0.6px;
       text-transform: uppercase;
     }
     .close-button {
       background-color: #f0e0f4;
       border: none;
       border-radius: 60%;
-      color: white;
       text-align: center;
       text-decoration: none;
       display: inline-block;
@@ -169,64 +30,449 @@ ul {
     }
   }
   #search-bar {
-    justify-content: space-evenly;
+    display: flex;
+    flex-direction: row;
     .select {
-      display: flex;
       color: #652c91;
       background-color: #fff;
+      margin: 0.1rem auto;
+      height: fit-content;
+      #rating {
+        padding: 5px auto;
+      }
     }
   }
-
+  ul {
+    padding: 0;
+  }
+  .submit-search {
+    background-color: #662d91;
+    color: #fff;
+    padding: 0.4rem;
+    border-radius: 12px;
+    height: fit-content;
+    margin: 0.5rem auto;
+  }
   .result {
-    margin: 0.5rem;
+    margin: 0.75rem;
     background-color: #e1cce6;
-    .result-card {
-      width: 100%;
-      display: flex;
+    .expand-icon {
       padding-right: 0.5rem;
-      justify-content: space-between;
-
-      .img-div {
-        min-width: 33%;
+    }
+    .result-card {
+      padding: 0;
+      width: 95%;
+      //display: flex;
+      //padding-right: 1rem;
+      // margin: 0;
+      .card-mobile {
         display: flex;
-        justify-content: center;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
         .result-img {
           width: auto;
           height: auto;
           max-height: 8rem;
-          max-width: 10rem;
-          margin-top: 0.5rem;
-          border-radius: 6px;
-          margin-right: 0.5rem;
+          max-width: 9rem;
           margin: 0 auto;
+          border-radius: 6px;
+          justify-content: center;
+          margin-right: 0.5rem;
+        }
+        .info {
+          margin-left: 0.5rem;
+          h4 {
+            color: #662d91;
+            font-weight: 600;
+            margin: 0;
+            font-size: 1.15rem;
+          }
+          p,
+          div {
+            margin: 0;
+            padding-top: 0.3rem;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1rem;
+          }
         }
       }
-
-      .info {
-        padding-left: 0.5rem;
-        margin: 0 auto;
-
-        // text-align: center;
-        p,
-        h4 {
-          padding: 1px;
-          margin: 0;
-        }
-      }
-
       .actions {
         display: flex;
-        flex-direction: column;
-
-
+        justify-content: space-between;
+        padding: 0.5rem;
+        padding-bottom: 0;
         button {
-          width: 8.75rem;
-
+          max-width: 8.75rem;
           background-color: #662d91;
           color: #fff;
-          margin-top: 0.7rem;
+          margin-top: 0.25rem;
           padding: 0.4rem;
           border-radius: 12px;
+          .add-to-date-icon {
+            padding-right: 0.25rem;
+          }
+          .open-in-browser-icon {
+            padding-right: 0.25rem;
+            color: #fff;
+          }
+        }
+      }
+    }
+    .details {
+      margin: 0;
+      padding: 0.5rem;
+      p,
+      hr {
+        font-weight: 500;
+        margin: 0.25rem;
+      }
+    }
+  }
+  .movie-grid-item {
+    display: flex;
+    flex-basis: 49%;
+    border-radius: 0.75rem;
+    justify-content: center;
+    margin: 0 auto;
+    .movie-card {
+      padding: 0.5rem;
+      height: 18rem;
+      width: 11rem;
+      .movie-title {
+        margin: 0 auto;
+        justify-content: center;
+        width: 100%;
+        h4 {
+          color: #662d91;
+          font-size: 2dvb;
+          font-weight: 600;
+          font-family: "Quicksand", sans-serif;
+          text-align: center;
+          text-wrap: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+      }
+      .movie-img {
+        margin: 0 auto;
+        padding: 0;
+        width: 8rem;
+        height: 12rem;
+      }
+      .movie-details {
+        padding: 0.25rem;
+        padding-bottom: 0;
+        margin: 0;
+        text-align: center;
+        text-wrap: nowrap;
+        p {
+          font-size: 1.25dvb;
+          font-weight: 500;
+          font-family: "Quicksand", sans-serif;
+        }
+      }
+      .showtimes-button {
+        width: 8rem;
+        margin: 0 auto;
+        padding: 0.3rem;
+        border-radius: 10px;
+        background-color: #662d91;
+        color: #fff;
+        font-size: 0.75rem;
+        font-family: "Quicksand", sans-serif;
+      }
+    }
+  }
+  .movies-back-button {
+    top: 0;
+    color: #662d91;
+    font-family: "Quicksand", sans-serif;
+    margin-top: -0.5rem;
+    margin-left: 1.2rem;
+    padding: 0;
+    .back-arrow {
+      margin-right: 0.25rem;
+    }
+  }
+  .showtime-title h4 {
+    text-align: center;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    margin-bottom: 0.25rem;
+  }
+  .showtimes {
+    background-color: #f0e0f4;
+    .showtime-date {
+      font-family: "Quicksand", sans-serif;
+      color: #662d91;
+      font-size: 1rem;
+      text-align: center;
+    }
+    .theater-name {
+      font-family: "Quicksand", sans-serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+    }
+    .theater-address {
+      font-family: "Quicksand", sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      width: 90%;
+    }
+    .theater-times {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0.5rem auto;
+      gap: 6px;
+      align-items: center;
+      width: 100%;
+      justify-items: center;
+      .movie-time {
+        display: inline;
+        font-family: "Quicksand", sans-serif;
+        font-weight: 600;
+        font-size: 0.75rem;
+        padding: 0.25rem;
+        margin: 0 auto;
+        color: #662d91;
+        width: 25%;
+        border: 1px solid #662d91;
+        .show-time {
+          margin: 0;
+        }
+        .show-type {
+          font-size: 0.55rem;
+          margin: 0;
+          padding: 0;
+        }
+      }
+    }
+  }
+}
+@media (min-width: 768px) {
+  .search-modal {
+    position: absolute;
+    top: 5rem;
+    left: 8.5rem;
+    right: 8.5rem;
+    bottom: 5rem;
+    padding: 0.5rem;
+    padding-top: 0;
+    border-radius: 12px;
+    overflow-y: scroll;
+    background-color: #f0e0f4;
+    color: #662d91;
+
+    .modal-top {
+      display: flex;
+      .modal-title {
+        padding-bottom: 0.5rem;
+        font-weight: 600;
+        font-size: 2dvb;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+        font-family: "Quicksand", sans-serif;
+      }
+      .close-button {
+        background-color: #f0e0f4;
+        border: none;
+        border-radius: 60%;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        cursor: pointer;
+        position: sticky;
+      }
+    }
+    #search-bar {
+      justify-content: space-evenly;
+      .select {
+        display: flex;
+        color: #652c91;
+        background-color: #fff;
+      }
+    }
+
+    .result {
+      margin: 0.5rem;
+      background-color: #e1cce6;
+      .result-card {
+        width: 100%;
+        display: flex;
+        padding-right: 0.5rem;
+        justify-content: space-between;
+        .img-div {
+          min-width: 33%;
+          display: flex;
+          justify-content: center;
+          .result-img {
+            width: auto;
+            height: auto;
+            max-height: 8rem;
+            max-width: 10rem;
+            margin-top: 0.5rem;
+            border-radius: 6px;
+            margin-right: 0.5rem;
+            margin: 0 auto;
+          }
+        }
+        .info {
+          padding-left: 0.5rem;
+          margin: 0 auto;
+          // text-align: center;
+          p,
+          h4 {
+            padding: 1px;
+            margin: 0;
+          }
+        }
+
+        .actions {
+          display: flex;
+          flex-direction: column;
+          button {
+            width: 8.75rem;
+            background-color: #662d91;
+            color: #fff;
+            margin-top: 0.7rem;
+            padding: 0.4rem;
+            border-radius: 12px;
+          }
+        }
+      }
+    }
+
+    .movie-grid-item {
+      display: flex;
+      border-radius: 0.75rem;
+      justify-content: center;
+      .movie-card {
+        padding: 0.5rem;
+        height: 19rem;
+        width: 14rem;
+        .movie-title {
+          margin: 0 auto;
+          justify-content: center;
+          h4 {
+            color: #662d91;
+            font-size: 1.65dvb;
+            font-weight: 600;
+            font-family: "Quicksand", sans-serif;
+            text-align: center;
+            text-wrap: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+          }
+        }
+        .movie-img {
+          margin: 0 auto;
+          padding: 0;
+          width: 8rem;
+          height: 12rem;
+        }
+        .movie-details {
+          padding: 0.25rem;
+          padding-bottom: 0;
+          margin: 0;
+          text-align: center;
+          text-wrap: nowrap;
+          p {
+            font-size: 1.25dvb;
+            font-weight: 500;
+            font-family: "Quicksand", sans-serif;
+          }
+        }
+        .showtimes-button {
+          width: 8rem;
+          margin: 0 auto;
+          padding: 0.3rem;
+          border-radius: 10px;
+          background-color: #662d91;
+          color: #fff;
+          font-size: 0.75rem;
+          font-family: "Quicksand", sans-serif;
+        }
+      }
+    }
+    .movies-back-button {
+      top: 0;
+      color: #662d91;
+      font-family: "Quicksand", sans-serif;
+      margin-top: -0.5rem;
+      margin-left: 1.2rem;
+      padding: 0;
+      .back-arrow {
+        margin-right: 0.25rem;
+      }
+    }
+    .showtime-title h4 {
+      text-align: center;
+      font-family: "Quicksand", sans-serif;
+      font-weight: 600;
+      margin-top: 0.5rem;
+      margin-bottom: 0.25rem;
+    }
+    .showtimes {
+      background-color: #f0e0f4;
+      .showtime-date {
+        font-family: "Quicksand", sans-serif;
+        color: #662d91;
+        font-size: 1rem;
+        text-align: center;
+      }
+      .card-width {
+        width: 100%;
+        .theater-card {
+          display: flex;
+          margin: 0 auto;
+          padding: 0.5rem;
+          .theater-details {
+            width: 40%;
+            .theater-name {
+              font-family: "Quicksand", sans-serif;
+              font-size: 1.15rem;
+              font-weight: 600;
+            }
+            .theater-address {
+              font-family: "Quicksand", sans-serif;
+              font-size: 0.9rem;
+              font-weight: 500;
+              width: 90%;
+            }
+          }
+          .theater-times {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            width: 25%;
+            justify-items: center;
+            justify-content: space-around;
+            margin: 0 auto;
+            .movie-time {
+              font-family: "Quicksand", sans-serif;
+              font-weight: 600;
+              font-size: 0.8rem;
+              padding: 0.5rem;
+              margin: 0 auto;
+              color: #662d91;
+              width: 55%;
+              border: 1px solid #662d91;
+              .show-time {
+                margin: 0;
+                padding: 0;
+              }
+              .show-type {
+                font-size: 0.6rem;
+                margin: 0;
+                padding: 0;
+              }
+            }
+          }
         }
       }
     }

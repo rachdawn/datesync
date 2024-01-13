@@ -10,18 +10,13 @@ const getUsers = async () => {
 };
 
 // This function will retrieve a user from the database based on the username. This is useful for the login process where you need to check if the user exists and then verify the password:
-const getUserByUsername = async (username) => {
-  const queryString = `SELECT * FROM users WHERE username = $1;`;
-  const values = [username];
-
+const getUserByEmail = async (email) => {
+  const queryString = `SELECT id FROM users WHERE email = $1;`;
+  const values = [email];
 
   return db.query(queryString, values)
     .then(data => {
-      if (data.rows.length === 0) {
-        return null;
-      }
-      // Return the first user matching the username
-      return data.rows[0];
+      return data.rows;
     })
     .catch(err => console.log('Error executing query', err.message));
 };
@@ -68,4 +63,4 @@ const checkUserExists = async (email) => {
 };
 
 
-export { getUsers, getUserByUsername, getUserWithId, addUser, checkUserExists };
+export { getUsers, getUserByEmail, getUserWithId, addUser, checkUserExists };

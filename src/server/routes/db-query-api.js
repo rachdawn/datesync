@@ -1,12 +1,52 @@
 import { Router } from 'express';
-import getDateComponents from '../../../db/queries/dates.js';
-import { addUser, checkUserExists } from '../../../db/queries/auth0users.js';
+import { getDateComponents, deleteDate } from '../../../db/queries/dates.js';
+import { addUser, checkUserExists, getUserByEmail } from '../../../db/queries/auth0users.js';
 
 const router = Router();
-const id = 1;
+// const email = 'ana@email.com';
 
+// Route to load date components in dashboard
 router.get('/dates', (req, res) => {
-  getDateComponents(id, req.query)
+  const email = req.query.email;
+
+  getUserByEmail(email)
+    .then((user) => {
+      if (!user || !user.length) {
+        res.status(404).json({ error: 'User not found' });
+        return Promise.reject('User not found');
+      }
+
+      const userId = user[0].id;
+      return getDateComponents(userId, req.query);
+    })
+    .then((rows) => {
+      res.json(rows);
+    })
+  .catch(error => {
+    console.error(error);
+    res.send(error);
+  })
+});
+
+//Route that will render date info to be shared
+router.get('/share-date/:dateId', (req, res) => {
+  const { dateId } = req.params;
+
+  getDateComponents(dateId, req.query)
+  .then((rows) => {
+    res.json(rows);
+  })
+  .catch(error => {
+    console.error(error);
+    res.send(error);
+  })
+})
+
+//Route to delete date from dashboard
+router.post('/delete/:dateId', (req, res) => {
+  const {dateId} = req.params;
+
+  deleteDate(dateId)
   .then((rows) => {
     res.json(rows);
   })
