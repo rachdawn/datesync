@@ -5,12 +5,14 @@ import LottieSpinner from './LottieSpinner';
 import Showtimes from './Showtimes';
 import useLoading from './hooks/useLoading.js';
 
-const MoviesNearMe = ({ movies, cityString }) => {
+const MoviesNearMe = ({ movies, cityString, onShowtimeSelect }) => {
   const [showtimes, setShowtimes] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [showShowtimes, setShowShowtimes] = useState(false);
   const [isLoading, startLoading, stopLoading] = useLoading();
 
+
+  // This is an asynchronous function triggered when a user slects to view showtimes for a movie. It makes a request to get showtimes and updates the states involved:
   const handleShowtimes = async (movie) => {
     try {
       startLoading();
@@ -78,6 +80,7 @@ const MoviesNearMe = ({ movies, cityString }) => {
             showtimes={showtimes}
             selectedMovie={selectedMovie}
             handleBackToMovies={handleBackToMovies}
+            onShowtimeSelect={onShowtimeSelect}
           />
         )
       )}
