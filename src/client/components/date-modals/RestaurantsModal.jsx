@@ -7,7 +7,7 @@ import RestaurantAccordion from "../result-accordions/RestaurantAccordion";
 import closeSymbol from "/src/client/assets/closeSymbol.svg";
 import React, { useState } from 'react';
 
-export default function RestaurantsModal({coordinates}) {
+export default function RestaurantsModal({ coordinates, onRestaurantSelect }) {
   const [open, setOpen] = useState(false);
   const [restaurantsData, setRestaurantsData] = useState([]);
 
@@ -17,6 +17,12 @@ export default function RestaurantsModal({coordinates}) {
   // When restaurants data is fetched we can update state with the new data:
   const handleDataFetched = (data) => {
     setRestaurantsData(data); 
+  };
+
+  // This function will be called when "Add to Date" is clicked:
+  const handleAddToDateClick = (restaurant) => {
+    onRestaurantSelect(restaurant);
+    handleClose(); 
   };
 
   return (
@@ -42,12 +48,16 @@ export default function RestaurantsModal({coordinates}) {
               Search Restaurants
             </Typography>
           </div>
-          <RestaurantSelect coordinates={coordinates} onDataFetched={handleDataFetched}/>
+          <RestaurantSelect 
+            coordinates={coordinates} 
+            onDataFetched={handleDataFetched} 
+          />
           <ul>
             {restaurantsData.map((restaurant) => (
               <RestaurantAccordion
                 key={restaurant.component_id}
                 restaurant={restaurant}
+                onAddToDate={() => handleAddToDateClick(restaurant)}
               />
             ))}
           </ul>
