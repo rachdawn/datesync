@@ -172,7 +172,7 @@ const DateComponents = ({ dates }) => (
                     <Typography className="date-component-info" component="div">
                       <div>
                         <p>{item.activity_type}</p>
-                        <p>{item.activity_location}</p>
+                        <p>{item.activity_location_name}</p>
                         <p>{item.activity_address}</p>
                       </div>
                     </Typography>
