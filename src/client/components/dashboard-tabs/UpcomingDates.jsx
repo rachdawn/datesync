@@ -11,17 +11,19 @@ const UpcomingDates = () => {
     email: user.email,
   });
 
+  const dates = Object.keys(datesByGroup);
+  const descOrderedDates = dates.reverse();
+
   return (
     <>
       <h2 className="date-title">Dates</h2>
-      {Object.keys(datesByGroup).length === 0 ? (
+      {descOrderedDates.length === 0 ? (
         <h5 className="no-date-message">No Upcoming Dates to display</h5>
       ) : (
-        Object.keys(datesByGroup).map((dateId, index) => (
+        descOrderedDates.map((dateId, index) => (
           <div key={index}>
             <div className="date-group">
               <div className="date-initial-info">
-                <h4 className="date-title">Date #{dateId}</h4>
                 <p>
                   Date & Time:{" "}
                   {datesByGroup[dateId][0].scheduled_date
