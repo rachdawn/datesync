@@ -171,12 +171,22 @@ const CreateDate = () => {
       // We extract and format the component data
       const formattedComponents = extractComponentData(componentsList);
       console.log(user.email);
+
+      // We check if a date and time have been selected:
+      let isDraft = false;
+      let scheduledDate = null;
+      if (!selectedDateTime) {
+        isDraft = true;
+      } else {
+        scheduledDate = selectedDateTime.toISOString();
+      }
+
       // We can prepare the data including the user email and formatted date and time from the date picker:
       const completeDateData = {
         user_email: user.email, 
         // Based on selected date and time from user we need to format the selected date and time in ISO 8601 format for the db to accept it:
-        scheduled_date: selectedDateTime.toISOString(),
-        is_draft: false,
+        scheduled_date: scheduledDate,
+        is_draft: isDraft,
         default_location: cityString,
         components: formattedComponents
       }
