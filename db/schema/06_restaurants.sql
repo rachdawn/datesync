@@ -5,11 +5,11 @@ CREATE TABLE "restaurants"(
     "component_id" INTEGER REFERENCES date_components(id) ON DELETE CASCADE,
     "name" VARCHAR(255) NOT NULL,
     "address" VARCHAR(255) NOT NULL,
-    "rating" INTEGER NOT NULL,
+    "rating" FLOAT NOT NULL,
     "price_level" INTEGER NOT NULL,
     "cuisine_type" VARCHAR(255) NOT NULL,
-    "opening_hours" TIME(0) WITH TIME ZONE NOT NULL,
-    "closing_hours" TIME(0) WITH TIME ZONE NOT NULL,
-    "website_url" VARCHAR(255) NOT NULL,
+    "opening_hours" TEXT NULL,
+    "closing_hours" TEXT NULL,
+    "website_url" VARCHAR(255) NULL,
     "photo_url" TEXT NOT NULL
 );

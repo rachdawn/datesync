@@ -24,7 +24,6 @@ const DateComponents = ({ dates }) => (
               }
               alt="date"
             />
-
             <Accordion>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
@@ -66,7 +65,7 @@ const DateComponents = ({ dates }) => (
                     {item.event_url && (
                       <a href={item.event_url}>{item.event_url}</a>
                     )}
-                    {item.activity_location && <p>{item.activity_location}</p>}
+                    {item.activity_location && <p>{item.activity_location_name}</p>}
                     {item.activity_address && <p>{item.activity_address}</p>}
                   </div>
                 </Typography>
