@@ -1,6 +1,9 @@
 INSERT INTO restaurants (category_id, component_id, name, address, rating, price_level, cuisine_type, opening_hours, closing_hours, website_url, photo_url)
-VALUES (2, 2, 'Pasta Paradise', '123 Main St, Toronto', 4, 2, 'Italian', '09:00:00', '21:00:00', 'http://pastaparadise.com', 'http://example.com/pasta_paradise.jpg'),
-(2, 7, 'Sushi Sensation', '456 King St, Toronto', 4, 3, 'Japanese', '12:00:00', '22:00:00', 'http://sushisensation.com', 'http://example.com/sushi_sensation.jpg'),
-(2, 9, 'Spice Street', '789 Queen St, Toronto', 4, 2, 'Indian', '11:30:00', '20:30:00', 'http://spicestreet.com', 'http://example.com/spice_street.jpg'),
-(2, 14, 'Burger Bliss', '101 Bay St, Toronto', 4, 2, 'American', '10:00:00', '23:00:00', 'http://burgerbliss.com', 'http://example.com/burger_bliss.jpg')
-
+VALUES (2, 2, 'Italian Kitchen', '860 Burrard St, Vancouver, BC V6Z 1X9', 4, 2, 'Italian', '09:00:00', '21:00:00', 'https://glowbalgroup.com/italiankitchen/', 'https://lh3.googleusercontent.com/p/AF1QipN7L_i-pp96dXUPgVT6dw3D55qkq4uYL6ui7tZW=s680-w680-h510'),
+(2, 7, 'Miku', '200 Granville St #70, Vancouver, BC V6C 1S4', 4, 3, 'Japanese', '12:00:00', '22:00:00', 'https://mikurestaurant.com/', 'https://lh3.googleusercontent.com/p/AF1QipNCWjYh4cd0P36uvoX197BKkeulacL0K-5B-0vE=s680-w680-h510'),
+(2, 9, 'Agra Tandoori Kitchen', '689 E 65th Ave E, Vancouver, BC V5X 2P7', 4, 2, 'Indian', '11:30:00', '20:30:00', 'http://www.agratandoori.ca/', 'https://lh3.googleusercontent.com/p/AF1QipMN85PCZGUl_DFJQ_TOc6GLZ83dTK_fFTe3PDhP=s680-w680-h510'),
+(2, 14, 'Deville Dinerbar', '1425 Stanley St, Montreal, Quebec H3A 1P4', 4, 2, 'American', '10:00:00', '23:00:00', 'http://www.devilledinerbar.com/', 'https://lh3.googleusercontent.com/p/AF1QipPCehyYlBMt4K3Z0dlMBc9QP5lY4AMRbBskQ11w=s680-w680-h510'),
+(2, 19, 'Escondite Union', '1206 Union Ave, Montreal, Quebec H3B 3A7', 3, 1, 'Mexican', '08:30:00', '19:30:00', 'http://www.escondite.ca', 'https://lh3.googleusercontent.com/p/AF1QipOSljr8lDGxml8QEPl8WRlLu3jO7NCQ4oH-FLuU=s680-w680-h510'),
+(2, 22, 'Mirage Restaurant', '1262 Mackay St, Montreal, Quebec H3G 2H4', 4, 2, 'Mediterranean', '11:00:00', '22:00:00', 'https://miragecuisine.ca/', 'https://lh3.googleusercontent.com/p/AF1QipMJuSb1js8jzDy0m8wy3ETN9MsTFVG0Z6V9VEP4=s680-w680-h510'),
+(2, 27, 'LUX Steakhouse + Bar94', '10150 101 St NW, Edmonton, AB T5J 3P4', 4, 4, 'Steakhouse', '18:30:00', '23:30:00', 'https://centuryhospitality.com/lux/', 'https://lh3.googleusercontent.com/p/AF1QipOjx0MTsuiwYhjiyraAkqqUC0iLD9vtBqv-90FU=s680-w680-h510'),
+(2, 32, 'The Moth Cafe', '9449 Jasper Ave, Edmonton, AB T5H 3T8', 4, 2, 'Vegan', '12:30:00', '20:00:00', 'http://www.themothcafe.com/', 'https://lh3.googleusercontent.com/p/AF1QipPDrMka_NDdcY41o81LBttEgB55ehwF0zHAXou1=s680-w680-h510');
