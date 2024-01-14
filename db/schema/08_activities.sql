@@ -10,5 +10,3 @@ CREATE TABLE "activities"(
     "photo_url" TEXT NULL,
     "activity_url" VARCHAR(255) NULL
 );
-
-
