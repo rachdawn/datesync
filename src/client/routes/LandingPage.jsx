@@ -1,11 +1,7 @@
 import FeatureDates from "../components/FeatureDates";
 import "../styles/LandingPage.scss";
-import Button from '@mui/material/Button';
-import { Link } from "react-router-dom";
-import { SignupButton } from "../components/auth/buttons/signup-button";
 import CreateAccountButton from "../components/auth/buttons/create-account-button";
 import TryWithoutAccountButton from "../components/auth/buttons/try-without-account-button";
-import SignUpForFreeButton from "../components/auth/buttons/sign-up-for-free-button";
 
 const LandingPage = () => {
   const featureDates = [
@@ -41,7 +37,10 @@ const LandingPage = () => {
         <div className="hero-inner">
           <h1>DateSync</h1>
           <h3>The best place to plan your Perfect Dates</h3>
-          <SignUpForFreeButton asButton={true} className="btn btn-light"/>
+          <section className="buttons">
+            <CreateAccountButton className="btn btn-secondary" />
+            <TryWithoutAccountButton className="btn btn-secondary" />
+           </section>
         </div>
       </section>
       <main className="featured">
@@ -58,10 +57,6 @@ const LandingPage = () => {
           </div>
         </div>
       </main>
-      <section className="buttons">
-        <CreateAccountButton className="btn btn-secondary" />
-        <TryWithoutAccountButton className="btn btn-secondary" />
-      </section>
     </div>
   );
 };
