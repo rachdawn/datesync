@@ -15,7 +15,7 @@ const UpcomingDates = () => {
     <>
       <h2 className="date-title">Dates</h2>
       {Object.keys(datesByGroup).length === 0 ? (
-        <h5 className="no-date-message">No Upcoming dates to display</h5>
+        <h5 className="no-date-message">No Upcoming Dates to display</h5>
       ) : (
         Object.keys(datesByGroup).map((dateId, index) => (
           <div key={index}>
