@@ -49,7 +49,7 @@ const getDateComponents = async (id, options) => {
 
   queryString += `;`;
   
-  const queryParams = [id || 1];
+  const queryParams = [id];
 
   try {
     const data = await db.query(queryString, queryParams);
