@@ -53,7 +53,21 @@ const useDates = (apiEndpoint, queryParams) => {
     datesByGroup[dateId].push(date);
   });
 
-  return { datesByGroup, deleteDate, copyToClipboard, copied };
+  const formatDateTime = (dateTimeString) => {
+    const options = {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+      hour12: true,
+    };
+
+    const formattedDate = new Intl.DateTimeFormat("en-US", options).format(new Date(dateTimeString));
+    return formattedDate;
+  };
+
+  return { datesByGroup, deleteDate, copyToClipboard, copied, formatDateTime };
 }
 
 export default useDates;
