@@ -36,7 +36,7 @@ body {
       }
 
       .no-date-message {
-        margin: 150px;
+        margin: 140px 10px;
       }
 
       .date-group {
@@ -148,6 +148,10 @@ body {
           margin: 15px;
         }
 
+        .no-date-message {
+        margin: 150px;
+      }
+
         .date-group {
           display: flex;
           justify-content: center;
@@ -174,8 +178,9 @@ body {
 
               img {
                 margin: 0 auto;
-                max-width: 130px;
-                min-height: 12rem;
+                max-width: auto;
+                height: 80px;
+                justify-self: center;
                 border-radius: 5px;
               }
             }

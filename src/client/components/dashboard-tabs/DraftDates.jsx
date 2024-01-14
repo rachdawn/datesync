@@ -20,12 +20,9 @@ const DraftDates = () => {
         Object.keys(datesByGroup).map((dateId, index) => (
           <div key={index}>
             <div className="date-group">
-              <div>
+              <div className="date-initial-info">
                 <h4 className="date-title">Date #{dateId}</h4>
-                <p>
-                  Date & Time:{" "}
-                   To be defined
-                </p>
+                <p>Date & Time: To be defined</p>
               </div>
 
               <Divider

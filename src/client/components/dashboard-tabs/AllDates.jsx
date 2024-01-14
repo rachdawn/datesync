@@ -19,10 +19,10 @@ const AllDates = () => {
         Object.keys(datesByGroup).map((dateId, index) => (
           <div key={index}>
             <div className="date-group">
-              <div>
+              <div className="date-initial-info">
                 <h4 className="date-title">Date #{dateId}</h4>
                 <p>
-                  Date & Time: 
+                  Date & Time:{" "} 
                   {datesByGroup[dateId][0].scheduled_date
                     ? formatDateTime(datesByGroup[dateId][0].scheduled_date)
                     : " To be defined"}

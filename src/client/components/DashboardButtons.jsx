@@ -36,7 +36,7 @@ const DashboardButtons = ({ dateInfo, deleteDate }) => {
 
       {dateInfo.scheduled_date < today && (
         <span className="date-component-buttons">
-          <a className="btn btn-secondary btn-dashboard">Redo Date</a>
+          <a className="btn btn-secondary btn-dashboard">Redo</a>
           <a
             onClick={() => handleDelete(dateInfo.date_id)}
             className="btn btn-secondary btn-dashboard"
