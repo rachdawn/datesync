@@ -15,6 +15,7 @@ const SelectedActivityCard = ({ activity }) => {
           alt={activity.title}
         />
         <CardContent>
+        <Typography variant="h5">{activity.type}</Typography>
           <Typography variant="h5">{activity.title}</Typography>
           <Typography variant="subtitle1">{activity.description}</Typography>
           <Typography variant="body2">Address: {activity.address} </Typography>

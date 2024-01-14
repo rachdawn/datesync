@@ -30,6 +30,9 @@ const SelectedRestaurantCard = ({ restaurant }) => {
           <Typography variant="body2">Cuisine: {restaurant.type}</Typography>
           <Typography variant="body2">Price Level: {restaurant.price}</Typography>
           <Typography variant="body2">Hours: {formatOperatingHours(restaurant.operating_hours)}</Typography>
+          <a href={restaurant.website}>
+            {restaurant.website}
+          </a>
         </CardContent>
       </div>
     </Card>

@@ -17,6 +17,7 @@ const SelectedEventCard = ({ eventData }) => {
         <CardContent>
           <Typography variant="h5">{eventData.title}</Typography>
           <Typography variant="subtitle1">{eventData.description}</Typography>
+          <a href={eventData.link}>{eventData.link}</a>
           <Typography variant="body2">Venue: {eventData.venue} | Address: {eventData.address} </Typography>
         </CardContent>
       </div>
