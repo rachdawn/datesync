@@ -12,10 +12,10 @@ import AddIcon from "@mui/icons-material/Add";
 import FeatureDates from "../components/FeatureDates";
 import CitySelector from "../components/CitySelector";
 import SearchButtons from "../components/SearchButtons";
-import SelectedRestaurantCard from "../components/add-to-date-displays/RestaurantDateCard";
-import SelectedEventCard from "../components/add-to-date-displays/EventDateCard";
-import SelectedActivityCard from "../components/add-to-date-displays/ActivityDateCard";
-import SelectedMovieCard from "../components/add-to-date-displays/MovieDateCard";
+import SelectedRestaurantCard from "../components/add-to-date-displays/SelectedRestaurantCard"
+import SelectedEventCard from "../components/add-to-date-displays/SelectedEventCard";
+import SelectedActivityCard from "../components/add-to-date-displays/SelectedActivityCard";
+import SelectedMovieCard from "../components/add-to-date-displays/SelectedMovieCard";
 
 const CreateDate = () => {
   const [coordinates, setCoordinates] = useState(null);
