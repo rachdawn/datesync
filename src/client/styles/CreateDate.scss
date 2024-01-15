@@ -1,80 +1,113 @@
 body {
   width: 100dvw;
   overflow: scroll;
-  margin-bottom: 8rem;
+  background-color: #e2d1e6;
+
+  //   margin-bottom: 8rem;
 
   .create-date {
     justify-content: center;
     width: 100dvw;
 
     .date-time-pickers {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        align-items: center;
-        margin: 0 auto;
-        padding: 1rem;
-        max-width: 60dvw;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: center;
+      margin: 0 auto;
+      padding: 1rem;
+      max-width: 60dvw;
 
-        .time-picker {
-          width: 100%;
-          border-radius: 12px;
-        }
-        .city-picker {
-          width: 100%;
-          border-radius: 12px;
-        }
-        .picker {
+      .time-picker {
+        width: 100%;
+        border-radius: 12px;
+      }
+      .city-picker {
+        width: 100%;
+        border-radius: 12px;
+      }
+      .picker {
         //   background-color: #e1cce6;
         //   width: 90%;
-          #time-picker {
+        #time-picker {
           font-weight: 500;
-            font-family: "Quicksand", sans-serif;
-          }
+          font-family: "Quicksand", sans-serif;
+        }
 
-          #select-city {
-              font-weight: 500;
-              font-family: "Quicksand", sans-serif;
-          }
-          .select-required {
-            background-color: #fff;
-            // margin: 1rem;
-          }
+        #select-city {
+          font-weight: 500;
+          font-family: "Quicksand", sans-serif;
+        }
+        .select-required {
+          background-color: transparent;
+          color: #e2d1e6;
+          font-size: 0.8rem;
+          font-weight: 600;
+          // margin: 1rem;
         }
       }
+    }
 
+    .component-search {
+      margin: 0 auto;
+      // margin-bottom: 2.5rem;
+      background-color: #e2d1e6;
+      padding: 0.75rem;
+      width: 90dvw;
+      border-radius: 12px;
+
+      .buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+
+        button {
+        //   margin: 8px;
+          color: #e2d1e6;
+          background-color: #6a3771;
+          border-radius: 12px;
+          font-size: 0.75rem;
+        }
+
+        button:hover {
+          background-color: #9a5997;
+        }
+      }
+    }
     .component {
       margin: 0 auto;
-      margin-bottom: 25px;
-      background-color: #e1cce6;
-      padding: 5px;
-      width: 95dvw;
+    //   margin-bottom: 25px;
+      background-color: #e2d1e6;
+      border: 1px solid #6a3771;
+      padding: 2rem;
       border-radius: 12px;
       font-size: smaller;
-
       .add-button {
-        background-color: #662d91;
+        background-color: #6a3771;
+        border-radius: 50%;
+        color: #e1cce6;
+        align-items: center;
       }
 
       .add-button:hover {
-        background-color: #7b1fa2;
+        background-color: #9a5997;
       }
 
       .buttons {
         display: flex;
         flex-direction: row;
-        overflow-x: auto;
+        // overflow-x: auto;
 
         button {
           font-family: "Quicksand", sans-serif;
           margin: 5px;
           color: white;
-          background-color: #662d91;
+          background-color: #6a3771;
           font-size: 12px;
         }
 
         button:hover {
-          background-color: #7b1fa2;
+          background-color: #9a5997;
         }
       }
     }
@@ -87,12 +120,13 @@ body {
         button {
           margin: 5px;
           color: white;
-          background-color: #662d91;
+          background-color: #9a5997;
           font-size: 12px;
+          border-radius: 12px;
         }
 
         button:hover {
-          background-color: #7b1fa2;
+          background-color: #9a5997;
         }
       }
     }
@@ -102,86 +136,93 @@ body {
     .create-date {
       justify-content: center;
       width: 100dvw;
-
-      .date-time-pickers {
+      .desktop-search-bar {
         display: flex;
-        flex-direction: row;
-        align-items: first baseline;
-        justify-content: center;
-        margin: 0 auto;
-        width: 30dvw;
-
-        .time-picker {
-          width: 100%;
-          border-radius: 12px;
-          font-family: "Quicksand", sans-serif;
-
-        }
-        .city-picker {
-          width: 100%;
-          font-family: "Quicksand", sans-serif;
-          border-radius: 12px;
-        }
-        .picker {
-          #time-picker {
-            font-weight: 500;
-            font-family: "Quicksand", sans-serif;
-          }
-          #select-city {
-            font-weight: 500;
-            font-family: "Quicksand", sans-serif;
-          }
-        }
-      }
-
-      .component {
         margin: 0 auto;
         margin-bottom: 2.5rem;
-        background-color: #e1cce6;
-        padding: 10px;
-        width: 60dvw;
-        border-radius: 12px;
-
-        .add-button {
-          background-color: #662d91;
-        }
-
-        .add-button:hover {
-          background-color: #7b1fa2;
-        }
-
-        .buttons {
+        background-color: #6a3771;
+        padding: 0.25rem;
+        width: 100dvw;
+        height: 6rem;
+        align-items: center;
+        .date-time-pickers {
           display: flex;
           flex-direction: row;
+          align-items: center;
           justify-content: center;
+          margin: 0 auto;
+          width: 30%;
 
-          button {
-            margin: 8px;
-            color: white;
-            background-color: #662d91;
-            font-size: 15px;
+
+          .css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root,
+          .css-1laqsz7-MuiInputAdornment-root,
+          .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root,
+          .css-1jy569b-MuiFormLabel-root-MuiInputLabel-root,
+          .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input,
+          .css-dplwbx-MuiPickersCalendarHeader-label {
+            font-family: "Quicksand", sans-serif;
+            font-weight: 600;
+            background-color: #e2d1e6;
+            color: #6a3771;
+
+        }
+        .time-picker {
+            width: 100%;
+            border-radius: 12px;
+            .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input {
+                height: 1rem;
+            }
+        }
+        .city-picker {
+            margin-top: 1.55rem;
+            width: 100%;
+            border-radius: 12px;
+            .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.MuiSelect-select {
+                height: 1rem;
+            }
           }
+          .picker {
+            #select-city {
+              background-color: #e2d1e6;
+              font-weight: 600;
+              font-family: "Quicksand", sans-serif;
+            }
+          }
+        }
 
-          button:hover {
-            background-color: #7b1fa2;
+        .component-search {
+          width: 60%;
+          background-color: transparent;
+          padding: 0;
+          margin: 0 auto;
+          .buttons {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+
+            button {
+              margin: 0.5rem;
+              color: #e2d1e6;
+              background-color: #9a5997;
+              padding: 0.65rem;
+              font-family: "Quicksand", sans-serif;
+              font-size: 0.9;
+              font-weight: 600;
+            }
           }
         }
       }
       .complete {
+        margin-bottom: 8rem;
         .buttons {
           display: flex;
           flex-direction: row;
           justify-content: center;
 
           button {
-            margin: 8px;
-            color: white;
-            background-color: #662d91;
-            font-size: 15px;
-          }
-
-          button:hover {
-            background-color: #7b1fa2;
+            margin: 0.5rem;
+            color: #e2d1e6;
+            font-size: 1rem;
           }
         }
       }

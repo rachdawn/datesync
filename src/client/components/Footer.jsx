@@ -1,4 +1,4 @@
-import { Container, Row, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import "../styles/Footer.scss";
 import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
     <footer className="footer-container">
-      <Container>
         <Row className="row-footer">
           <Col className="footer-socials">
             <h5 className="footer-title">Follow Us</h5>
@@ -34,7 +33,6 @@ const Footer = () => {
         <Row className="copyright">
           <div>© {new Date().getFullYear()} DateSync</div>
         </Row>
-      </Container>
     </footer>
   );
 };

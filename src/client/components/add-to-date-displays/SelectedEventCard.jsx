@@ -1,28 +1,52 @@
-import Typography from '@mui/material/Typography';
-import Card from '@mui/material/Card';
-import CardMedia from '@mui/material/CardMedia';
-import CardContent from '@mui/material/CardContent';
+import Typography from "@mui/material/Typography";
+import Card from "@mui/material/Card";
+import CardMedia from "@mui/material/CardMedia";
+import CardContent from "@mui/material/CardContent";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import DeleteIcon from "/src/client/assets/delete-icon.svg";
+import "/src/client/styles/DateComponentCards.scss";
 
 const SelectedEventCard = ({ eventData }) => {
-
   return (
-    <Card className="selected-card">
-      <div className="card-content">
-        <CardMedia
-          component="img"
-          className="result-img"
-          image={eventData.thumbnail}
-          alt={eventData.title}
-        />
-        <CardContent>
-          <Typography variant="h5">{eventData.title}</Typography>
-          <Typography variant="subtitle1">{eventData.description}</Typography>
+    <Card className="date-card">
+      <button className="delete-button">
+        <img src={DeleteIcon} alt="Remove Selection" />
+      </button>
+      <CardMedia
+        component="img"
+        className="date-card-img"
+        image={eventData.thumbnail}
+        alt={eventData.title}
+      />
+      <CardContent className="card-content">
+        <Typography className="date-title" variant="h5">
+          {eventData.title}
+        </Typography>
+        <Typography className="date-type" variant="body2">
+          When: {eventData.time}
           <a href={eventData.link}>{eventData.link}</a>
-          <Typography variant="body2">Venue: {eventData.venue} | Address: {eventData.address} </Typography>
-        </CardContent>
-      </div>
+        </Typography>
+      </CardContent>
+      <Accordion className="card-menu">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1-content"
+          id="panel1-header"
+          className="card-menu-title"
+        >
+          Event Details
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography variant="body2">{eventData.description}</Typography>
+          <hr />
+          <Typography variant="body2">{eventData.address}</Typography>
+        </AccordionDetails>
+      </Accordion>
     </Card>
   );
-}
+};
 
 export default SelectedEventCard;

@@ -31,6 +31,7 @@ export default function EventAccordion({ eventData, onAddToDate }) {
             </div>
             <div className="info">
               <h3>{eventData.title}</h3>
+              <p>When: {eventData.time}</p>
               <p>{eventData.description}</p>
             </div>
             <div>
