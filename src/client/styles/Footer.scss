@@ -2,11 +2,11 @@
   position: fixed;
   bottom: 0;
   width: 100%;
-  max-height: 9rem;
+  max-height: 6rem;
   height: auto;
-  padding-top: 0.75rem;
+  padding-top: 0.5rem;
   padding-bottom: 0.25rem;
-  background-color: #662d91;
+  background-color: #6A3771;
   color: #d8bfd8;
   letter-spacing: 0.5px;
   align-items: first baseline;
@@ -14,11 +14,11 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: 0;
+    margin-bottom: -0.75rem;
     .footer-title {
-      font-size: 0.9rem;
+        font-size: 0.8rem;
       font-weight: bold;
-      margin-bottom: 0.2rem;
+      margin-bottom: 0;
       text-transform: uppercase;
       text-wrap: nowrap;
     }
@@ -28,8 +28,8 @@
       svg {
         margin: 0.25rem;
         padding: 0;
-        width: 1.25rem;
-        height: 1.25rem;
+        width: 0.8rem;
+        height: 0.8rem;
         color: #d8bfd8;
       }
     }
@@ -50,6 +50,7 @@
   }
   .copyright {
     font-size: 0.75rem;
+    margin: 0;
   }
 }
 
@@ -57,13 +58,12 @@
   .footer-container {
     position: fixed;
     bottom: 0;
-    background-color: #662d91;
     color: #d8bfd8;
     padding: 0.2rem;
     padding-bottom: 0.5rem;
     margin: 0 auto;
     width: 100%;
-    max-height: 8rem;
+    max-height: 7rem;
     height: auto;
     letter-spacing: 0.5px;
     align-items: first baseline;
@@ -73,8 +73,10 @@
       justify-content: space-between;
       align-items: center;
       left: 0;
+    margin-bottom: 0;
+
       .footer-title {
-        font-size: 1.1rem;
+        font-size: 0.9rem;
         font-weight: 500;
         display: column;
         text-transform: uppercase;
@@ -85,15 +87,16 @@
         justify-content: center;
         svg {
           margin: 0.25rem;
-          width: 1.25rem;
-          height: 1.25rem;
+          width: 1rem;
+          height: 1rem;
           color: #d8bfd8;
         }
       }
       .footer-socials {
         max-width: 20%;
         width: auto;
-        padding: 0.75rem;
+        padding: 0.5rem;
+        padding-bottom: 0;
       }
       .footer-navigation {
         display: flex;
@@ -103,6 +106,7 @@
           padding-bottom: 0;
           text-decoration: none;
           color: #d8bfd8;
+          cursor: pointer;
         }
         a:hover {
           text-decoration: overline;
@@ -112,7 +116,8 @@
       .footer-contact {
         max-width: 20%;
         width: auto;
-        text-wrap: nowrap;
+        padding: 0.5rem;
+        padding-bottom: 0;
       }
     }
   }
