@@ -6,13 +6,28 @@ import RestaurantSelect from "../search-forms/RestaurantSelect";
 import RestaurantAccordion from "../result-accordions/RestaurantAccordion";
 import closeSymbol from "/src/client/assets/closeSymbol.svg";
 import React, { useState } from 'react';
+import CitySelectionAlert from "../CitySelectionAlert";
 
 export default function RestaurantsModal({ coordinates, onRestaurantSelect }) {
   const [open, setOpen] = useState(false);
   const [restaurantsData, setRestaurantsData] = useState([]);
+  const [showAlert, setShowAlert] = useState(false)
 
-  const handleOpen = () => setOpen(true);
+  const isDisabled = !coordinates;
+
   const handleClose = () => setOpen(false);
+
+  const handleButtonClick = (event) => {
+    if(isDisabled) {
+      setShowAlert(true);
+    } else {
+      setOpen(true);
+    }
+  };
+
+  const handleCloseAlert = () => {
+    setShowAlert(false);
+  };
 
   // When restaurants data is fetched we can update state with the new data:
   const handleDataFetched = (data) => {
@@ -27,7 +42,10 @@ export default function RestaurantsModal({ coordinates, onRestaurantSelect }) {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Search Restaurants</Button>
+      <Button onClick={handleButtonClick}>
+        Search Restaurants
+      </Button>
+      {showAlert && <CitySelectionAlert onClose={handleCloseAlert} />}
       <Modal
         open={open}
         onClose={handleClose}

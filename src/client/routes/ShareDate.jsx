@@ -5,7 +5,9 @@ import "../styles/ShareDate.scss";
 
 const ShareDate = () => {
   const { id } = useParams();
-  const { datesByGroup } = useDates(`/api/share-date/${id}`, { share: true });
+  const { datesByGroup, formatDateTime } = useDates(`/api/share-date/${id}`, {
+    share: true,
+  });
 
   return (
     <div className="content">
@@ -17,10 +19,12 @@ const ShareDate = () => {
             </div>
             <div className="date-date">
               <span className="date">
-                Date & Time: {datesByGroup[dateId][0].scheduled_date}{" "}
-                {!datesByGroup[dateId][0].scheduled_date && "To be defined"}
+                Date & Time:{" "}
+                {datesByGroup[dateId][0].scheduled_date
+                  ? formatDateTime(datesByGroup[dateId][0].scheduled_date)
+                  : " To be defined"}
               </span>
-              <br/>
+              <br />
               <span className="location">Location: </span>
             </div>
           </section>

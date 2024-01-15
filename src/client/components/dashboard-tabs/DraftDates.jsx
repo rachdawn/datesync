@@ -11,21 +11,20 @@ const DraftDates = () => {
     email: user.email
   });
 
+    const dates = Object.keys(datesByGroup);
+    const descOrderedDates = dates.reverse();
+
   return (
     <>
       <h2 className="date-title">Dates</h2>
-      {Object.keys(datesByGroup).length === 0 ? (
+      {descOrderedDates.length === 0 ? (
         <h5 className="no-date-message">No Drafts to display</h5>
       ) : (
-        Object.keys(datesByGroup).map((dateId, index) => (
+        descOrderedDates.map((dateId, index) => (
           <div key={index}>
             <div className="date-group">
-              <div>
-                <h4 className="date-title">Date #{dateId}</h4>
-                <p>
-                  Date & Time:{" "}
-                   To be defined
-                </p>
+              <div className="date-initial-info">
+                <p>Date & Time: To be defined</p>
               </div>
 
               <Divider
