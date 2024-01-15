@@ -42,6 +42,20 @@ router.get('/share-date/:dateId', (req, res) => {
   })
 })
 
+//Route that will render date info to be edited
+// router.get('/edit-date/:id', (req, res) => {
+//   const { id } = req.params;
+  
+//   getDateComponents(id, req.query)
+//     .then((rows) => {
+//       res.json(rows);
+//     })
+//     .catch(error => {
+//       console.error(error);
+//       res.send(error);
+//     });
+// })
+
 //Route to delete date from dashboard
 router.post('/delete/:dateId', (req, res) => {
   const {dateId} = req.params;

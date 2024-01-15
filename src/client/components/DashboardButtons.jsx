@@ -22,7 +22,10 @@ const DashboardButtons = ({ dateInfo, deleteDate }) => {
           >
             {copied ? "Copied!" : "Share"}
           </a>
-          <a href="" className="btn btn-secondary btn-dashboard">
+          <a
+            // href={`/edit-date/${dateInfo.date_id}`}
+            className="btn btn-secondary btn-dashboard"
+          >
             Edit
           </a>
           <a
@@ -36,7 +39,12 @@ const DashboardButtons = ({ dateInfo, deleteDate }) => {
 
       {dateInfo.scheduled_date < today && (
         <span className="date-component-buttons">
-          <a className="btn btn-secondary btn-dashboard">Redo Date</a>
+          <a
+            // href={`/edit-date/${dateInfo.date_id}`}
+            className="btn btn-secondary btn-dashboard"
+          >
+            Redo
+          </a>
           <a
             onClick={() => handleDelete(dateInfo.date_id)}
             className="btn btn-secondary btn-dashboard"
@@ -48,7 +56,10 @@ const DashboardButtons = ({ dateInfo, deleteDate }) => {
 
       {dateInfo.scheduled_date > today && (
         <span className="date-component-buttons">
-          <a href="" className="btn btn-secondary btn-dashboard">
+          <a
+            // href={`/edit-date/${dateInfo.date_id}`}
+            className="btn btn-secondary btn-dashboard"
+          >
             Edit
           </a>
           <a

@@ -6,6 +6,7 @@ import TopNavBar from "./components/TopNavBar";
 import Footer from "./components/Footer";
 import { CallbackPage } from "./components/auth/pages/callback-page";
 import CreateDate from "./routes/CreateDate";
+// import EditDate from "./routes/EditDate";
 import Dashboard from "./routes/Dashboard";
 import LandingPage from "./routes/LandingPage";
 import ShareDate from "./routes/ShareDate";
@@ -34,14 +35,15 @@ function App() {
         {/* Public Routes: */}
         <Route path="/" element={<LandingPage />} />
         <Route path="/create-date" element={<CreateDate />} />
+        {/* <Route path="/edit-date/:id" element={<EditDate />} /> */}
         {/* Share Date route with no explicit path, but contains data to be shared */}
         <Route path="/share-date/:id" element={<ShareDate />} />
         {/* Callback route is used to diminish UI flashing when logging in */}
         <Route path="/callback" element={<CallbackPage />} />
         {/* Protected Routes: */}
         <Route
-        path="/dashboard"
-        element={<AuthenticationGuard component={Dashboard} />}
+          path="/dashboard"
+          element={<AuthenticationGuard component={Dashboard} />}
         />
       </Routes>
       <Footer />
