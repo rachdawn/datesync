@@ -5,8 +5,8 @@
   right: 0.1rem;
   bottom: 0.1rem;
   padding: 0.05rem;
-  background-color: #f0e0f4;
-  color: #652c91;
+  background-color: #e2d1e6;
+  color: #6a3771;
   overflow-y: scroll;
   .modal-top {
     display: flex;
@@ -18,7 +18,7 @@
       text-transform: uppercase;
     }
     .close-button {
-      background-color: #f0e0f4;
+      background-color: #e2d1e6;
       border: none;
       border-radius: 60%;
       text-align: center;
@@ -33,7 +33,6 @@
     display: flex;
     flex-direction: row;
     .select {
-      color: #652c91;
       background-color: #fff;
       margin: 0.1rem auto;
       height: fit-content;
@@ -46,7 +45,7 @@
     padding: 0;
   }
   .submit-search {
-    background-color: #662d91;
+    background-color: #9a5997;
     color: #fff;
     padding: 0.4rem;
     border-radius: 12px;
@@ -83,7 +82,7 @@
         .info {
           margin-left: 0.5rem;
           h4 {
-            color: #662d91;
+            color: #6a3771;
             font-weight: 600;
             margin: 0;
             font-size: 1.15rem;
@@ -105,7 +104,7 @@
         padding-bottom: 0;
         button {
           max-width: 8.75rem;
-          background-color: #662d91;
+          background-color: #9a5997;
           color: #fff;
           margin-top: 0.25rem;
           padding: 0.4rem;
@@ -145,7 +144,6 @@
         justify-content: center;
         width: 100%;
         h4 {
-          color: #662d91;
           font-size: 2dvb;
           font-weight: 600;
           font-family: "Quicksand", sans-serif;
@@ -178,8 +176,8 @@
         margin: 0 auto;
         padding: 0.3rem;
         border-radius: 10px;
-        background-color: #662d91;
-        color: #fff;
+        background-color: #9a5997;
+        color: #e2d1e6;
         font-size: 0.75rem;
         font-family: "Quicksand", sans-serif;
       }
@@ -187,7 +185,7 @@
   }
   .movies-back-button {
     top: 0;
-    color: #662d91;
+    color: #6a3771;
     font-family: "Quicksand", sans-serif;
     margin-top: -0.5rem;
     margin-left: 1.2rem;
@@ -204,10 +202,10 @@
     margin-bottom: 0.25rem;
   }
   .showtimes {
-    background-color: #f0e0f4;
+    background-color: #9a5997;
     .showtime-date {
       font-family: "Quicksand", sans-serif;
-      color: #662d91;
+      color: #e2d1e6;
       font-size: 1rem;
       text-align: center;
     }
@@ -237,9 +235,9 @@
         font-size: 0.75rem;
         padding: 0.25rem;
         margin: 0 auto;
-        color: #662d91;
+        color: #6a3771;
         width: 25%;
-        border: 1px solid #662d91;
+        border: 1px solid #9a5997;
         .show-time {
           margin: 0;
         }
@@ -263,8 +261,6 @@
     padding-top: 0;
     border-radius: 12px;
     overflow-y: scroll;
-    background-color: #f0e0f4;
-    color: #662d91;
 
     .modal-top {
       display: flex;
@@ -277,7 +273,6 @@
         font-family: "Quicksand", sans-serif;
       }
       .close-button {
-        background-color: #f0e0f4;
         border: none;
         border-radius: 60%;
         color: white;
@@ -293,7 +288,6 @@
       justify-content: space-evenly;
       .select {
         display: flex;
-        color: #652c91;
         background-color: #fff;
       }
     }
@@ -337,8 +331,6 @@
           flex-direction: column;
           button {
             width: 8.75rem;
-            background-color: #662d91;
-            color: #fff;
             margin-top: 0.7rem;
             padding: 0.4rem;
             border-radius: 12px;
@@ -359,7 +351,6 @@
           margin: 0 auto;
           justify-content: center;
           h4 {
-            color: #662d91;
             font-size: 1.65dvb;
             font-weight: 600;
             font-family: "Quicksand", sans-serif;
@@ -392,8 +383,6 @@
           margin: 0 auto;
           padding: 0.3rem;
           border-radius: 10px;
-          background-color: #662d91;
-          color: #fff;
           font-size: 0.75rem;
           font-family: "Quicksand", sans-serif;
         }
@@ -401,7 +390,6 @@
     }
     .movies-back-button {
       top: 0;
-      color: #662d91;
       font-family: "Quicksand", sans-serif;
       margin-top: -0.5rem;
       margin-left: 1.2rem;
@@ -418,10 +406,8 @@
       margin-bottom: 0.25rem;
     }
     .showtimes {
-      background-color: #f0e0f4;
       .showtime-date {
         font-family: "Quicksand", sans-serif;
-        color: #662d91;
         font-size: 1rem;
         text-align: center;
       }
@@ -459,9 +445,7 @@
               font-size: 0.8rem;
               padding: 0.5rem;
               margin: 0 auto;
-              color: #662d91;
               width: 55%;
-              border: 1px solid #662d91;
               .show-time {
                 margin: 0;
                 padding: 0;

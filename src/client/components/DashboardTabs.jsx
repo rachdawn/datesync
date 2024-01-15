@@ -59,7 +59,7 @@ function Styles() {
       {`
       .CustomTabsList {
         text-wrap: nowrap;
-        background-color: #d8bfd8;
+        background-color: #9a5997;
         border-radius: 10px;
         margin-bottom: 12px;
         width: 100%;
@@ -73,7 +73,7 @@ function Styles() {
 
       .CustomTab {
         font-family: 'Quicksand', sans-serif;
-        color: #662d91;;
+        color: #e2d1e6;;
         cursor: pointer;
         font-size: 0.9rem;
         font-weight: bold;
@@ -90,18 +90,18 @@ function Styles() {
 
       .CustomTab:hover {
         text-decoration: overline;
-        color: #662d91;
+        color: #e2d1e6;
         padding: 0.5rem 
       }
 
       .CustomTab:focus {
-        color: #fff;
+        color: #e2d1e6;
         outline: 1px solid #fff;
       }
 
       .CustomTab.${tabClasses.selected} {
-        background-color: #662d91;
-        color: #d8bfd8;
+        background-color: #6a3771;
+        color: #e2d1e6;
       }
 
       .CustomTab.${buttonClasses.disabled} {
@@ -113,8 +113,8 @@ function Styles() {
         width: 100%;
         font-family: 'Quicksand', sans-serif;
         font-size: 0.875rem;
-        color: #662d91;
-        background-color: #d8bfd8;
+        color: #e2d1e6;
+        background-color: #9a5997;
         border-radius: 10px;
         padding: 4px; 
       }

@@ -1,0 +1,99 @@
+.selected-components {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0 auto;
+  padding: 0 6rem;
+  .date-card {
+    padding: 0;
+    margin: 1rem auto;
+    width: 14rem;
+    min-height: 21rem;
+    justify-content: center;
+    //   align-items: center;
+    .delete-button {
+        background-color: transparent;
+        cursor: pointer;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        top: 0.25rem;
+        right: -6.1rem;
+        .delete-button:hover {
+            fill: #e2d1e6; 
+            transition: fill 0.3s ease;
+        }
+    }
+
+    .date-card-img {
+      max-width: 12rem;
+      max-height: 13rem;
+      width: auto;
+      min-height: 11rem;
+      border-radius: 10%;
+      margin: 0 auto;
+      margin-top: -0.5rem;
+      // padding: 0.75rem;
+    }
+    .card-content {
+      margin: 0 auto;
+      height: 6rem;
+      .date-title {
+        font-family: Quicksand, sans serif;
+        font-weight: 600;
+        font-size: 1.1rem;
+        margin: 0;
+        padding: 0;
+      }
+      .restaurant-rating-price {
+        display: flex;
+        align-items: center;
+        padding-left: 0.5rem;
+        margin: 0.25rem;
+        justify-content: space-around;
+        .rating svg {
+          width: 80%;
+        }
+        .price {
+          width: 50%;
+          letter-spacing: 0.1rem;
+          font-weight: 500;
+          font-size: 1rem;
+          font-family: Quicksand, sans serif;
+        }
+      }
+      .date-type {
+        font-family: Quicksand, sans serif;
+        font-size: 0.8rem;
+      }
+    }
+    .card-menu {
+      margin: 0;
+      padding: 0;
+      .css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root,
+      .css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root.Mui-expanded {
+        min-height: 3rem;
+        height: auto;
+      }
+      .css-o4b71y-MuiAccordionSummary-content.Mui-expanded {
+        margin: 0;
+      }
+      .card-menu-title {
+        font-weight: 500;
+        font-size: 0.85rem;
+      }
+      p {
+        font-family: Quicksand, sans serif;
+        font-size: 0.8rem;
+      }
+      hr {
+        margin: 0.25rem;
+      }
+      .operating-hours {
+        width: 85%;
+        margin: 0 auto;
+      }
+    }
+  }
+}

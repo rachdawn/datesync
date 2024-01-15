@@ -3,11 +3,11 @@ body {
   overflow: scroll;
   
   .dashboard {
-    width: 100dvw;
-    margin-top: 75px;
-    margin-bottom: 20px;
-
-    .tabs {
+      width: 100dvw;
+      margin-top: 75px;
+      margin-bottom: 20px;
+      
+      .tabs {
       width: 100%;
       margin: 0 auto;
       display: flex;
@@ -35,10 +35,14 @@ body {
         margin: 15px;
       }
 
+      .no-date-message {
+        margin: 150px;
+      }
+
       .date-group {
         // justify-content: center;
         position: relative;
-        border: 1px solid beige;
+        border: 1px solid #9a5997;
         border-radius: 20px;
         max-width: 95vw;
         margin-bottom: 10px;
@@ -79,7 +83,7 @@ body {
           justify-content: center;
 
           .btn {
-            background-color: #662d91;
+            background-color: #6a3771;
             border: none;
             margin: 15px;
             color: white;
@@ -87,7 +91,7 @@ body {
 
           .btn:hover {
             background-color: #e1cce6;
-            color: #662d91;
+            color: #9a5997;
           }
 
           .badge {
@@ -148,7 +152,7 @@ body {
           display: flex;
           justify-content: center;
           position: relative;
-          border: 1px solid beige;
+          border: 1px solid #9a5997;
           border-radius: 20px;
           min-width: 65vw;
 
@@ -179,7 +183,7 @@ body {
 
           .divider {
             display: flex;
-            background: #662d91;
+            background: #9a5997;
             opacity: 75%;
             width: 2px;
             font-weight: bolder;
@@ -197,15 +201,15 @@ body {
             justify-content: center;
 
             .btn {
-              background-color: #662d91;
+              background-color: #6a3771;
               border: none;
               margin: 15px;
-              color: white;
+              color: #e2d1e6;
             }
 
             .btn:hover {
-              background-color: #e1cce6;
-              color: #662d91;
+              background-color: #9a5997;
+              color: #e2d1e6;
             }
 
             .badge {

@@ -1,9 +1,10 @@
 import FeatureDates from "../components/FeatureDates";
 import "../styles/LandingPage.scss";
-import Button from '@mui/material/Button';
+import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
-import { SignupButton } from "../components/auth/buttons/signup-button";
 import CreateAccountButton from "../components/auth/buttons/create-account-button";
+import TryWithoutAccountButton from "../components/auth/buttons/try-without-account-button";
+import SignUpForFreeButton from "../components/auth/buttons/sign-up-for-free-button";
 
 const LandingPage = () => {
   const featureDates = [
@@ -34,18 +35,24 @@ const LandingPage = () => {
   ];
 
   return (
-    <div className="landing-page">
+    <main className="landing-page">
       <section className="hero">
         <div className="hero-inner">
           <h1>DateSync</h1>
-          <h3>The best place to plan your Perfect Dates</h3>
-          <SignupButton asButton={true} className="btn btn-light"/>
+          <h3>The Best Place To Plan Your Perfect Dates</h3>
+           <section className="buttons">
+            <CreateAccountButton className="btn btn-secondary" />
+            <TryWithoutAccountButton className="btn btn-secondary" />
+           </section>
         </div>
       </section>
-      <main className="featured">
+      <div className="featured">
         <div className="feature-carousel">
           <div className="feature-title">
-            <h2>Feature Dates</h2>
+            <h2>
+              Perfect {new Date().toLocaleString("en-US", { month: "long" })}{" "}
+              Dates
+            </h2>
           </div>
           <div className="cards">
             {featureDates.map((date, index) => (
@@ -55,21 +62,8 @@ const LandingPage = () => {
             ))}
           </div>
         </div>
-      </main>
-      <section className="buttons">
-        <CreateAccountButton className="btn btn-secondary" />
-  
-        <Button
-          component={Link}
-          to="/create-date"
-          color="secondary"
-          variant="contained" 
-          className="btn btn-secondary" 
-        >
-          Try Without Account
-        </Button>
-      </section>
-    </div>
+      </div>
+    </main>
   );
 };
 

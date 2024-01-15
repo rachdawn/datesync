@@ -141,6 +141,7 @@ function TopNavBar() {
                       ? user.picture
                       : undefined
                   }
+                  referrerPolicy="no-referrer"
                 >
                   {!isAuthenticated || !user || !user.picture ? (
                     <PersonIcon />

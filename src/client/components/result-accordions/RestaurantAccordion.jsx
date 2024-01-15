@@ -17,9 +17,11 @@ export default function RestaurantAccordion({ restaurant, onAddToDate }) {
 
   // Format operating hours of the restaurants:
   const formatOperatingHours = (operatingHours) => {
+    if (!operatingHours) {
+        return "Operating Hours Unavailable"
+    }
     return Object.entries(operatingHours).map(([day, hours]) => `${day.charAt(0).toUpperCase() + day.slice(1)}: ${hours}`).join(', ');
   };
-
   return (
     <div className="result">
       <Accordion
