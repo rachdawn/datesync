@@ -51,7 +51,7 @@ const CitySelector = ({ onCitySelect, onCityNameSelect }) => {
 
   return (
     <Box >
-      <FormControl className="picker" required sx={{ minWidth: 150 }}>
+      <FormControl className="picker" required sx={{ minWidth: 140 }}>
         <InputLabel  id="select-city">Select A City</InputLabel>
         <Select
           labelId="select-city"

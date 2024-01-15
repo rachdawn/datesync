@@ -1,31 +1,35 @@
 .create-date .featured {
-  margin-top: 50px;
-  padding-top: 1rem;
+  padding-top: 4.25rem;
 }
-
+.landing-page .featured {
+    padding-bottom: 4rem;
+}
 .featured {
   justify-content: center;
-  background-color: #e1cce6;
-
+  background-color: #e2d1e6;
+  background-image: url("../assets/wild-flowers.png");
   .feature-title {
-    text-align: left;
+    text-align: center;
+    padding: 0.5rem;
 
     h2 {
       font-family: "Quicksand", sans-serif;
-      font-size: 1.25rem;
+      font-size: 0.9rem;
+      font-weight: 500;
       margin: 0;
-      padding-left: 0.5rem;    }
+      letter-spacing: 0.25rem;
+      text-transform: uppercase;
+    }
   }
 
   .feature-carousel {
-    color: #662d91;
-    padding-bottom: 0.75rem;
+    color: #6a3771;
+    padding-bottom: 1.75rem;
     padding-top: 0.5rem;
-    // width: 99vw;
-
+    
     .cards {
-      display: flex;
-      overflow-x: auto;
+        display: flex;
+        overflow-x: auto;
 
       .feature-card {
         margin: 0.5rem;
@@ -47,29 +51,31 @@
 }
 
 @media (min-width: 768px) {
-  .create-date .featured {
-    margin-top: 50px;
-    padding-top: 1rem;
-  }
+.landing-page .featured {
+    // height: 50dvh;
+    margin-bottom: 0;
+    padding-bottom: 4rem;
+}
 
   .featured {
-    margin-top: 20px;
     justify-content: center;
-    background-color: #e1cce6;
 
     .feature-title {
       text-align: center;
+      padding: 1rem;
 
       h2 {
-        font-family: 'Quicksand', sans-serif;
-        font-size: 1.5rem;
+        font-family: "Quicksand", sans-serif;
+        font-size: 1.15rem;
+        font-weight: 500;
         margin: 0;
+        letter-spacing: 0.25rem;
+        text-transform: uppercase;
       }
     }
     .feature-carousel {
-      color: #662d91;
       width: 100vw;
-      min-height: 10rem;
+      min-height: 25rem;
 
       .cards {
         display: flex;
@@ -77,7 +83,7 @@
         overflow-x: auto;
 
         .feature-card {
-          margin: 0.5rem;
+          margin: 0.75rem;
           padding: 0.5rem;
           width: 14rem;
           height: 20rem;

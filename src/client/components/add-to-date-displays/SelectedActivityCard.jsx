@@ -1,28 +1,49 @@
-import Typography from '@mui/material/Typography';
-import Card from '@mui/material/Card';
-import CardMedia from '@mui/material/CardMedia';
-import CardContent from '@mui/material/CardContent';
+import Typography from "@mui/material/Typography";
+import Card from "@mui/material/Card";
+import CardMedia from "@mui/material/CardMedia";
+import CardContent from "@mui/material/CardContent";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import DeleteIcon from "/src/client/assets/delete-icon.svg";
+import "/src/client/styles/DateComponentCards.scss";
 
 const SelectedActivityCard = ({ activity }) => {
-
   return (
-    <Card className="selected-card">
-      <div className="card-content">
-        <CardMedia
-          component="img"
-          className="result-img"
-          image={activity.thumbnail}
-          alt={activity.title}
-        />
-        <CardContent>
-        <Typography variant="h5">{activity.type}</Typography>
-          <Typography variant="h5">{activity.title}</Typography>
-          <Typography variant="subtitle1">{activity.description}</Typography>
+    <Card className="date-card">
+      <button className="delete-button">
+        <img src={DeleteIcon} alt="Remove Selection" />
+      </button>
+      <CardMedia
+        component="img"
+        className="date-card-img"
+        image={activity.thumbnail}
+        alt={activity.title}
+      />
+      <CardContent className="card-content">
+        <Typography className="date-title" variant="h5">
+          {activity.title}
+        </Typography>
+        <Typography className="date-type" variant="body2">
+          {activity.description}
+        </Typography>
+      </CardContent>
+      <Accordion className="card-menu">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1-content"
+          id="panel1-header"
+          className="card-menu-title"
+        >
+          Activity Details
+        </AccordionSummary>
+        <AccordionDetails>
           <Typography variant="body2">Address: {activity.address} </Typography>
-        </CardContent>
-      </div>
+        </AccordionDetails>
+      </Accordion>
     </Card>
   );
-}
+};
 
 export default SelectedActivityCard;
