@@ -5,22 +5,21 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import Box from "@mui/material/Box";
-import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
 import FeatureDates from "../components/FeatureDates";
 import CitySelector from "../components/CitySelector";
 import SearchButtons from "../components/SearchButtons";
-import SelectedRestaurantCard from "../components/add-to-date-displays/SelectedRestaurantCard";
-import SelectedEventCard from "../components/add-to-date-displays/SelectedEventCard";
-import SelectedActivityCard from "../components/add-to-date-displays/SelectedActivityCard";
-import SelectedMovieCard from "../components/add-to-date-displays/SelectedMovieCard";
+import SelectedRestaurantCard from "../components/add-to-date-displays/RestaurantDateCard";
+import SelectedEventCard from "../components/add-to-date-displays/EventDateCard";
+import SelectedActivityCard from "../components/add-to-date-displays/ActivityDateCard";
+import SelectedMovieCard from "../components/add-to-date-displays/MovieDateCard";
 
 const CreateDate = () => {
   const [coordinates, setCoordinates] = useState(null);
-  const [cityString, setCityString] = useState('');
-  const [componentsList, setComponentsList] = useState([{ category:'add' }]);
+  const [cityString, setCityString] = useState("");
+  const [componentsList, setComponentsList] = useState([{ category: "add" }]);
   const [selectedDateTime, setSelectedDateTime] = useState(null);
-  
+
   const featureDates = [
     {
       src: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -59,33 +58,30 @@ const CreateDate = () => {
   // Function to handle selections of any category of date component such as restaurant, activity, event and movie:
   const handleSelection = (category, data) => {
     // Add the selected item to componentsList and a new empty container:
-    setComponentsList([...componentsList.slice(0, -1), { category, data }, { category: 'add' }]);
+    setComponentsList([
+      ...componentsList.slice(0, -1),
+      { category, data },
+      { category: "add" },
+    ]);
   };
 
   // Function to render an added date component container based on its category:
   const renderContainer = (item, index) => {
     switch (item.category) {
-      case 'restaurant':
+      case "restaurant":
         return <SelectedRestaurantCard key={index} restaurant={item.data} />;
-      case 'event':
+      case "event":
         return <SelectedEventCard key={index} eventData={item.data} />;
-      case 'movie':
+      case "movie":
         return <SelectedMovieCard key={index} movie={item.data} />;
-      case 'activity':
+      case "activity":
         return <SelectedActivityCard key={index} activity={item.data} />;
-      case 'add':
+      case "add":
         return (
           <div key={index} className="component">
-              <Box sx={{ "& > :not(style)": { m: 1 } }}>
-                 <Fab
-                  className="add-button"
-                  size="small"
-                  color="secondary"
-                  aria-label="add"
-                >
-                  <AddIcon />
-                </Fab>
-              </Box>
+            <Box sx={{ "& > :not(style)": { m: 0 } }}>
+              <AddIcon className="add-button" />
+            </Box>
           </div>
         );
       default:
@@ -99,7 +95,10 @@ const CreateDate = () => {
         <section className="featured">
           <div className="feature-carousel">
             <div className="feature-title">
-              <h2>Feature Dates</h2>
+              <h2>
+                Perfect {new Date().toLocaleString("en-US", { month: "long" })}{" "}
+                Dates
+              </h2>
             </div>
             <div className="cards">
               {featureDates.map((date, index) => (
@@ -110,38 +109,39 @@ const CreateDate = () => {
             </div>
           </div>
         </section>
-
-        <div className="date-time-pickers">
-        <section className="city-picker">
-            <CitySelector
-              onCitySelect={handleCityChange}
-              onCityNameSelect={handleCityStringChange}
+        <div className="desktop-search-bar">
+          <div className="date-time-pickers">
+            <section className="city-picker">
+              <CitySelector
+                onCitySelect={handleCityChange}
+                onCityNameSelect={handleCityStringChange}
+              />
+            </section>
+            <section className="time-picker">
+              <DateTimePicker
+                className="picker"
+                labelId="time-picker"
+                label="Select Date & Time"
+                sx={{ minWidth: 215 }}
+                value={selectedDateTime}
+                onChange={setSelectedDateTime}
+                textField={(params) => <TextField {...params} />}
+              />
+            </section>
+          </div>
+          <div className="component-search">
+            <SearchButtons
+              coordinates={coordinates}
+              cityString={cityString}
+              handleSelection={handleSelection}
             />
-          </section>
-          <section className="time-picker">
-            <DateTimePicker
-              className="picker"
-              labelId="time-picker"
-              label="Select Date & Time"
-              sx={{ minWidth: 200 }}
-              value={selectedDateTime}
-              onChange={setSelectedDateTime}
-              textField={(params) => <TextField {...params} />}
-            />
-          </section>
+          </div>
+        </div>
+        <div className="selected-components">
+          {/* Map over componentsList and render based on the category */}
+          {componentsList.map((item, index) => renderContainer(item, index))}
         </div>
 
-        <section className="date-components">
-            <div className="component">
-              <SearchButtons 
-                coordinates={coordinates} 
-                cityString={cityString} 
-                handleSelection={handleSelection}
-                />
-            </div>
-          {/* Map over componentsList and render based on the category */}
-          {componentsList.map((item, index) => renderContainer(item, index))} 
-        </section>
         <section className="complete">
           <div className="buttons">
             <button>Save for later</button>
