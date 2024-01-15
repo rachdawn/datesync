@@ -284,7 +284,6 @@ const CreateDate = () => {
         </section>
         <section className="complete">
           <div className="buttons">
-            <button>Save for later</button>
             <button onClick={handleCompleteDate}>Complete Date</button>
           </div>
         </section>
