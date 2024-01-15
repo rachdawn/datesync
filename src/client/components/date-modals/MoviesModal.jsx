@@ -8,24 +8,39 @@ import closeSymbol from "/src/client/assets/closeSymbol.svg";
 import LottieSpinner from "../LottieSpinner";
 import useLoading from "../hooks/useLoading";
 import Typography from "@mui/material/Typography";
+import CitySelectionAlert from "../CitySelectionAlert";
 
 export default function MoviesModal({ cityString, onMovieSelection }) {
   const [open, setOpen] = useState(false);
   const [movies, setMovies] = useState([]);
   const [isLoading, startLoading, stopLoading] = useLoading();
-  
+  const [showAlert, setShowAlert] = useState(false)
+
+  const isDisabled = !cityString;
+
   useEffect(() => {
     if (open) {
       fetchMovies();
     }
   }, [open]);
 
-  const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const handleShowtimeSelect = (selectedShowtime) => {
     onMovieSelection(selectedShowtime); 
     handleClose(); 
+  };
+
+  const handleButtonClick = (event) => {
+    if(isDisabled) {
+      setShowAlert(true);
+    } else {
+      setOpen(true);
+    }
+  };
+
+  const handleCloseAlert = () => {
+    setShowAlert(false);
   };
 
   const fetchMovies = async () => {
@@ -49,7 +64,10 @@ export default function MoviesModal({ cityString, onMovieSelection }) {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Search Movies</Button>
+      <Button onClick={handleButtonClick}>
+        Search Movies
+      </Button>
+      {showAlert && <CitySelectionAlert onClose={handleCloseAlert} />}
       <Modal
         open={open}
         onClose={handleClose}

@@ -10,6 +10,7 @@ import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import Box from "@mui/material/Box";
 import AddIcon from "@mui/icons-material/Add";
 import FeatureDates from "../components/FeatureDates";
+import mockFeatureDates from "../components/mockFeatureDates";
 import CitySelector from "../components/CitySelector";
 import SearchButtons from "../components/SearchButtons";
 import SelectedRestaurantCard from "../components/add-to-date-displays/SelectedRestaurantCard"
@@ -25,33 +26,6 @@ const CreateDate = () => {
   const { user, isAuthenticated } = useAuth0();
   // This is using react routers useNavigate which can redirect the user to a specified page seamlessly:
   const navigate = useNavigate();
-
-  const featureDates = [
-    {
-      src: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      title: "Healthy date",
-      description:
-        "Nourish love with a delightful, nutritious dinner, a romantic stroll, and shared laughter under starlight.",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      title: "Fancy lunch",
-      description:
-        "Savor exquisite flavors in a chic ambiance with our gourmet lunch, a sophisticated culinary indulgence awaits.",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      title: "Late-night drinks",
-      description:
-        "Sip under the stars in a cozy ambiance, where late-night drinks spark laughter, intimacy, and connection.",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1539056276907-dc946d5098c9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      title: "Friends Dinner",
-      description:
-        "Relish a delightful evening with friends over a homemade feast, laughter, and shared memories together.",
-    },
-  ];
 
   const handleCityChange = (selectedCoordinates) => {
     setCoordinates(selectedCoordinates);
@@ -70,7 +44,6 @@ const CreateDate = () => {
       { category: "add" },
     ]);
   };
-
 
   // This is a helper function to extract and format component data from the componentsList:
   const extractComponentData = (componentsList) => {
@@ -167,19 +140,28 @@ const CreateDate = () => {
     }
   };
   
-
   // Function to handle the 'Complete Date' button click:
   const handleCompleteDate = async () => {
     if (isAuthenticated && user) {
       // We extract and format the component data
       const formattedComponents = extractComponentData(componentsList);
       console.log(user.email);
+
+      // We check if a date and time have been selected:
+      let isDraft = false;
+      let scheduledDate = null;
+      if (!selectedDateTime) {
+        isDraft = true;
+      } else {
+        scheduledDate = selectedDateTime.toISOString();
+      }
+
       // We can prepare the data including the user email and formatted date and time from the date picker:
       const completeDateData = {
         user_email: user.email, 
         // Based on selected date and time from user we need to format the selected date and time in ISO 8601 format for the db to accept it:
-        scheduled_date: selectedDateTime.toISOString(),
-        is_draft: false,
+        scheduled_date: scheduledDate,
+        is_draft: isDraft,
         default_location: cityString,
         components: formattedComponents
       }
@@ -231,7 +213,7 @@ const CreateDate = () => {
               </h2>
             </div>
             <div className="cards">
-              {featureDates.map((date, index) => (
+              {mockFeatureDates.map((date, index) => (
                 <div key={index}>
                   <FeatureDates date={date} />
                 </div>
@@ -274,7 +256,6 @@ const CreateDate = () => {
 
         <section className="complete">
           <div className="buttons">
-            <button>Save for later</button>
             <button onClick={handleCompleteDate}>Complete Date</button>
           </div>
         </section>
