@@ -27,6 +27,7 @@ const SelectedEventCard = ({ eventData }) => {
         </Typography>
         <Typography className="date-type" variant="body2">
           When: {eventData.time}
+          <a href={eventData.link}>{eventData.link}</a>
         </Typography>
       </CardContent>
       <Accordion className="card-menu">

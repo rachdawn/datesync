@@ -1,12 +1,12 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import Button from "@mui/material/Button";
 
-const CreateAccountButton = ({ className }) => {
+const SignUpForFreeButton = ({ className }) => {
   const { isAuthenticated, loginWithRedirect } = useAuth0();
 
   if (isAuthenticated) return null;
 
-  const handleCreateAccount = async () => {
+  const handleSignUpForFree = async () => {
     await loginWithRedirect({
       appState: {
         returnTo: "/create-date",
@@ -21,12 +21,12 @@ const CreateAccountButton = ({ className }) => {
     <Button
       variant="contained"
       color="secondary" 
-      onClick={handleCreateAccount}
+      onClick={handleSignUpForFree}
       className={className}
     >
-      Create Account
+      Sign up for free
     </Button>
   );
 };
 
-export default CreateAccountButton;
+export default SignUpForFreeButton;

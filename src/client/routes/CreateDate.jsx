@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
+import axios from "axios";
 import "../styles/CreateDate.scss";
 import "../styles/SearchModals.scss";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -19,6 +22,9 @@ const CreateDate = () => {
   const [cityString, setCityString] = useState("");
   const [componentsList, setComponentsList] = useState([{ category: "add" }]);
   const [selectedDateTime, setSelectedDateTime] = useState(null);
+  const { user, isAuthenticated } = useAuth0();
+  // This is using react routers useNavigate which can redirect the user to a specified page seamlessly:
+  const navigate = useNavigate();
 
   const featureDates = [
     {
@@ -63,6 +69,130 @@ const CreateDate = () => {
       { category, data },
       { category: "add" },
     ]);
+  };
+
+
+  // This is a helper function to extract and format component data from the componentsList:
+  const extractComponentData = (componentsList) => {
+    return componentsList
+      .filter(component => component.category !== 'add')
+      .map(component => {
+        // Format each component based on its category
+        switch (component.category) {
+          case 'restaurant':
+            return formatRestaurantData(component.data);
+          case 'event':
+            return formatEventData(component.data);
+          case 'movie':
+            return formatMovieData(component.data);
+          case 'activity':
+            return formatActivityData(component.data);
+          default:
+            return null;
+        }
+      });
+  };
+
+  // Functions to format data for each date category:
+  const formatRestaurantData = (data) => {
+    return {
+      category: 'restaurant',
+      name: data.title,
+      address: data.address,
+      rating: data.rating,
+      price_level: convertPriceLevel(data.price),
+      cuisine_type: data.type,
+      opening_hours: data.operating_hours,
+      closing_hours: null, 
+      website_url: data.website,
+      photo_url: data.thumbnail
+    };
+  };
+
+  const formatEventData = (data) => {
+    return {  
+      category: 'event',
+      title: data.title,
+      description: data.description,
+      start_date_time: data.time, 
+      end_date_time: null,     
+      location_name: data.venue,
+      address: data.address,
+      event_type: null,
+      price: null,
+      event_url: data.link,
+      photo_url: data.thumbnail
+    };
+  };
+
+  const formatMovieData = (data) => {
+    return {
+      category: 'movie',
+      movie_title: data.movie.title,
+      start_time: data.showtime.time,
+      duration: null,
+      movie_theatre: data.showtime.theater.name,
+      synopsis: data.movie.details,
+      photo_url: data.movie.image,
+      address: data.showtime.theater.address,
+      movie_url: null
+    };
+  };
+
+  const formatActivityData = (data) => {
+    return {
+      category: 'activity',
+      activity_type: data.type,
+      location_name: data.title,
+      address: data.address,
+      description: data.description,
+      photo_url: data.thumbnail,
+      activity_url: null
+    };
+  };
+
+  // Function to convert the price level string to integer as we have it in $$:
+  const convertPriceLevel = (priceLevelString) => {
+    switch (priceLevelString) {
+      case '$':
+        return 1;
+      case '$$':
+        return 2;
+      case '$$$':
+        return 3;
+      case '$$$$':
+        return 4;
+      default:
+        return 0; 
+    }
+  };
+  
+
+  // Function to handle the 'Complete Date' button click:
+  const handleCompleteDate = async () => {
+    if (isAuthenticated && user) {
+      // We extract and format the component data
+      const formattedComponents = extractComponentData(componentsList);
+      console.log(user.email);
+      // We can prepare the data including the user email and formatted date and time from the date picker:
+      const completeDateData = {
+        user_email: user.email, 
+        // Based on selected date and time from user we need to format the selected date and time in ISO 8601 format for the db to accept it:
+        scheduled_date: selectedDateTime.toISOString(),
+        is_draft: false,
+        default_location: cityString,
+        components: formattedComponents
+      }
+
+      try {
+        // API call to save date details and navigate to dashboard upon success:
+        const response = await axios.post('/api/save-complete-date', completeDateData);
+        console.log('Date saved successfully:', response.data);
+        navigate("/dashboard");
+      } catch (error) {
+        console.error('Error with handleCompleteDate for saving date:', error);
+      }
+    };
   };
 
   // Function to render an added date component container based on its category:
@@ -125,7 +255,7 @@ const CreateDate = () => {
                 sx={{ minWidth: 215 }}
                 value={selectedDateTime}
                 onChange={setSelectedDateTime}
-                textField={(params) => <TextField {...params} />}
+                slotProps={{ textField: { variant: 'outlined' } }}
               />
             </section>
           </div>
@@ -145,7 +275,7 @@ const CreateDate = () => {
         <section className="complete">
           <div className="buttons">
             <button>Save for later</button>
-            <button>Complete Date</button>
+            <button onClick={handleCompleteDate}>Complete Date</button>
           </div>
         </section>
       </main>

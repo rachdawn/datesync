@@ -1,18 +1,15 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import Button from "@mui/material/Button";
 
-const CreateAccountButton = ({ className }) => {
+const TryWithoutAccountButton = ({ className }) => {
   const { isAuthenticated, loginWithRedirect } = useAuth0();
 
   if (isAuthenticated) return null;
 
-  const handleCreateAccount = async () => {
+  const handleTryWithoutAccount = async () => {
     await loginWithRedirect({
       appState: {
         returnTo: "/create-date",
-      },
-      authorizationParams: {
-        screen_hint: "signup",
       },
     });
   };
@@ -21,12 +18,12 @@ const CreateAccountButton = ({ className }) => {
     <Button
       variant="contained"
       color="secondary" 
-      onClick={handleCreateAccount}
+      onClick={handleTryWithoutAccount}
       className={className}
     >
-      Create Account
+      Try without account
     </Button>
   );
 };
 
-export default CreateAccountButton;
+export default TryWithoutAccountButton;

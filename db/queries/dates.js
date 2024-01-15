@@ -1,4 +1,8 @@
 import db from '../connection.js';
+import { insertRestaurant } from './restaurants.js';
+import { insertActivity } from './activities.js';
+import { insertEvent } from './events.js';
+import { insertMovie } from './movies.js';
 
 const getDateComponents = async (id, options) => {
   let queryString = `
@@ -49,7 +53,7 @@ const getDateComponents = async (id, options) => {
 
   queryString += `;`;
   
-  const queryParams = [id || 1];
+  const queryParams = [id];
 
   try {
     const data = await db.query(queryString, queryParams);
@@ -75,4 +79,52 @@ const deleteDate = async (dateId) => {
   }
 };
 
-export { getDateComponents, deleteDate };
+// Function to insert completed date details in db:
+const saveDateDetails = async (dateDetails) => {
+  try {
+    // Get the user ID from the email:
+    const userId = dateDetails.owner_id;
+    console.log("userId is", userId);
+
+    // We insert into dates table:
+    const insertDateQuery = `
+      INSERT INTO dates (owner_id, scheduled_date, default_location, is_draft)
+      VALUES ($1, $2, $3, $4)
+      RETURNING id;`;
+
+      const dateValues = [
+        userId,
+        dateDetails.scheduled_date,
+        dateDetails.default_location,
+        dateDetails.is_draft
+      ];
+
+      const dateResult = await db.query(insertDateQuery, dateValues);
+      const dateId = dateResult.rows[0].id;
+      console.log('Date saved:', dateResult.rows[0]);
+      // For each component in dateDetails, we can insert into the respective table:
+      for (const component of dateDetails.components) {
+        switch (component.category) {
+          case 'restaurant':
+            await insertRestaurant(dateId, component);
+            break;
+          case 'event':
+            await insertEvent(dateId, component);
+            break;
+          case 'movie':
+            await insertMovie(dateId, component);
+            break;
+          case 'activity':
+            await insertActivity(dateId, component);
+            break;
+        }
+      }
+      
+  } catch (err) {
+    throw err;
+  }
+
+};
+
+
+export { getDateComponents, deleteDate, saveDateDetails };

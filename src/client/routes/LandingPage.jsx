@@ -3,6 +3,8 @@ import "../styles/LandingPage.scss";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import CreateAccountButton from "../components/auth/buttons/create-account-button";
+import TryWithoutAccountButton from "../components/auth/buttons/try-without-account-button";
+import SignUpForFreeButton from "../components/auth/buttons/sign-up-for-free-button";
 
 const LandingPage = () => {
   const featureDates = [
@@ -38,16 +40,10 @@ const LandingPage = () => {
         <div className="hero-inner">
           <h1>DateSync</h1>
           <h3>The Best Place To Plan Your Perfect Dates</h3>
-          <CreateAccountButton className="btn btn-secondary" />
-          <Button
-            component={Link}
-            to="/create-date"
-            color="secondary"
-            variant="contained"
-            className="btn btn-secondary"
-          >
-            Try Without An Account
-          </Button>
+           <section className="buttons">
+            <CreateAccountButton className="btn btn-secondary" />
+            <TryWithoutAccountButton className="btn btn-secondary" />
+           </section>
         </div>
       </section>
       <div className="featured">

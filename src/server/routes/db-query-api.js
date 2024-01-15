@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getDateComponents, deleteDate } from '../../../db/queries/dates.js';
+import { getDateComponents, deleteDate, saveDateDetails } from '../../../db/queries/dates.js';
 import { addUser, checkUserExists, getUserByEmail } from '../../../db/queries/auth0users.js';
 
 const router = Router();
@@ -56,6 +56,7 @@ router.post('/delete/:dateId', (req, res) => {
   })
 });
 
+// Route to add user info to db; does not add if already exists:
 router.post('/users', async (req, res) => {
   try {
     console.log("Received data for user:", req.body);
@@ -75,19 +76,36 @@ router.post('/users', async (req, res) => {
   }
 });
 
-
-// POST route to add a new event to the db:
-router.post('/events', async (req, res) => {
+// POST route to save complete date details:
+router.post('/save-complete-date', async (req, res) => {
   try {
-    const eventData = req.body;
-    await insertEvent(eventData);
-    res.status(201).json({ message: 'Event added successfully' });
+    const { user_email, scheduled_date, is_draft, default_location, components } = req.body;
+    // We find the user ID based on email:
+    const user = await getUserByEmail(user_email);
+
+    if (!user || user.length === 0) {
+      res.status(404).send('User not found');
+      return;
+    }
+    const userId = user[0].id;
+    console.log("Your userId is", userId);
+
+    // We add the necessary date info to dateDetails
+    const dateDetails = {
+      owner_id: userId,
+      scheduled_date: scheduled_date,
+      is_draft: is_draft,
+      default_location: default_location,
+      components
+    };
+
+    // We save the complete date details by calling saveDateDetails function from the db queries file 'dates.js':
+    await saveDateDetails(dateDetails);
+    res.status(201).send({ message: 'Date saved successfully' });
   } catch (error) {
-    console.error('Error adding event:', error.message);
-    res.status(500).json({ error: 'Failed to add event' });
+    console.error('Error in /save-complete-date:', error);
+    res.status(500).send({ error: 'Failed to save date' });
   }
 });
-
-
 
 export default router;

@@ -1,8 +1,8 @@
 INSERT INTO users (email, given_name, family_name, location)
 VALUES
-('ana@email.com', 'Ana', 'Franco', 'Vancouver'),
-('dd@email.com', 'David', 'Giroux', 'Montreal'),
-('rach@email.com', 'Rach', 'Little', 'Edmonton'),
+('anmeuri@gmail.com', 'Ana', 'Franco', 'Vancouver'),
+('davidgiroux149@gmail.com', 'David', 'Giroux', 'Montreal'),
+('racheldawnlittle@gmail.com', 'Rachel', 'Little', 'Edmonton'),
 ('ai@email.com', 'Alice', 'Wonder', 'Toronto'),
 ('john@email.com', 'John', 'Doe', 'Calgary'),
 ('jane@email.com', 'Jane', 'Smith', 'Winnipeg'),
