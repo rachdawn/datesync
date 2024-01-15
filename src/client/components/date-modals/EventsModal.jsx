@@ -6,12 +6,14 @@ import Modal from "@mui/material/Modal";
 import EventsSelect from "../search-forms/EventsSelect";
 import closeSymbol from "/src/client/assets/closeSymbol.svg";
 import EventAccordion from "../result-accordions/EventAccordion";
+import CitySelectionAlert from '../CitySelectionAlert';
 
 export default function EventsModal({ cityString, onEventSelect }) {
   const [open, setOpen] = useState(false);
   const [eventsData, setEventsData] = useState([]);
+  const [showAlert, setShowAlert] = useState(false)
 
-  const handleOpen = () => setOpen(true);
+  const isDisabled = !cityString;
   const handleClose = () => setOpen(false);
 
   const onEventsFetched = (fetchedData) => {
@@ -24,9 +26,24 @@ export default function EventsModal({ cityString, onEventSelect }) {
     handleClose(); 
   };
 
+  const handleButtonClick = (event) => {
+    if(isDisabled) {
+      setShowAlert(true);
+    } else {
+      setOpen(true);
+    }
+  };
+
+  const handleCloseAlert = () => {
+    setShowAlert(false);
+  };
+
   return (
     <div>
-      <Button onClick={handleOpen}>Search Events</Button>
+      <Button onClick={handleButtonClick}>
+        Search Events
+      </Button>
+      {showAlert && <CitySelectionAlert onClose={handleCloseAlert} />}
       <Modal
         open={open}
         onClose={handleClose}

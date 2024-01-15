@@ -6,12 +6,14 @@ import Modal from "@mui/material/Modal";
 import ActivitiesSelect from "../search-forms/ActivitiesSelect";
 import closeSymbol from "/src/client/assets/closeSymbol.svg";
 import ActivitiesAccordion from "../result-accordions/ActivitiesAccordion";
+import CitySelectionAlert from "../CitySelectionAlert";
 
 export default function ActivitiesModal({ coordinates, onActivitySelect }) {
   const [open, setOpen] = useState(false);
   const [activities, setActivities] = useState([]); 
+  const [showAlert, setShowAlert] = useState(false)
 
-  const handleOpen = () => setOpen(true);
+  const isDisabled = !coordinates;
   const handleClose = () => setOpen(false);
 
   const onActivitiesFetched = (fetchedData) => {
@@ -24,9 +26,24 @@ export default function ActivitiesModal({ coordinates, onActivitySelect }) {
     handleClose(); 
   };
 
+  const handleButtonClick = (event) => {
+    if(isDisabled) {
+      setShowAlert(true);
+    } else {
+      setOpen(true);
+    }
+  };
+
+  const handleCloseAlert = () => {
+    setShowAlert(false);
+  };
+
   return (
     <div>
-      <Button onClick={handleOpen}>Search Activities</Button>
+      <Button onClick={handleButtonClick}>
+        Search Activities
+      </Button>
+      {showAlert && <CitySelectionAlert onClose={handleCloseAlert} />}
       <Modal
         open={open}
         onClose={handleClose}
