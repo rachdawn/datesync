@@ -1,12 +1,12 @@
-import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+import Typography from "@mui/material/Typography";
+import React, { useState } from "react";
+import SelectionAlert from "../SelectionAlert";
+import ActivitiesAccordion from "../result-accordions/ActivitiesAccordion";
 import ActivitiesSelect from "../search-forms/ActivitiesSelect";
 import closeSymbol from "/src/client/assets/closeSymbol.svg";
-import ActivitiesAccordion from "../result-accordions/ActivitiesAccordion";
-import CitySelectionAlert from "../CitySelectionAlert";
 
 export default function ActivitiesModal({ coordinates, onActivitySelect }) {
   const [open, setOpen] = useState(false);
@@ -43,7 +43,12 @@ export default function ActivitiesModal({ coordinates, onActivitySelect }) {
       <Button onClick={handleButtonClick}>
         Search Activities
       </Button>
-      {showAlert && <CitySelectionAlert onClose={handleCloseAlert} />}
+      {showAlert && (
+      <SelectionAlert 
+        onClose={handleCloseAlert} 
+        message="Please select a city first."
+      />
+      )}
       <Modal
         open={open}
         onClose={handleClose}

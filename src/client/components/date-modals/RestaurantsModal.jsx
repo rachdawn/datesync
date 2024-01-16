@@ -1,12 +1,12 @@
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import RestaurantSelect from "../search-forms/RestaurantSelect";
-import RestaurantAccordion from "../result-accordions/RestaurantAccordion";
-import closeSymbol from "/src/client/assets/closeSymbol.svg";
+import Typography from "@mui/material/Typography";
 import React, { useState } from 'react';
-import CitySelectionAlert from "../CitySelectionAlert";
+import SelectionAlert from "../SelectionAlert";
+import RestaurantAccordion from "../result-accordions/RestaurantAccordion";
+import RestaurantSelect from "../search-forms/RestaurantSelect";
+import closeSymbol from "/src/client/assets/closeSymbol.svg";
 
 export default function RestaurantsModal({ coordinates, onRestaurantSelect }) {
   const [open, setOpen] = useState(false);
@@ -45,7 +45,12 @@ export default function RestaurantsModal({ coordinates, onRestaurantSelect }) {
       <Button onClick={handleButtonClick}>
         Search Restaurants
       </Button>
-      {showAlert && <CitySelectionAlert onClose={handleCloseAlert} />}
+      {showAlert && (
+      <SelectionAlert 
+        onClose={handleCloseAlert} 
+        message="Please select a city first."
+      />
+      )}
       <Modal
         open={open}
         onClose={handleClose}
