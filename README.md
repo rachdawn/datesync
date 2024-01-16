@@ -2,8 +2,8 @@
 
 #### Screenshots
 
-
 ## Table of Contents
+
 - [Introduction](#introduction)
 - [Project Setup](#projectSetup)
 - [Installation](#installation)
@@ -20,13 +20,14 @@
 
 ## Introduction
 
+DateSync is the place where you can plan and create the best dates for you to share with your friends and loved ones. Take advantage of this amazing platform where you can search restaurants, events, movies and activities and put them together in
 
 ## Project Setup
 
 This WebApp, HaggleHub, was the first experience that either member of our group had ever built. As such, it was important to find common ground as early in the process as possible to reduce any miscommunication and unwanted team dynamic. To combat this, we did the following:
 
 - Built a project plan outline on a five day development period.
-- Held daily morning SCRUM meetings. 
+- Held daily morning SCRUM meetings.
 - Invested time in the planning phase to design our user stories.
 - Created the ERD and Database Schemas.
 
@@ -38,74 +39,85 @@ This WebApp, HaggleHub, was the first experience that either member of our group
 ## Installation
 
 To set up the project locally:
-```
 
 1. Clone the repository:
-bash
 
-  $ git clone https://github.com/lighthouse-labs/node-skeleton
-  
- 2. Navigate to the Project Directory
+2. Navigate to the Project Directory
 
-  $  cd your-project
+```
+$  cd date_planner
+```
 
 3. Install Dependencies
 
-  $  npm install bcrypt
-  $  npm install cookie-session
-
 ```
+$  npm install
+```
+
 ## Database setup
+
 To set up the database:
 
 ```
   $ npm install pg
+```
 
-1.Start Postgrest server
+1.Start Postgres server
 
-  $ startpostgres
+```
+$ startpostgres
+```
 
-2. Enter Postgres to begin creating schema and adding data to 
+2. Enter Postgres to begin creating schema and adding data to
 
-  $  psql
+```
+$  psql
+```
 
 3. Create database
 
-  $ CREATE DATABASE Hagglehub OWNER >!(insert postgresql username)!<; 
-
 ```
+# CREATE DATABASE planner OWNER >!(insert postgresql username)!<;
+```
+
 ## Usage
 
- To run the web app locally, use the following commands:
- ```
+To run the web app locally, use the following commands:
 
 1. Start the Server:
 
-    npm run local 
-
-2. Open Your Browser: Navigate to http://localhost:8080.
-
 ```
+  $ npm run start
+```
+
+2. Open Your Browser: Navigate to http://localhost:3000.
+
 # Configuration
 
 ## Routes
- ### User/Login/Logout Routes:
- These routes are responsible for handling user authentication and user/admin authorization.
 
-  ### Product Routes:
- These routes are responsible for product categorization, product updating, deletion and information(stock) modification, as in the case of use by admin.
+### User/Login/Logout Routes:
 
- ### Message Routes:
- The routes primarily deal with messaging between user and admin. Due to the nature of time, these messages are attached to product id. Should we have more resources, we would love to expand these routes to include sockets for live chat functionality.
+These routes are responsible for handling user authentication and user/admin authorization.
+
+### Product Routes:
+
+These routes are responsible for product categorization, product updating, deletion and information(stock) modification, as in the case of use by admin.
+
+### Message Routes:
+
+The routes primarily deal with messaging between user and admin. Due to the nature of time, these messages are attached to product id. Should we have more resources, we would love to expand these routes to include sockets for live chat functionality.
 
 ### Middleware
- - morgan: HTTP request logger middleware.
- - express.urlencoded: Middleware to parse incoming request bodies.
- - sassMiddleware: Middleware for compiling SASS/SCSS files.
- - express.static: Middleware for serving static files.
- - cookieSession: Middleware for parsing incoming cookies.
+
+- morgan: HTTP request logger middleware.
+- express.urlencoded: Middleware to parse incoming request bodies.
+- sassMiddleware: Middleware for compiling SASS/SCSS files.
+- express.static: Middleware for serving static files.
+- cookieSession: Middleware for parsing incoming cookies.
 
 ### Dependencies
+
 - bcryptjs
 - chalk
 - cookie-session
@@ -127,13 +139,15 @@ To set up the database:
 - Admin Features: Expanding the capabilities for admin users.
 
 ### Challenges
+
 - Route/Endpoint Definition: Challenges in defining routes and endpoints.
 - Backend-Frontend Integration: Ensuring seamless integration.
 - In-App Messaging: Ongoing development of a robust messaging system.
 
 ## Contributing
+
 This webApp was a labor of love of the LHL Alpha Group Trio. Comprised of Ana Franco, David Giroux and Gerald Mwangi. Many thanks to the instructors and mentors OF LHL whose opinions helped us build it.
 
 ## License
- This project is licensed under the imaginary demo License of 2023. It does not expire nor is it issuable to anyone other than LHL Cohort of 16 Oct West. Any use of this license must be approved after by a committee of the LHL Alpha Group with a minimum wait period of 42 days since the date of license request.
 
+This project is licensed under the imaginary demo License of 2023. It does not expire nor is it issuable to anyone other than LHL Cohort of 16 Oct West. Any use of this license must be approved after by a committee of the LHL Alpha Group with a minimum wait period of 42 days since the date of license request.
