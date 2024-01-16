@@ -25,7 +25,7 @@ const CreateDate = () => {
   const [componentsList, setComponentsList] = useState([{ category: "add" }]);
   const [selectedDateTime, setSelectedDateTime] = useState(null);
   const [showAlert, setShowAlert] = useState(false);
-  const { user, isAuthenticated } = useAuth0();
+  const { user, isAuthenticated, loginWithRedirect } = useAuth0();
   // This is using react routers useNavigate which can redirect the user to a specified page seamlessly:
   const navigate = useNavigate();
 
@@ -228,6 +228,16 @@ const CreateDate = () => {
     setShowAlert(false);
   };
 
+  // Function to handle the 'Sign Up' button click for unauthenticated users:
+  const handleSignUpClick = () => {
+    loginWithRedirect({
+      // Takes user to auth0 signup form:
+      authorizationParams: {
+        screen_hint: "signup",
+      },
+    }); 
+  };
+
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <main className="create-date">
@@ -283,7 +293,11 @@ const CreateDate = () => {
 
         <section className="complete">
           <div className="buttons">
+          {isAuthenticated ? (
             <button onClick={handleButtonClick}>Complete Date</button>
+          ) : (
+            <button onClick={handleSignUpClick}>Sign Up for More Features</button>
+          )}
             {showAlert && (
             <SelectionAlert 
               message="Please make at least one date selection." 
