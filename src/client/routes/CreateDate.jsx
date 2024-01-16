@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
@@ -17,12 +17,14 @@ import SelectedRestaurantCard from "../components/add-to-date-displays/SelectedR
 import SelectedEventCard from "../components/add-to-date-displays/SelectedEventCard";
 import SelectedActivityCard from "../components/add-to-date-displays/SelectedActivityCard";
 import SelectedMovieCard from "../components/add-to-date-displays/SelectedMovieCard";
+import SelectionAlert from "../components/SelectionAlert";
 
 const CreateDate = () => {
   const [coordinates, setCoordinates] = useState(null);
   const [cityString, setCityString] = useState("");
   const [componentsList, setComponentsList] = useState([{ category: "add" }]);
   const [selectedDateTime, setSelectedDateTime] = useState(null);
+  const [showAlert, setShowAlert] = useState(false);
   const { user, isAuthenticated } = useAuth0();
   // This is using react routers useNavigate which can redirect the user to a specified page seamlessly:
   const navigate = useNavigate();
@@ -181,13 +183,13 @@ const CreateDate = () => {
   const renderContainer = (item, index) => {
     switch (item.category) {
       case "restaurant":
-        return <SelectedRestaurantCard key={index} restaurant={item.data} />;
+        return <SelectedRestaurantCard key={index} restaurant={item.data} onDelete={() => handleDeleteRachelStuff(index)} />;
       case "event":
-        return <SelectedEventCard key={index} eventData={item.data} />;
+        return <SelectedEventCard key={index} eventData={item.data} onDelete={() => handleDeleteRachelStuff(index)} />;
       case "movie":
-        return <SelectedMovieCard key={index} movie={item.data} />;
+        return <SelectedMovieCard key={index} movie={item.data} onDelete={() => handleDeleteRachelStuff(index)} />;
       case "activity":
-        return <SelectedActivityCard key={index} activity={item.data} />;
+        return <SelectedActivityCard key={index} activity={item.data} onDelete={() => handleDeleteRachelStuff(index)} />;
       case "add":
         return (
           <div key={index} className="component">
@@ -199,6 +201,31 @@ const CreateDate = () => {
       default:
         return null;
     }
+  };
+
+  // Function that will remove a date component from the components list based on its index:
+  const handleDeleteRachelStuff = (index) => {
+    setComponentsList((prevComponentsList) =>
+      prevComponentsList.filter((_, i) => i !== index)
+    );
+  };
+
+  // We use useMemo here to memoize the calculation of whether the 'Complete Date' button should be enabled; the calculation is dependent on the componentsList:
+  const isCompleteDateEnabled = useMemo(() => {
+    // It checks if there is at least one selection in componentsList that is not just the 'add icon' placeholder container:
+    return componentsList.some(component => component.category !== 'add');
+  }, [componentsList]);
+
+  const handleButtonClick = () => {
+    if (!isCompleteDateEnabled) {
+      setShowAlert(true);
+    } else {
+      handleCompleteDate();
+    }
+  };
+
+  const handleCloseAlert = () => {
+    setShowAlert(false);
   };
 
   return (
@@ -256,7 +283,13 @@ const CreateDate = () => {
 
         <section className="complete">
           <div className="buttons">
-            <button onClick={handleCompleteDate}>Complete Date</button>
+            <button onClick={handleButtonClick}>Complete Date</button>
+            {showAlert && (
+            <SelectionAlert 
+              message="Please make at least one date selection." 
+              onClose={handleCloseAlert}
+            />
+            )}
           </div>
         </section>
       </main>
