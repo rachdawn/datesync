@@ -94,6 +94,20 @@
         width: 85%;
         margin: 0 auto;
       }
+
+      a {
+        word-break: break-all; // Breaks the line between any two characters for very long words
+        overflow-wrap: break-word; // Allows unbreakable words to be broken
+        white-space: normal; // Ensures normal text wrapping is applied
+        text-overflow: ellipsis; // Adds an ellipsis if the text overflows
+        overflow: hidden; // Hides any overflow not handled by text-overflow
+        display: block; // Makes the link take the full width of its container
+        max-width: 100%; // Ensures the link does not exceed its container's width
+        color: #6a3771; // Example link color, change as needed
+        &:hover {
+          text-decoration: underline; // Example hover effect, change as needed
+        }
+      }
     }
   }
 }
