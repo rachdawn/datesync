@@ -37,7 +37,7 @@ DateSync is the place where you can plan and create the best dates for you to sh
   - Drafts: Dates that still don't have a set date to happen.
   - Past Dates: Dates that already happened.
 
-- :iphone: **Responsive**: DateSync is a responsive web app, to make sure our users that prefer creating dates on the go have a smooth experience.
+ :iphone: DateSync is a **responsive** web app, to make sure our users have a smooth experience if they prefer creating dates on the go.
 
 ## Project Setup
 
@@ -65,7 +65,7 @@ $  npm install
 To set up the database:
 
 ```
-  $ npm install pg
+$ npm install pg
 ```
 
 1.Start Postgres server
@@ -83,7 +83,7 @@ $  psql
 3. Create database
 
 ```
-# CREATE DATABASE planner OWNER >!(insert postgresql username)!<;
+# CREATE DATABASE planner OWNER >insert postgresql username<;
 ```
 
 4. Set your database:
@@ -97,7 +97,7 @@ $ npm run db:reset
 To run the web app locally, use the following commands:
 
 ```
-  $ npm run start
+$ npm run start
 ```
 Navigate to http://localhost:3000.
 
