@@ -9,8 +9,6 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import Box from "@mui/material/Box";
 import AddIcon from "@mui/icons-material/Add";
-import FeatureDates from "../components/FeatureDates";
-import mockFeatureDates from "../components/mockFeatureDates";
 import CitySelector from "../components/CitySelector";
 import SearchButtons from "../components/SearchButtons";
 import SelectedRestaurantCard from "../components/add-to-date-displays/SelectedRestaurantCard";
@@ -18,6 +16,7 @@ import SelectedEventCard from "../components/add-to-date-displays/SelectedEventC
 import SelectedActivityCard from "../components/add-to-date-displays/SelectedActivityCard";
 import SelectedMovieCard from "../components/add-to-date-displays/SelectedMovieCard";
 import SelectionAlert from "../components/SelectionAlert";
+import FeaturedDatesCarousel from "../components/FeaturedDatesCarousel";
 
 const CreateDate = () => {
   const [coordinates, setCoordinates] = useState(null);
@@ -232,6 +231,9 @@ const CreateDate = () => {
   const handleSignUpClick = () => {
     loginWithRedirect({
       // Takes user to auth0 signup form:
+      appState: {
+        returnTo: "/create-date",
+      },
       authorizationParams: {
         screen_hint: "signup",
       },
@@ -249,13 +251,7 @@ const CreateDate = () => {
                 Dates
               </h2>
             </div>
-            <div className="cards">
-              {mockFeatureDates.map((date, index) => (
-                <div key={index}>
-                  <FeatureDates date={date} />
-                </div>
-              ))}
-            </div>
+            < FeaturedDatesCarousel />
           </div>
         </section>
         <div className="desktop-search-bar">
