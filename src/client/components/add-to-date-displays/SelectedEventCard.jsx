@@ -27,7 +27,6 @@ const SelectedEventCard = ({ eventData, onDelete }) => {
         </Typography>
         <Typography className="date-type" variant="body2">
           When: {eventData.time}
-          <a href={eventData.link}>{eventData.link}</a>
         </Typography>
       </CardContent>
       <Accordion className="card-menu">
@@ -43,6 +42,8 @@ const SelectedEventCard = ({ eventData, onDelete }) => {
           <Typography variant="body2">{eventData.description}</Typography>
           <hr />
           <Typography variant="body2">{eventData.address}</Typography>
+          <hr />
+          <a href={eventData.link}>{eventData.link}</a>
         </AccordionDetails>
       </Accordion>
     </Card>
