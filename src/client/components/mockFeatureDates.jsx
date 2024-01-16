@@ -10,7 +10,7 @@ const mockFeatureDates = [
     src: Mediterranean,
     title: "Hydra Estiatorio",
     type: "Greek Restaurant",
-    description: "Hydra offers quality Mediterranean dishes that will take you to the aquamarine waters of Greece.",
+    description: "Situated in Vancouver, Hydra offers quality Mediterranean dishes that will take you to the aquamarine waters of Greece.",
     website: "https://www.hydravancouver.com/",
   },
   {
@@ -24,14 +24,14 @@ const mockFeatureDates = [
     src: IceRinkMountRoyalPark,
     title: "Mont Royal Park",
     type: "Ice Rink Activity",
-    description: "Experience the magic of winter by ice skating on Mount Royal's picturesque outdoor rink",
+    description: "Experience the magic of winter by ice skating on Mount Royal's picturesque outdoor rink.",
     website: "https://www.lemontroyal.qc.ca/en",
   },
   {
     src: IglooFest,
     title: "Igloofest",
     type: "Music Festival",
-    description: "Join the winter celebration at Montreal's Igloofest, an outdoor electronic music festival",
+    description: "Join the winter celebration at Montreal's Igloofest, an outdoor electronic music festival.",
     website: "https://www.igloofest.ca/",
   },
   {
