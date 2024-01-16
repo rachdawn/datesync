@@ -36,7 +36,7 @@ const mockFeatureDates = [
   },
   {
     src: Clockwork,
-    title: "Clockwork Champagne & Cocktails",
+    title: "Clockwork Cocktails",
     type: "Cocktail Bar",
     description: "Step into Clockwork Champagne & Cocktails, Toronto's premier destination for an elegant evening.",
     website: "https://www.clockworktoronto.com/",
