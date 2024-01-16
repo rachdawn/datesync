@@ -10,7 +10,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import DeleteIcon from "/src/client/assets/delete-icon.svg";
 import "/src/client/styles/DateComponentCards.scss";
 
-const SelectedMovieCard = ({ movie }) => {
+const SelectedMovieCard = ({ movie, onDelete }) => {
   // The movie object is nested within another object thus the following destructuring:
   const {
     movie: { title, image, details },
@@ -20,7 +20,7 @@ const SelectedMovieCard = ({ movie }) => {
 
   return (
     <Card className="date-card">
-      <button className="delete-button">
+      <button className="delete-button" onClick={onDelete}>
         <img src={DeleteIcon} alt="Remove Selection" />
       </button>
       <CardMedia

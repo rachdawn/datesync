@@ -1,14 +1,14 @@
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
+import Typography from "@mui/material/Typography";
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import MoviesNearMe from '../MoviesNearMe';
-import closeSymbol from "/src/client/assets/closeSymbol.svg";
 import LottieSpinner from "../LottieSpinner";
+import MoviesNearMe from '../MoviesNearMe';
+import SelectionAlert from "../SelectionAlert";
 import useLoading from "../hooks/useLoading";
-import Typography from "@mui/material/Typography";
-import CitySelectionAlert from "../CitySelectionAlert";
+import closeSymbol from "/src/client/assets/closeSymbol.svg";
 
 export default function MoviesModal({ cityString, onMovieSelection }) {
   const [open, setOpen] = useState(false);
@@ -67,7 +67,12 @@ export default function MoviesModal({ cityString, onMovieSelection }) {
       <Button onClick={handleButtonClick}>
         Search Movies
       </Button>
-      {showAlert && <CitySelectionAlert onClose={handleCloseAlert} />}
+      {showAlert && (
+      <SelectionAlert 
+        onClose={handleCloseAlert} 
+        message="Please select a city first."
+      />
+      )}
       <Modal
         open={open}
         onClose={handleClose}
