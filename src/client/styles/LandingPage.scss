@@ -3,7 +3,7 @@
 //   max-height: 100vh;
   padding: 0;
   font-family: 'Quicksand', sans-serif;
-  overflow: scroll;
+//   overflow: scroll;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/background-hero-skyline-couple.jpeg");
   background-position: 30% 30%;
   background-size: 170vw 80vh;
@@ -40,7 +40,7 @@
   .landing-page {
     padding: 0;
     font-family: 'Quicksand', sans-serif;
-    overflow: scroll;
+    // overflow: scroll;
     background-image: none;
 
     .btn {
