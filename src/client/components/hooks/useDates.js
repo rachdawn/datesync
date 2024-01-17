@@ -56,7 +56,7 @@ const useDates = (apiEndpoint, queryParams) => {
   const formatDateTime = (dateTimeString) => {
     const options = {
       year: "numeric",
-      month: "short",
+      month: "long",
       day: "numeric",
       hour: "numeric",
       minute: "numeric",

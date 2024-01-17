@@ -38,7 +38,7 @@ const SelectedRestaurantCard = ({ restaurant, onDelete }) => {
         image={restaurant.thumbnail}
         alt={restaurant.title}
       />
-      <CardContent className="card-content">
+      <div className="card-content">
         <Typography className="date-title" variant="h5">
           {restaurant.title}
         </Typography>
@@ -60,7 +60,7 @@ const SelectedRestaurantCard = ({ restaurant, onDelete }) => {
             {restaurant.price}
           </Typography>
         </div>
-      </CardContent>
+      </div>
       <Accordion className="card-menu">
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -78,9 +78,9 @@ const SelectedRestaurantCard = ({ restaurant, onDelete }) => {
             {formatOperatingHours(restaurant.operating_hours)}
           </Typography>
           <hr />
-          <a href={restaurant.website}>
-            {restaurant.website}
-          </a>
+          <Typography variant="body2">
+            <a href={restaurant.website}>{restaurant.website}</a>
+          </Typography>
         </AccordionDetails>
       </Accordion>
     </Card>

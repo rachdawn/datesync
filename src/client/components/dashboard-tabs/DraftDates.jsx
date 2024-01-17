@@ -8,25 +8,22 @@ const DraftDates = () => {
   const { user } = useAuth0();
   const { datesByGroup, deleteDate, formatDateTime } = useDates("api/dates", {
     drafts: true,
-    email: user.email
+    email: user.email,
   });
 
-    const dates = Object.keys(datesByGroup);
-    const descOrderedDates = dates.reverse();
+  const dates = Object.keys(datesByGroup);
+  const descOrderedDates = dates.reverse();
 
   return (
     <>
-      <h2 className="date-title">Dates</h2>
       {descOrderedDates.length === 0 ? (
         <h5 className="no-date-message">No Drafts to display</h5>
       ) : (
         descOrderedDates.map((dateId, index) => (
-          <div key={index}>
-            <div className="date-group">
-              <div className="date-initial-info">
-                <p>Date & Time: To be defined</p>
-              </div>
+          <div className="date-group">
+            <h4 className="date-title">When: To Be Defined</h4>
 
+            <div key={index} className="date-group-components">
               <Divider
                 className="divider"
                 orientation="vertical"
