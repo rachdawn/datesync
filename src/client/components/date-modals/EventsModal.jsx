@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+import Typography from "@mui/material/Typography";
+import React, { useState } from 'react';
+import SelectionAlert from '../SelectionAlert';
+import EventAccordion from "../result-accordions/EventAccordion";
 import EventsSelect from "../search-forms/EventsSelect";
 import closeSymbol from "/src/client/assets/closeSymbol.svg";
-import EventAccordion from "../result-accordions/EventAccordion";
-import CitySelectionAlert from '../CitySelectionAlert';
 
 export default function EventsModal({ cityString, onEventSelect }) {
   const [open, setOpen] = useState(false);
@@ -43,7 +43,12 @@ export default function EventsModal({ cityString, onEventSelect }) {
       <Button onClick={handleButtonClick}>
         Search Events
       </Button>
-      {showAlert && <CitySelectionAlert onClose={handleCloseAlert} />}
+      {showAlert && (
+      <SelectionAlert 
+        onClose={handleCloseAlert} 
+        message="Please select a city first."
+      />
+      )}
       <Modal
         open={open}
         onClose={handleClose}
