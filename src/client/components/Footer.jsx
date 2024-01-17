@@ -8,31 +8,31 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
     <footer className="footer-container">
-        <Row className="row-footer">
-          <Col className="footer-socials">
+        <div className="row-footer">
+          <div className="footer-socials">
             <h5 className="footer-title">Follow Us</h5>
             <div className="footer-icons">
               <FaFacebookF />
               <FaTwitter />
               <FaInstagram />
             </div>
-          </Col>
-          <Col className="footer-navigation">
+          </div>
+          <div className="footer-navigation">
             <Link to={"/"}>HOME</Link>
             <Link to={"/create-date"}>CREATE YOUR PERFECT DATE</Link>
             <Link to={"/dashboard"}>DASHBOARD</Link>
-          </Col>
-          <Col className="footer-contact">
+          </div>
+          <div className="footer-contact">
             <h5 className="footer-title">Contact Us</h5>
             <div className="footer-icons">
               <EmailOutlinedIcon /> 
               <PhoneOutlinedIcon /> 
             </div>
-          </Col>
-        </Row>
-        <Row className="copyright">
+          </div>
+        </div>
+        <div className="copyright">
           <div>© {new Date().getFullYear()} DateSync</div>
-        </Row>
+        </div>
     </footer>
   );
 };
