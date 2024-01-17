@@ -38,7 +38,7 @@ const SelectedRestaurantCard = ({ restaurant }) => {
         image={restaurant.thumbnail}
         alt={restaurant.title}
       />
-      <CardContent className="card-content">
+      <div className="card-content">
         <Typography className="date-title" variant="h5">
           {restaurant.title}
         </Typography>
@@ -60,7 +60,7 @@ const SelectedRestaurantCard = ({ restaurant }) => {
             {restaurant.price}
           </Typography>
         </div>
-      </CardContent>
+      </div>
       <Accordion className="card-menu">
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -77,9 +77,10 @@ const SelectedRestaurantCard = ({ restaurant }) => {
           <Typography className="operating-hours" variant="body2">
             {formatOperatingHours(restaurant.operating_hours)}
           </Typography>
-           <a href={restaurant.website}>
-            {restaurant.website}
-          </a>
+          <hr />
+          <Typography variant="body2">
+            <a href={restaurant.website}>{restaurant.website}</a>
+          </Typography>
         </AccordionDetails>
       </Accordion>
     </Card>
