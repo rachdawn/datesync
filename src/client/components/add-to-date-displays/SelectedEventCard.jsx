@@ -1,7 +1,6 @@
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
-import CardContent from "@mui/material/CardContent";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
@@ -21,14 +20,14 @@ const SelectedEventCard = ({ eventData, onDelete }) => {
         image={eventData.thumbnail}
         alt={eventData.title}
       />
-      <CardContent className="card-content">
+      <div className="card-content">
         <Typography className="date-title" variant="h5">
           {eventData.title}
         </Typography>
         <Typography className="date-type" variant="body2">
-          When: {eventData.time}
+          {eventData.time}
         </Typography>
-      </CardContent>
+      </div>
       <Accordion className="card-menu">
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -43,7 +42,9 @@ const SelectedEventCard = ({ eventData, onDelete }) => {
           <hr />
           <Typography variant="body2">{eventData.address}</Typography>
           <hr />
-          <a href={eventData.link}>{eventData.link}</a>
+          <Typography variant="body2">
+            <a href={eventData.link}>{eventData.link}</a>
+          </Typography>
         </AccordionDetails>
       </Accordion>
     </Card>

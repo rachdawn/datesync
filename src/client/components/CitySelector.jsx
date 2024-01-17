@@ -51,13 +51,13 @@ const CitySelector = ({ onCitySelect, onCityNameSelect }) => {
 
   return (
     <Box >
-      <FormControl className="picker" required sx={{ minWidth: 140 }}>
+      <FormControl className="picker" required sx={{ minWidth: 145 }}>
         <InputLabel  id="select-city">Select A City</InputLabel>
         <Select
           labelId="select-city"
           id="select-city"
           value={selectedCity}
-          label="Select A City *"
+          label="Select A City"
           onChange={handleCityChange}
         >
           {Object.keys(cityDetails).map((cityKey) => (

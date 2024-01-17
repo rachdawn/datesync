@@ -1,6 +1,5 @@
 import React from "react";
 import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import CardMedia from "@mui/material/CardMedia";
 import Accordion from "@mui/material/Accordion";
@@ -29,14 +28,14 @@ const SelectedMovieCard = ({ movie, onDelete }) => {
         image={image}
         alt={title}
       />
-      <CardContent className="card-content">
+      <div className="card-content">
         <Typography className="date-title" variant="h5" component="div">
           {title}
         </Typography>
         <Typography className="date-type" variant="body2">
           Selected Showtime: {day}, {date} at {time}
         </Typography>
-      </CardContent>
+      </div>
       <Accordion className="card-menu">
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}

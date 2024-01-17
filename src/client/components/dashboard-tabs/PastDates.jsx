@@ -17,22 +17,19 @@ const PastDates = () => {
 
   return (
     <>
-      <h2 className="date-title">Dates</h2>
       {descOrderedDates.length === 0 ? (
         <h5 className="no-date-message">No Past Dates to display</h5>
       ) : (
         descOrderedDates.map((dateId, index) => (
-          <div key={index}>
             <div className="date-group">
-              <div className="date-initial-info">
-                <p>
-                  Date & Time:{" "}
+              <h4 className="date-title">
+                  When:{" "}
                   {datesByGroup[dateId][0].scheduled_date
                     ? formatDateTime(datesByGroup[dateId][0].scheduled_date)
-                    : " To be defined"}
-                </p>
-              </div>
+                    : " To Be Defined"}
+              </h4>
 
+              <div key={index} className="date-group-components">
               <Divider
                 className="divider"
                 orientation="vertical"

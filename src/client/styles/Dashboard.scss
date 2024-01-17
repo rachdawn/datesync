@@ -1,38 +1,37 @@
 body {
   width: 100dvw;
-  overflow-x: hidden;
-  
+  margin: 0 auto;
+  //   overflow: scroll;
+
   .dashboard {
-      width: 100dvw;
-      margin-top: 75px;
-      margin-bottom: 20px;
-      
-      .tabs {
-      width: 100%;
-      margin: 0 auto;
+    margin: 4.5rem auto;
+    // margin-bottom: 4rem;
+    justify-content: center;
+
+    .tabs {
+      //   width: 95%;
       display: flex;
       flex-wrap: wrap;
+      padding: 0.5rem;
     }
 
     .list {
-      height: 50px;
-      width: 95vw;
+      //   height: 50px;
+      // width: 95%;
+      margin: 0 0.5rem;
     }
 
     .panel {
-      width: 90vw;
+      padding: 0;
+      margin: 0 1rem;
+      .date-title {
+        color: #e1cce6;
+        font-size: 1rem;
+        font-weight: 500;
 
-      h2.date-title {
-        color: white;
-        font-weight: bold;
-        font-size: 25px;
-        margin: 10px;
-      }
-
-      h4.date-title {
-        color: white;
-        font-size: 15px;
-        margin: 15px;
+        padding: 0.75rem;
+        margin-top: 0.75rem;
+        margin-bottom: -0.5rem;
       }
 
       .no-date-message {
@@ -40,29 +39,27 @@ body {
       }
 
       .date-group {
-        // justify-content: center;
+        background-color: #6a3771;
+        border-radius: 1.25rem;
+        margin: 0;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
         position: relative;
-        border: 1px solid #9a5997;
-        border-radius: 20px;
-        max-width: 95vw;
-        margin-bottom: 10px;
-        padding-bottom: 15px;
 
         article {
-          padding: 0.1rem;
+          padding: 0.5rem;
           border-radius: 10px;
 
           .date-component-cards {
             margin: 0 auto;
-            padding: 1rem;
+            padding: 0.75rem;
             min-width: 280px;
             max-width: 150px;
 
             img {
               margin: 0 auto;
-              max-width: 10rem;
-              min-height: 12rem;
-              // margin: 10px;
+              max-width: 9rem;
+              min-height: 9rem;
               border-radius: 5px;
             }
           }
@@ -83,10 +80,13 @@ body {
           justify-content: center;
 
           .btn {
-            background-color: #6a3771;
-            border: none;
-            margin: 15px;
-            color: white;
+            background-color: #9a5997;
+            color: #e1cce6;
+            border-radius: 30%;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.4rem;
+            margin: 1rem;
           }
 
           .btn:hover {
@@ -98,7 +98,11 @@ body {
             position: absolute;
             top: 10px;
             right: 10px;
-            font-size: 12px;
+            font-size: 0.75rem;
+            background-color: #e2d1e6;
+            color: #9a5997;
+            padding: 0.4rem;
+            border-radius: 40%;
           }
 
           .btn-dashboard {
@@ -111,59 +115,49 @@ body {
 
   @media (min-width: 768px) {
     .dashboard {
-      max-width: 90%;
-      margin-top: 80px;
+      margin: 5rem auto;
+      //   justify-content: center;
 
       .tabs {
-        width: 90dvw;
-        margin: 10px auto;
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
       }
 
       .list {
-        height: 50px;
-        max-width: 70dvw;
+        margin: 0 5rem;
       }
 
       .panel {
-        max-width: 70dvw;
-        padding-bottom: 50px;
-        display: flex;
         align-items: center;
-        justify-content: center;
-        flex-direction: column;
-
-        h2.date-title {
-          color: white;
-          font-weight: bold;
-          font-size: 25px;
-          margin: 10px;
-        }
-
-        h4.date-title {
-          color: white;
-          font-size: 15px;
-          margin: 15px;
-        }
+        flex-direction: row;
+        // max-width: 90dvw;
+        // padding-bottom: 50px;
+        //   display: flex;
+        //   justify-content: center;
+        margin: 1rem 6rem;
 
         .no-date-message {
-        margin: 150px;
-      }
+          margin: 150px;
+        }
 
         .date-group {
           display: flex;
+          flex-direction: row;
           justify-content: center;
           position: relative;
-          border: 1px solid #9a5997;
-          border-radius: 20px;
-          min-width: 65vw;
-
-          .date-initial-info {
+          .date-title {
+            font-size: 1rem;
+            font-weight: 500;
             display: flex;
+            // margin: 0.25rem;
+            //   margin: 15px;
+          }
+
+          .date-group-components {
+            display: flex;
+            flex-direction: row;
             justify-content: center;
-            flex-direction: column;
+            margin: 0.5rem;
           }
 
           article {
@@ -172,6 +166,7 @@ body {
             border-radius: 10px;
 
             .date-component-cards {
+              display: inline-flexbox;
               padding: 1rem;
               min-width: 280px;
               max-width: 150px;
@@ -205,20 +200,13 @@ body {
             flex-direction: column;
             justify-content: center;
 
-            .btn {
-              background-color: #6a3771;
-              border: none;
-              margin: 15px;
-              color: #e2d1e6;
-            }
-
-            .btn:hover {
-              background-color: #9a5997;
-              color: #e2d1e6;
-            }
 
             .badge {
               position: absolute;
+              background-color: #e2d1e6;
+              color: #9a5997;
+              padding: 0.5rem;
+              border-radius: 35%;
               top: 10px;
               right: 20px;
             }

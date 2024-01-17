@@ -13,10 +13,12 @@ const SelectionAlert = ({ onClose, message }) => {
         borderColor: '#662d91', 
         color: '#662d91', 
         '& .MuiAlert-icon': {
-          color: '#662d91', 
+          color: '#e1cce6', 
+          fontSize: '0.75rem',
         },
         '& .MuiAlert-message': {
-          color: '#662d91', 
+          color: '#e1cce6', 
+          fontSize: '0.75rem'
         }
       }}
       >

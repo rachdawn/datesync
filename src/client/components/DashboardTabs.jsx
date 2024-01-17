@@ -1,14 +1,14 @@
-import * as React from 'react';
-import { useTheme } from '@mui/system';
-import { Tabs } from '@mui/base/Tabs';
-import { TabsList } from '@mui/base/TabsList';
-import { TabPanel } from '@mui/base/TabPanel';
-import { buttonClasses } from '@mui/base/Button';
-import { Tab, tabClasses } from '@mui/base/Tab';
-import AllDates from './dashboard-tabs/AllDates';
-import UpcomingDates from './dashboard-tabs/UpcomingDates';
-import DraftDates from './dashboard-tabs/DraftDates';
-import PastDates from './dashboard-tabs/PastDates';
+import * as React from "react";
+import { useTheme } from "@mui/system";
+import { Tabs } from "@mui/base/Tabs";
+import { TabsList } from "@mui/base/TabsList";
+import { TabPanel } from "@mui/base/TabPanel";
+import { buttonClasses } from "@mui/base/Button";
+import { Tab, tabClasses } from "@mui/base/Tab";
+import AllDates from "./dashboard-tabs/AllDates";
+import UpcomingDates from "./dashboard-tabs/UpcomingDates";
+import DraftDates from "./dashboard-tabs/DraftDates";
+import PastDates from "./dashboard-tabs/PastDates";
 
 export default function DashboardTabs() {
   return (
@@ -16,7 +16,7 @@ export default function DashboardTabs() {
       <Tabs defaultValue={1} className="tabs">
         <TabsList className="CustomTabsList list">
           <Tab className="CustomTab" value={1}>
-            All Dates
+            All
           </Tab>
           <Tab className="CustomTab" value={2}>
             Upcoming
@@ -25,7 +25,7 @@ export default function DashboardTabs() {
             Drafts
           </Tab>
           <Tab className="CustomTab" value={4}>
-            Past Dates
+            Past
           </Tab>
         </TabsList>
         <TabPanel className="CustomTabPanel panel" value={1}>
@@ -48,7 +48,7 @@ export default function DashboardTabs() {
 
 function useIsDarkMode() {
   const theme = useTheme();
-  return theme.palette.mode === 'dark';
+  return theme.palette.mode === "dark";
 }
 
 function Styles() {
@@ -61,7 +61,9 @@ function Styles() {
         text-wrap: nowrap;
         background-color: #9a5997;
         border-radius: 10px;
-        margin-bottom: 12px;
+        // margin: 0 auto;
+        // margin-bottom: 12px;
+        padding: 0.25rem;
         width: 100%;
         display: flex;
         align-items: center;
@@ -75,12 +77,12 @@ function Styles() {
         font-family: 'Quicksand', sans-serif;
         color: #e2d1e6;;
         cursor: pointer;
-        font-size: 0.9rem;
-        font-weight: bold;
+        font-size: 1rem;
+        font-weight: 600;
         background-color: transparent;
         width: 100%;
-        line-height: 1.7;
-        padding: 6px;
+        line-height: 1.6;
+        padding: 0.5rem;
         margin: 2px;
         border: none;
         border-radius: 8px;
@@ -96,7 +98,7 @@ function Styles() {
 
       .CustomTab:focus {
         color: #e2d1e6;
-        outline: 1px solid #fff;
+        outline: 1px solid #e2d1e6;
       }
 
       .CustomTab.${tabClasses.selected} {
@@ -114,7 +116,7 @@ function Styles() {
         font-family: 'Quicksand', sans-serif;
         font-size: 0.875rem;
         color: #e2d1e6;
-        background-color: #9a5997;
+        background-color: transparent;
         border-radius: 10px;
         padding: 4px; 
       }

@@ -151,7 +151,7 @@ body {
           align-items: center;
           justify-content: center;
           margin: 0 auto;
-          width: 30%;
+          width: 40%;
 
 
           .css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root,
@@ -168,16 +168,16 @@ body {
         }
         .time-picker {
             width: 100%;
-            border-radius: 12px;
             .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input {
-                height: 1rem;
+                border-radius: 10px;
+                // height: 1rem;
             }
         }
         .city-picker {
             margin-top: 1.55rem;
             width: 100%;
-            border-radius: 12px;
             .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.MuiSelect-select {
+                border-radius: 12px;
                 height: 1rem;
             }
           }
@@ -191,7 +191,7 @@ body {
         }
 
         .component-search {
-          width: 60%;
+          width: 50%;
           background-color: transparent;
           padding: 0;
           margin: 0 auto;
