@@ -36,6 +36,8 @@ DateSync is the place where you can plan and create the best dates for you to sh
   - Upcoming Dates: Dates that will happen in the future.
   - Drafts: Dates that still don't have a set date to happen.
   - Past Dates: Dates that already happened.
+    
+ At the dashboard, you're also able to share and delete your dates. 
 
  :iphone: DateSync is a **responsive** web app, to make sure our users have a smooth experience if they prefer creating dates on the go.
 
@@ -142,9 +144,9 @@ This application relies on APIs provided by [SerpApi](https://serpapi.com/):
 - **Redo Date** 
   * This feature will allow users to create a new date using the same components of a completed date, having to only edit the date and time it will happen.
 - **Edit Date**
-  * This feature will allow users to edit a date component without having to create a new date from scratch: choose other date components and update date and time.
+  * This feature will allow users to edit a created date without having to create a new date from scratch: choose other date components and update the date and time. It will also allow users to share the date with another user so they can both edit the date simultaneously.
 - **PWA - Progressive Web App**
-  * Transforming DateSync in a PWA will allow users to download the app to their mobile devices, making it even more accessible on their day-to-day life.
+  * Transforming DateSync in a PWA will allow users to download the app to their mobile devices, making it even more accessible in their day-to-day lives.
 
 ## Developers
 
