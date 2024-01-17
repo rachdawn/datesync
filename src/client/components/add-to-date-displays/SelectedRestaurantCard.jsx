@@ -12,7 +12,7 @@ import Button from "@mui/material/Button";
 import DeleteIcon from "/src/client/assets/delete-icon.svg";
 import "/src/client/styles/DateComponentCards.scss";
 
-const SelectedRestaurantCard = ({ restaurant }) => {
+const SelectedRestaurantCard = ({ restaurant, onDelete }) => {
   const formatOperatingHours = (operatingHours) => {
     if (!operatingHours) {
       return "Operating Hours Unavailable";
@@ -29,7 +29,7 @@ const SelectedRestaurantCard = ({ restaurant }) => {
 
   return (
     <Card className="date-card">
-      <button className="delete-button">
+      <button className="delete-button" onClick={onDelete}>
         <img src={DeleteIcon} alt="Remove Selection" />
       </button>
       <CardMedia
@@ -77,7 +77,8 @@ const SelectedRestaurantCard = ({ restaurant }) => {
           <Typography className="operating-hours" variant="body2">
             {formatOperatingHours(restaurant.operating_hours)}
           </Typography>
-           <a href={restaurant.website}>
+          <hr />
+          <a href={restaurant.website}>
             {restaurant.website}
           </a>
         </AccordionDetails>

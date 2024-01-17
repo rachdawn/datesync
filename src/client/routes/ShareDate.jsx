@@ -25,7 +25,6 @@ const ShareDate = () => {
                   : " To be defined"}
               </span>
               <br />
-              <span className="location">Location: </span>
             </div>
           </section>
           <main className="date-components">

@@ -1,10 +1,7 @@
-import FeatureDates from "../components/FeatureDates";
 import "../styles/LandingPage.scss";
-import Button from "@mui/material/Button";
-import { Link } from "react-router-dom";
 import CreateAccountButton from "../components/auth/buttons/create-account-button";
 import TryWithoutAccountButton from "../components/auth/buttons/try-without-account-button";
-import mockFeatureDates from "../components/mockFeatureDates";
+import FeaturedDatesCarousel from "../components/FeaturedDatesCarousel";
 
 const LandingPage = () => {
 
@@ -28,13 +25,7 @@ const LandingPage = () => {
               Dates
             </h2>
           </div>
-          <div className="cards">
-            {mockFeatureDates.map((date, index) => (
-              <div key={index}>
-                <FeatureDates date={date} />
-              </div>
-            ))}
-          </div>
+          <FeaturedDatesCarousel />
         </div>
       </div>
     </main>

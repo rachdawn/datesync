@@ -40,7 +40,7 @@
           display: none;
         }
         img {
-          max-width: 90%;
+          max-width: 60%;
           height: 90%;
           border-radius: 10px;
           margin: 10px auto;
@@ -63,6 +63,7 @@
     .feature-title {
       text-align: center;
       padding: 1rem;
+      color: #6a3771;
 
       h2 {
         font-family: "Quicksand", sans-serif;
@@ -74,8 +75,9 @@
       }
     }
     .feature-carousel {
-      width: 100vw;
-      min-height: 25rem;
+      width: 80vw;
+      min-height: auto;
+      margin: 0 auto;
 
       .cards {
         display: flex;

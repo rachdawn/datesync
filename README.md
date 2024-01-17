@@ -1,139 +1,156 @@
-# Date Planner
+# DateSync
 
-#### Screenshots
+DateSync is the place where you can plan and create the best dates for you to share with your friends and loved ones. Take advantage of this amazing platform where you can search for local restaurants, events, movies, and activities and put them together in a shareable date plan.
 
+## Final Product
+
+!["screenshot"](url)
 
 ## Table of Contents
-- [Introduction](#introduction)
-- [Project Setup](#projectSetup)
-- [Installation](#installation)
-- [Database Setup](#databaseSetup)
+
+- [Features](#features)
+- [Project Setup](#project-setup)
+- [Database Setup](#database-setup)
 - [Usage](#usage)
-- [Configuration](#configuration)
+- [Stack](#stack)
 - [Routes](#routes)
-- [Middleware](#middleware)
-- [Dependencies](#dependencies)
-- [Future Developments](#futureDevelopments)
-- [Challenges](#challenges)
-- [Contributing](#contributing)
-- [License](#license)
+- [Future Developments](#future-developments)
+- [Developers](#developers)
 
-## Introduction
+## Features
+- :date: **Create Dates**: At the Create Your Perfect Date page you're able to search for Restaurants, Events, Activities and Movies based on your chosen location.
+  - After choosing your location, navigate to your chosen category and choose from the list of options.
+  - Restaurants:
+    - You're able to filter by Restaurant Types, Price Level, and Rating
+      - Casual: Cafes & Coffee Shops, Pizza, Pubs & Diners, Breweries & Lounges, and Breakfast & Brunch
+      - Cuisine Type: Steakhouse, Italian, Mexican, Asian, Indian
+  - Events:
+      - Event types: Sports, Concerts, Festivals, Nightlife, Live Theatre, and Comedy Shows
+  - Movies:
+      - The movies selection will show all movies playing at theatres near your selected location. After choosing a movie, you'll be able to choose a showtime.
+  - Activities:
+      - Choose between Trails, Lakes, Museums, Zoos, Beaches, and Ice Skating
 
+- :card_file_box: **Dashboard**: At the Dashboard page you have access to all dates you've created in the past. Navigate among the different tabs:
+  - All Dates: All of your created dates.
+  - Upcoming Dates: Dates that will happen in the future.
+  - Drafts: Dates that still don't have a set date to happen.
+  - Past Dates: Dates that already happened.
+    
+ At the dashboard, you're also able to share and delete your dates. 
+
+ :iphone: DateSync is a **responsive** web app, to make sure our users have a smooth experience if they prefer creating dates on the go.
 
 ## Project Setup
 
-This WebApp, HaggleHub, was the first experience that either member of our group had ever built. As such, it was important to find common ground as early in the process as possible to reduce any miscommunication and unwanted team dynamic. To combat this, we did the following:
-
-- Built a project plan outline on a five day development period.
-- Held daily morning SCRUM meetings. 
-- Invested time in the planning phase to design our user stories.
-- Created the ERD and Database Schemas.
-
-## Completed Features
-
-- In-App Messaging: Currently a work in progress, this feature aims to facilitate communication between buyers and sellers directly within the app.
-- User Requirements and Admin Specific Features: We've implemented core functionalities tailored to both regular users and admins, ensuring a robust and secure experience for managing listings and user interactions.
-
-## Installation
-
 To set up the project locally:
+
+1. Clone the repository.
+```
+$ git clone git@github.com:anamspe/datesync.git
 ```
 
-1. Clone the repository:
-bash
+2. Navigate to the Project Directory
 
-  $ git clone https://github.com/lighthouse-labs/node-skeleton
-  
- 2. Navigate to the Project Directory
-
-  $  cd your-project
+```
+$  cd datesync
+```
 
 3. Install Dependencies
 
-  $  npm install bcrypt
-  $  npm install cookie-session
-
 ```
+$  npm install
+```
+
 ## Database setup
+
 To set up the database:
 
 ```
-  $ npm install pg
+$ npm install pg
+```
 
-1.Start Postgrest server
+1.Start Postgres server
 
-  $ startpostgres
+```
+$ startpostgres
+```
 
-2. Enter Postgres to begin creating schema and adding data to 
+2. Enter Postgres to begin creating schema and adding data to
 
-  $  psql
+```
+$  psql
+```
 
 3. Create database
 
-  $ CREATE DATABASE Hagglehub OWNER >!(insert postgresql username)!<; 
+```
+# CREATE DATABASE planner OWNER >insert postgresql username<;
+```
+
+4. Set your database:
 
 ```
+$ npm run db:reset
+```
+
 ## Usage
 
- To run the web app locally, use the following commands:
- ```
-
-1. Start the Server:
-
-    npm run local 
-
-2. Open Your Browser: Navigate to http://localhost:8080.
+To run the web app locally, use the following commands:
 
 ```
-# Configuration
+$ npm run start
+```
+Navigate to http://localhost:3000.
 
-## Routes
- ### User/Login/Logout Routes:
- These routes are responsible for handling user authentication and user/admin authorization.
+# Stack
 
-  ### Product Routes:
- These routes are responsible for product categorization, product updating, deletion and information(stock) modification, as in the case of use by admin.
+ DateSync was created using a **PERN** Stack:
 
- ### Message Routes:
- The routes primarily deal with messaging between user and admin. Due to the nature of time, these messages are attached to product id. Should we have more resources, we would love to expand these routes to include sockets for live chat functionality.
-
-### Middleware
- - morgan: HTTP request logger middleware.
- - express.urlencoded: Middleware to parse incoming request bodies.
- - sassMiddleware: Middleware for compiling SASS/SCSS files.
- - express.static: Middleware for serving static files.
- - cookieSession: Middleware for parsing incoming cookies.
+- PostgreSQL
+- Express (Vite Express)
+- React (Vite)
+- Node.js
 
 ### Dependencies
-- bcryptjs
-- chalk
-- cookie-session
-- dotenv
-- ejs
-- express
-- morgan
-- pg
-- sass
 
-### Future Developments
+- Auth0
+- Axios
+- Bootstrap
+- DayJS
+- Lottie
+- Material UI
+- Morgan
+- PG
+- React Router
+- SASS
 
-- Item Reviews: Incorporating a review system.
-- Cart Functionality: Adding a shopping cart.
-- Third-Party Authentication: Implementing more login options.
-- Marketing Landing Page: Developing a dedicated landing page.
-- Real-Time Messaging API: Upgrading the messaging system.
-- User Feedback: Continuously improving based on user suggestions.
-- Admin Features: Expanding the capabilities for admin users.
+### API
 
-### Challenges
-- Route/Endpoint Definition: Challenges in defining routes and endpoints.
-- Backend-Frontend Integration: Ensuring seamless integration.
-- In-App Messaging: Ongoing development of a robust messaging system.
+This application relies on APIs provided by [SerpApi](https://serpapi.com/):
 
-## Contributing
-This webApp was a labor of love of the LHL Alpha Group Trio. Comprised of Ana Franco, David Giroux and Gerald Mwangi. Many thanks to the instructors and mentors OF LHL whose opinions helped us build it.
+- Google Local
+- Google Events
+- Google Search ➡ Google Showtimes
 
-## License
- This project is licensed under the imaginary demo License of 2023. It does not expire nor is it issuable to anyone other than LHL Cohort of 16 Oct West. Any use of this license must be approved after by a committee of the LHL Alpha Group with a minimum wait period of 42 days since the date of license request.
+## Routes
+
+- Landing Page
+- /create-date -- Create Date Page
+- /dashboard -- Dashboard
+
+## Future Developments
+
+- **Redo Date** 
+  * This feature will allow users to create a new date using the same components of a completed date, having to only edit the date and time it will happen.
+- **Edit Date**
+  * This feature will allow users to edit a created date without having to create a new date from scratch: choose other date components and update the date and time. It will also allow users to share the date with another user so they can both edit the date simultaneously.
+- **PWA - Progressive Web App**
+  * Transforming DateSync in a PWA will allow users to download the app to their mobile devices, making it even more accessible in their day-to-day lives.
+
+## Developers
+
+DateSync is a creation of developers [Ana Franco](https://github.com/anamspe), [David Giroux](https://github.com/DavidGir) and [Rachel Little](https://github.com/rachdawn).
+
+January, 2024.
 

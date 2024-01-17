@@ -94,6 +94,20 @@
         width: 85%;
         margin: 0 auto;
       }
+
+      a {
+        word-break: break-all; 
+        overflow-wrap: break-word; 
+        white-space: normal; 
+        text-overflow: ellipsis; 
+        overflow: hidden; 
+        display: block; 
+        max-width: 100%; 
+        color: #6a3771; 
+        &:hover {
+          text-decoration: underline; 
+        }
+      }
     }
   }
 }

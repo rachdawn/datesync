@@ -9,10 +9,10 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import DeleteIcon from "/src/client/assets/delete-icon.svg";
 import "/src/client/styles/DateComponentCards.scss";
 
-const SelectedEventCard = ({ eventData }) => {
+const SelectedEventCard = ({ eventData, onDelete }) => {
   return (
     <Card className="date-card">
-      <button className="delete-button">
+      <button className="delete-button" onClick={onDelete}>
         <img src={DeleteIcon} alt="Remove Selection" />
       </button>
       <CardMedia
@@ -27,7 +27,6 @@ const SelectedEventCard = ({ eventData }) => {
         </Typography>
         <Typography className="date-type" variant="body2">
           When: {eventData.time}
-          <a href={eventData.link}>{eventData.link}</a>
         </Typography>
       </CardContent>
       <Accordion className="card-menu">
@@ -43,6 +42,8 @@ const SelectedEventCard = ({ eventData }) => {
           <Typography variant="body2">{eventData.description}</Typography>
           <hr />
           <Typography variant="body2">{eventData.address}</Typography>
+          <hr />
+          <a href={eventData.link}>{eventData.link}</a>
         </AccordionDetails>
       </Accordion>
     </Card>
