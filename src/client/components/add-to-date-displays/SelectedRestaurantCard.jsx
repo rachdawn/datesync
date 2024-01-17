@@ -77,7 +77,8 @@ const SelectedRestaurantCard = ({ restaurant, onDelete }) => {
           <Typography className="operating-hours" variant="body2">
             {formatOperatingHours(restaurant.operating_hours)}
           </Typography>
-           <a href={restaurant.website}>
+          <hr />
+          <a href={restaurant.website}>
             {restaurant.website}
           </a>
         </AccordionDetails>
