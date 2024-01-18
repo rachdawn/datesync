@@ -51,9 +51,10 @@
     border-radius: 12px;
     height: fit-content;
     margin: 0.5rem auto;
+    margin-bottom: 0;
   }
   .result {
-    margin: 0.75rem;
+    margin: 0.5rem;
     background-color: #e1cce6;
     .expand-icon {
       padding-right: 0.5rem;
@@ -101,7 +102,7 @@
         display: flex;
         justify-content: space-between;
         padding: 0.5rem;
-        padding-bottom: 0;
+        // padding-bottom: 0;
         button {
           max-width: 8.75rem;
           background-color: #9a5997;
@@ -109,10 +110,16 @@
           margin-top: 0.25rem;
           padding: 0.4rem;
           border-radius: 12px;
+          font-size: 1rem;
           .add-to-date-icon {
+            vertical-align: text-bottom;
+            padding: 0;
             padding-right: 0.25rem;
+            height: 1.25rem;
           }
           .open-in-browser-icon {
+            vertical-align: text-bottom;
+
             padding-right: 0.25rem;
             color: #fff;
           }
@@ -254,8 +261,8 @@
   .search-modal {
     position: absolute;
     top: 5rem;
-    left: 8.5rem;
-    right: 8.5rem;
+    left: 20rem;
+    right: 20rem;
     bottom: 5rem;
     padding: 0.5rem;
     padding-top: 0;
@@ -275,7 +282,7 @@
       .close-button {
         border: none;
         border-radius: 60%;
-        color: white;
+        // color: white;
         text-align: center;
         text-decoration: none;
         display: inline-block;
@@ -329,6 +336,7 @@
         .actions {
           display: flex;
           flex-direction: column;
+          align-items: center;
           button {
             width: 8.75rem;
             margin-top: 0.7rem;
@@ -344,14 +352,16 @@
       border-radius: 0.75rem;
       justify-content: center;
       .movie-card {
-        padding: 0.5rem;
-        height: 19rem;
+        padding: 0.25rem;
+        height: 18rem;
         width: 14rem;
         .movie-title {
           margin: 0 auto;
           justify-content: center;
+          padding: 0;
           h4 {
             font-size: 1.65dvb;
+            margin: 0.25rem;
             font-weight: 600;
             font-family: "Quicksand", sans-serif;
             text-align: center;

@@ -19,7 +19,7 @@ const ShareDate = () => {
             </div>
             <div className="date-date">
               <span className="date">
-                Date & Time:{" "}
+                When:{" "}
                 {datesByGroup[dateId][0].scheduled_date
                   ? formatDateTime(datesByGroup[dateId][0].scheduled_date)
                   : " To be defined"}

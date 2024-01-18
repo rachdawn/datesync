@@ -61,10 +61,11 @@
 @media (min-width: 768px) {
   .featured-carousel {
     overflow: hidden;
-    max-width: 50%;
+    max-width: 70%;
     position: relative;
     margin: 0 auto;
-    height: 500px;
+    height: 24rem;
+    padding-top: 0;
   
     .carousel-slider {
       display: flex;
@@ -82,16 +83,24 @@
       // Add specific styles for cards in the carousel if necessary
       bottom: 20px;
       background-color: #985997;
-      height: 460px;
+      height: 22rem;
+      .carousel-img {
+        height: 16rem;
+      }
   
       .date-title {
         font-weight: 600;
         color: #e2d1e6;
+        height: 1.5rem;
+        padding: 0;
+        margin-top: 0;
       }
       .description-text {
         color: #e2d1e6;
         font-weight: 600;
         font-size: 1rem;
+        height: 4rem;
+        padding: 0.5rem;
       }
     }
   }
@@ -101,7 +110,7 @@
     display: flex;
     justify-content: center;
     position: absolute;
-    bottom: 10px;
+    bottom: 5px;
     width: 100%;
   
     .carousel-dot {

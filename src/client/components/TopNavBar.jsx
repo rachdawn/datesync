@@ -122,7 +122,7 @@ function TopNavBar() {
               id="create-button"
               sx={{ my: 2, color: "inherit", display: "flex" }}
             >
-              <Link to={"/create-date"}>
+              <Link to={"/create-date"} className="nav-link">
                 <AddCircleOutlineIcon className="nav-plus-icon" />
                 Create Your Perfect Date
               </Link>

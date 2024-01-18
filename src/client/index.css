@@ -17,7 +17,7 @@
 body {
   margin: 0;
   display: flex;
-  /* place-items: center; */
+  place-items: center;
   min-width: 320px;
   min-height: 100%;
   /* position: relative; */
@@ -34,9 +34,9 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
-button:hover {
+/* button:hover {
   border-color: #e1cce6;
-}
+} */
 /* button:focus,
 button:focus-visible {
   outline: 8px auto -webkit-focus-ring-color;
@@ -46,6 +46,8 @@ button:focus-visible {
   :root {
     color: #213547;
     background-color: #e2d1e6;
+    /* background-image: url("../assets/wild-flowers.png"); */
+
 }
   button {
     background-color: #f9f9f9;

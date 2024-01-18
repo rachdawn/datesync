@@ -75,7 +75,7 @@ export default function RestaurantSelect({ onDataFetched, coordinates }) {
         </Select>
       </FormControl>
       <FormControl className="select" sx={{ m: 1, minWidth: 120 }}>
-        <InputLabel id="price-level">Price Level</InputLabel>
+        <InputLabel id="price-level">Max. Price Level</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"

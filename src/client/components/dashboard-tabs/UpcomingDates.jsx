@@ -22,7 +22,7 @@ const UpcomingDates = () => {
         descOrderedDates.map((dateId, index) => (
           <div className="date-group">
             <h4 className="date-title">
-              Date & Time:{" "}
+              When:{" "}
               {datesByGroup[dateId][0].scheduled_date
                 ? formatDateTime(datesByGroup[dateId][0].scheduled_date)
                 : " To Be Defined"}

@@ -40,31 +40,31 @@ const DateComponents = ({ dates }) => (
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <Typography className="date-component-info" component="div">
+              <Typography component="div" className="date-component-info">
                 <div>
-                  {/* <p>
-                    {item.movie_title ||
-                      item.restaurant_name ||
-                      item.event_title ||
-                      item.activity_type}
-                  </p> */}
                   {item.movie_theatre && <p>{item.movie_theatre}</p>}
+                  <hr />
                   {item.movie_address && <p>{item.movie_address}</p>}
                   {item.restaurant_address && <p>{item.restaurant_address}</p>}
-                  {item.restaurant_website_url && (
-                    <a href={item.restaurant_website_url}>
-                      {item.restaurant_website_url}
-                    </a>
-                  )}
                   {item.event_description && <p>{item.event_description}</p>}
-                  {item.event_url && (
-                    <a href={item.event_url}>{item.event_url}</a>
-                  )}
+
                   {item.activity_location && (
                     <p>{item.activity_location_name}</p>
                   )}
                   {item.activity_address && <p>{item.activity_address}</p>}
                 </div>
+              </Typography>
+              <Typography component="div" className="date-component-info">
+                <hr />
+                {item.event_url && (
+                  <a href={item.event_url}>{item.event_url}</a>
+                )}
+
+                {item.restaurant_website_url && (
+                  <a href={item.restaurant_website_url}>
+                    {item.restaurant_website_url}
+                  </a>
+                )}
               </Typography>
             </AccordionDetails>
           </Accordion>

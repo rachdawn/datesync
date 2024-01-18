@@ -9,7 +9,7 @@ export default function FeatureDates({ date }) {
   return (
     <Card className="feature-card">
       <CardActionArea>
-        <CardMedia component="img" height="340" image={date.src} alt="date" />
+        <CardMedia component="img" className="carousel-img" image={date.src} alt="date" />
         <CardContent className="feature-desktop">
           <Typography
             className="date-title"

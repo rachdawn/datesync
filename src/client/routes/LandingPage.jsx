@@ -10,10 +10,10 @@ const LandingPage = () => {
       <section className="hero">
         <div className="hero-inner">
           <h1>DateSync</h1>
-          <h3>The best place to plan your Perfect Dates</h3>
+          <h3>The Best Place To Plan Your Perfect Dates</h3>
           <section className="buttons">
-            <CreateAccountButton className="btn btn-secondary" />
-            <TryWithoutAccountButton className="btn btn-secondary" />
+            <CreateAccountButton className="btn" />
+            <TryWithoutAccountButton className="btn" />
            </section>
         </div>
       </section>

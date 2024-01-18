@@ -1,23 +1,21 @@
 body {
   width: 100dvw;
   margin: 0 auto;
-  //   overflow: scroll;
+  background-image: url("../assets/wild-flowers.png");
+
+  overflow-x: hidden;
 
   .dashboard {
     margin: 4.5rem auto;
-    // margin-bottom: 4rem;
     justify-content: center;
 
     .tabs {
-      //   width: 95%;
       display: flex;
       flex-wrap: wrap;
       padding: 0.5rem;
     }
 
     .list {
-      //   height: 50px;
-      // width: 95%;
       margin: 0 0.5rem;
     }
 
@@ -28,8 +26,9 @@ body {
         color: #e1cce6;
         font-size: 1rem;
         font-weight: 500;
-
+        display: flex;
         padding: 0.75rem;
+        margin: 0 auto;
         margin-top: 0.75rem;
         margin-bottom: -0.5rem;
       }
@@ -40,7 +39,7 @@ body {
 
       .date-group {
         background-color: #6a3771;
-        border-radius: 1.25rem;
+        border-radius: 1rem;
         margin: 0;
         margin-bottom: 1rem;
         padding-bottom: 0.5rem;
@@ -52,26 +51,36 @@ body {
 
           .date-component-cards {
             margin: 0 auto;
-            padding: 0.75rem;
+            padding: 0;
             min-width: 280px;
             max-width: 150px;
 
+            .date-component-title {
+              font-size: 0.9rem;
+              font-weight: 600;
+              margin: 0;
+              padding: 0;
+            }
+
             img {
-              margin: 0 auto;
+              margin: 0.25rem auto;
               max-width: 9rem;
               min-height: 9rem;
               border-radius: 5px;
+            }
+            .date-component-info {
+              margin: 0.15rem auto;
+              margin-top: 0;
+              padding: 0;
+              font-size: 0.85rem;
+              font-family: Quicksand, sans-serif;
+              font-weight: 500;
             }
           }
         }
 
         .divider {
           display: none;
-        }
-
-        .date-component-info {
-          margin: 15px 5px;
-          margin-bottom: 0px;
         }
 
         .date-component-buttons {
@@ -82,10 +91,10 @@ body {
           .btn {
             background-color: #9a5997;
             color: #e1cce6;
-            border-radius: 30%;
+            border-radius: 15%;
             font-size: 1rem;
             font-weight: 600;
-            padding: 0.4rem;
+            padding: 0.3rem;
             margin: 1rem;
           }
 
@@ -102,7 +111,7 @@ body {
             background-color: #e2d1e6;
             color: #9a5997;
             padding: 0.4rem;
-            border-radius: 40%;
+            border-radius: 30%;
           }
 
           .btn-dashboard {
@@ -124,17 +133,19 @@ body {
       }
 
       .list {
-        margin: 0 5rem;
+        margin: 0 15rem;
+        margin-bottom: 1rem;
       }
 
       .panel {
         align-items: center;
         flex-direction: row;
-        // max-width: 90dvw;
+        // max-width: 70dvw;
+        // margin: 0 auto;
         // padding-bottom: 50px;
         //   display: flex;
         //   justify-content: center;
-        margin: 1rem 6rem;
+        margin: 1rem 15rem;
 
         .no-date-message {
           margin: 150px;
@@ -145,12 +156,17 @@ body {
           flex-direction: row;
           justify-content: center;
           position: relative;
+          justify-content: space-around;
+          //   margin: 0 auto;
           .date-title {
             font-size: 1rem;
-            font-weight: 500;
+            font-weight: 600;
             display: flex;
-            // margin: 0.25rem;
-            //   margin: 15px;
+            margin: auto;
+            padding: 1rem;
+            padding-left: 4rem;
+            align-items: center;
+            width: 15%;
           }
 
           .date-group-components {
@@ -158,25 +174,38 @@ body {
             flex-direction: row;
             justify-content: center;
             margin: 0.5rem;
+            width: 90%;
           }
 
           article {
-            margin: 0.75rem;
-            padding: 0.1rem;
+            margin: 0.25rem;
             border-radius: 10px;
 
             .date-component-cards {
-              display: inline-flexbox;
-              padding: 1rem;
+              padding: 0;
               min-width: 280px;
               max-width: 150px;
 
+              .date-component-title {
+                font-size: 0.9rem;
+                font-weight: 600;
+                margin: 0;
+                padding: 0;
+                text-align: center;
+              }
               img {
-                margin: 0 auto;
-                max-width: auto;
-                height: 80px;
-                justify-self: center;
+                margin: 0.25rem auto;
+                max-width: 9rem;
+                height: 12rem;
                 border-radius: 5px;
+              }
+              .date-component-info {
+                margin: 0.15rem auto;
+                margin-top: 0;
+                padding: 0;
+                font-size: 0.85rem;
+                font-family: Quicksand, sans-serif;
+                font-weight: 500;
               }
             }
           }
@@ -187,19 +216,15 @@ body {
             opacity: 75%;
             width: 2px;
             font-weight: bolder;
-            margin: 40px 50px;
+            margin: 2rem;
             border-radius: 20px;
-          }
-
-          .date-component-info {
-            margin: 10px 5px;
           }
 
           .date-component-buttons {
             display: flex;
             flex-direction: column;
             justify-content: center;
-
+            padding-bottom: 2rem;
 
             .badge {
               position: absolute;

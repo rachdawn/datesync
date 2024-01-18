@@ -11,19 +11,19 @@ body {
 
     .date-time-pickers {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       gap: 0.5rem;
-      align-items: center;
+      vertical-align: top;
       margin: 0 auto;
       padding: 1rem;
-      max-width: 60dvw;
+    //   max-width: 80dvw;
 
       .time-picker {
-        width: 100%;
+        // width: 90%;
         border-radius: 12px;
       }
       .city-picker {
-        width: 100%;
+        // width: 100%;
         border-radius: 12px;
       }
       .picker {
@@ -49,20 +49,21 @@ body {
     }
 
     .component-search {
-      margin: 0 auto;
+      margin: 0;
       // margin-bottom: 2.5rem;
       background-color: #e2d1e6;
-      padding: 0.75rem;
-      width: 90dvw;
+      padding: 0.5rem;
+    //   width: 90dvw;
       border-radius: 12px;
+      gap: 0.75rem;
 
       .buttons {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-
-        button {
-        //   margin: 8px;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          
+          button {
+              //   margin: 8px;
           color: #e2d1e6;
           background-color: #6a3771;
           border-radius: 12px;
@@ -75,7 +76,7 @@ body {
       }
     }
     .component {
-      margin: 0 auto;
+      margin: 1.5rem auto;
     //   margin-bottom: 25px;
       background-color: #e2d1e6;
       border: 1px solid #6a3771;
@@ -87,10 +88,6 @@ body {
         border-radius: 50%;
         color: #e1cce6;
         align-items: center;
-      }
-
-      .add-button:hover {
-        background-color: #9a5997;
       }
 
       .buttons {
@@ -136,6 +133,7 @@ body {
     .create-date {
       justify-content: center;
       width: 100dvw;
+      padding-bottom: 4rem;
       .desktop-search-bar {
         display: flex;
         margin: 0 auto;
@@ -152,6 +150,7 @@ body {
           justify-content: center;
           margin: 0 auto;
           width: 40%;
+          padding: 0.5rem;
 
 
           .css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root,
@@ -170,7 +169,7 @@ body {
             width: 100%;
             .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input {
                 border-radius: 10px;
-                // height: 1rem;
+                padding: 0.75rem;
             }
         }
         .city-picker {
@@ -179,6 +178,7 @@ body {
             .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.MuiSelect-select {
                 border-radius: 12px;
                 height: 1rem;
+                padding: 0.75rem;
             }
           }
           .picker {
@@ -209,11 +209,17 @@ body {
               font-size: 0.9;
               font-weight: 600;
             }
+            .MuiAlert-icon {
+              color: #e2d1e6;
+            }
+            .MuiAlert-message {
+              color: #e2d1e6;
+            }
           }
         }
       }
       .complete {
-        margin-bottom: 8rem;
+        padding: 2rem;
         .buttons {
           display: flex;
           flex-direction: row;

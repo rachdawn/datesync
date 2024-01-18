@@ -96,10 +96,10 @@ function Styles() {
         padding: 0.5rem 
       }
 
-      .CustomTab:focus {
-        color: #e2d1e6;
-        outline: 1px solid #e2d1e6;
-      }
+    //   .CustomTab:focus {
+    //     color: #e2d1e6;
+    //     outline: 1px solid #e2d1e6;
+    //   }
 
       .CustomTab.${tabClasses.selected} {
         background-color: #6a3771;

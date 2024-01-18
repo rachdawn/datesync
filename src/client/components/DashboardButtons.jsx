@@ -57,16 +57,16 @@ const DashboardButtons = ({ dateInfo, deleteDate }) => {
       {dateInfo.scheduled_date > today && (
         <span className="date-component-buttons">
           <a
-            // href={`/edit-date/${dateInfo.date_id}`}
-            className="btn btn-secondary btn-dashboard"
-          >
-            Edit
-          </a>
-          <a
             onClick={() => copyToClipboard(dateInfo.date_id)}
             className="btn btn-secondary btn-dashboard"
           >
             {copied ? "Copied!" : "Share"}
+          </a>
+          <a
+            // href={`/edit-date/${dateInfo.date_id}`}
+            className="btn btn-secondary btn-dashboard"
+          >
+            Edit
           </a>
           <a
             onClick={() => handleDelete(dateInfo.date_id)}
