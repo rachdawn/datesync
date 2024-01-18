@@ -4,7 +4,20 @@ DateSync is the place where you can plan and create the best dates for you to sh
 
 ## Final Product
 
-!["screenshot"](url)
+### Desktop View
+!["Landing Page"](https://github.com/anamspe/datesync/blob/main/src/client/assets/screenshots/landing-page-desktop.png?raw=true)
+
+!["Create Date Page"](https://github.com/anamspe/datesync/blob/main/src/client/assets/screenshots/create-date-desktop.png?raw=true)
+
+!["Dashboard Page"](https://github.com/anamspe/datesync/blob/main/src/client/assets/screenshots/dashboard-desktop.png?raw=true)
+
+### Mobile View
+
+!["Landing Page"](https://github.com/anamspe/datesync/blob/main/src/client/assets/screenshots/landing-page-mobile.png?raw=true)
+
+!["Create Date Page"](https://github.com/anamspe/datesync/blob/main/src/client/assets/screenshots/create-date-mobile.png?raw=true)
+
+!["Dashboard Page"](https://github.com/anamspe/datesync/blob/main/src/client/assets/screenshots/dashboard-mobile.png?raw=true)
 
 ## Table of Contents
 
@@ -12,6 +25,7 @@ DateSync is the place where you can plan and create the best dates for you to sh
 - [Project Setup](#project-setup)
 - [Database Setup](#database-setup)
 - [Usage](#usage)
+- [Planning](#planning)
 - [Stack](#stack)
 - [Routes](#routes)
 - [Future Developments](#future-developments)
@@ -102,6 +116,14 @@ To run the web app locally, use the following commands:
 $ npm run start
 ```
 Navigate to http://localhost:3000.
+
+# Planning
+During our planning process, we utilized the following tools:
+
+- User Stories
+- Figma (wireframe)
+- DrawSQL (ERD)
+- Kanban board 
 
 # Stack
 
