@@ -16,7 +16,7 @@ body {
       vertical-align: top;
       margin: 0 auto;
       padding: 1rem;
-    //   max-width: 80dvw;
+      //   max-width: 80dvw;
 
       .time-picker {
         // width: 90%;
@@ -53,17 +53,17 @@ body {
       // margin-bottom: 2.5rem;
       background-color: #e2d1e6;
       padding: 0.5rem;
-    //   width: 90dvw;
+      //   width: 90dvw;
       border-radius: 12px;
       gap: 0.75rem;
 
       .buttons {
-          display: flex;
-          flex-direction: row;
-          justify-content: space-around;
-          
-          button {
-              //   margin: 8px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+
+        button {
+          //   margin: 8px;
           color: #e2d1e6;
           background-color: #6a3771;
           border-radius: 12px;
@@ -77,7 +77,7 @@ body {
     }
     .component {
       margin: 1.5rem auto;
-    //   margin-bottom: 25px;
+      //   margin-bottom: 25px;
       background-color: #e2d1e6;
       border: 1px solid #6a3771;
       padding: 2rem;
@@ -152,7 +152,6 @@ body {
           width: 40%;
           padding: 0.5rem;
 
-
           .css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root,
           .css-1laqsz7-MuiInputAdornment-root,
           .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root,
@@ -163,22 +162,21 @@ body {
             font-weight: 600;
             background-color: #e2d1e6;
             color: #6a3771;
-
-        }
-        .time-picker {
+          }
+          .time-picker {
             width: 100%;
             .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input {
-                border-radius: 10px;
-                padding: 0.75rem;
+              border-radius: 10px;
+              padding: 0.75rem;
             }
-        }
-        .city-picker {
+          }
+          .city-picker {
             margin-top: 1.55rem;
             width: 100%;
             .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.MuiSelect-select {
-                border-radius: 12px;
-                height: 1rem;
-                padding: 0.75rem;
+              border-radius: 12px;
+              height: 1rem;
+              padding: 0.75rem;
             }
           }
           .picker {
@@ -195,6 +193,8 @@ body {
           background-color: transparent;
           padding: 0;
           margin: 0 auto;
+          position: relative;
+
           .buttons {
             display: flex;
             flex-direction: row;
@@ -209,17 +209,30 @@ body {
               font-size: 0.9;
               font-weight: 600;
             }
-            .MuiAlert-icon {
-              color: #e2d1e6;
-            }
-            .MuiAlert-message {
-              color: #e2d1e6;
+            .alert-notification {
+              position: absolute;
+              top: 55px;
+              background-color: #e2d1e6;
+              color: #6a3771;
+              border-radius: 5px;
+              padding: 0;
+
+              .MuiAlert-icon {
+                // vertical-align: middle;
+                padding: 1px;
+              }
+              .MuiAlert-message {
+                padding: 0;
+              }
             }
           }
         }
       }
       .complete {
+        position: relative;
         padding: 2rem;
+        margin-bottom: 50px;
+
         .buttons {
           display: flex;
           flex-direction: row;
@@ -229,6 +242,15 @@ body {
             margin: 0.5rem;
             color: #e2d1e6;
             font-size: 1rem;
+          }
+
+          .alert-notification {
+            position: absolute;
+            top: 85px;
+            background-color: #e2d1e6;
+            color: #6a3771;
+            border-radius: 5px;
+            padding: 0;
           }
         }
       }

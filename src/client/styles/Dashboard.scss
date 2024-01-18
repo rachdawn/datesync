@@ -2,8 +2,7 @@ body {
   width: 100dvw;
   margin: 0 auto;
   background-image: url("../assets/wild-flowers.png");
-
-  overflow-x: hidden;
+  overflow-y: scroll;
 
   .dashboard {
     margin: 4.5rem auto;
@@ -190,9 +189,13 @@ body {
               .date-component-title {
                 font-size: 0.9rem;
                 font-weight: 600;
-                margin: 0;
+                margin: 0 auto;
                 padding: 0;
                 text-align: center;
+                height: 2rem;
+                display: flex;
+                align-items: center;
+
               }
               img {
                 margin: 0.25rem auto;

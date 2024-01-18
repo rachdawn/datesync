@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import DateComponents from "../components/DateComponents";
 import useDates from "../components/hooks/useDates";
 import "../styles/ShareDate.scss";
+import "../styles/Dashboard.scss";
 
 const ShareDate = () => {
   const { id } = useParams();
@@ -15,7 +16,7 @@ const ShareDate = () => {
         <div key={index} className="share-date">
           <section className="header">
             <div>
-              <h3>Date with {datesByGroup[dateId][0].user_name}</h3>
+              <h2>Date with {datesByGroup[dateId][0].user_name}</h2>
             </div>
             <div className="date-date">
               <span className="date">

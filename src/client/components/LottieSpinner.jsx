@@ -7,7 +7,7 @@ const LottieSpinner = () => {
 
   return (
   <div className="spinner">
-    <Lottie animationData={HeartLoader} loop={true} speed={2.0} />;
+    <Lottie animationData={HeartLoader} loop={true} speed={2.0} />
   </div>
   )
 };
