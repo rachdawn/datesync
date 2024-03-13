@@ -61,7 +61,7 @@ To set up the project locally:
 
 1. Clone the repository.
 ```
-$ git clone git@github.com:anamspe/datesync.git
+$ git clone git@github.com:rachdawn/datesync.git
 ```
 
 2. Navigate to the Project Directory
@@ -113,7 +113,7 @@ $ npm run db:reset
 To run the web app locally, use the following commands:
 
 ```
-$ npm run start
+$ npm run dev
 ```
 Navigate to http://localhost:3000.
 
