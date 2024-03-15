@@ -1,6 +1,12 @@
 import React, { useState } from "react";
-import { Select, MenuItem, FormControl, InputLabel, FormHelperText, Box } from '@mui/material';
-
+import {
+  Select,
+  MenuItem,
+  FormControl,
+  InputLabel,
+  FormHelperText,
+  Box,
+} from "@mui/material";
 
 const cityDetails = {
   Toronto: {
@@ -50,9 +56,9 @@ const CitySelector = ({ onCitySelect, onCityNameSelect }) => {
   };
 
   return (
-    <Box >
+    <Box>
       <FormControl className="picker" required sx={{ minWidth: 145 }}>
-        <InputLabel  id="select-city">Select A City</InputLabel>
+        <InputLabel id="select-city">Select A City</InputLabel>
         <Select
           labelId="select-city"
           id="select-city"
@@ -66,7 +72,9 @@ const CitySelector = ({ onCitySelect, onCityNameSelect }) => {
             </MenuItem>
           ))}
         </Select>
-        <FormHelperText className="select-required">Required</FormHelperText>
+        <FormHelperText className="select-required">
+          <em>Required</em>
+        </FormHelperText>
       </FormControl>
     </Box>
   );

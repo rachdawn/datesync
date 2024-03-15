@@ -1,4 +1,3 @@
-import { Row, Col } from "react-bootstrap";
 import "../styles/Footer.scss";
 import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
@@ -18,7 +17,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="footer-navigation">
-            <Link to={"/"}>HOME</Link>
+            <Link to={"/"}>HOME PAGE</Link>
             <Link to={"/create-date"}>CREATE YOUR PERFECT DATE</Link>
             <Link to={"/dashboard"}>DASHBOARD</Link>
           </div>

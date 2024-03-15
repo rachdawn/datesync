@@ -2,11 +2,12 @@
   position: fixed;
   bottom: 0;
   width: 100%;
-  max-height: 6rem;
-  height: auto;
-  padding-top: 0.5rem;
-  padding-bottom: 0.25rem;
-  background-color: #6A3771;
+  height: 3.5rem;
+  margin: 0 auto;
+//   height: auto;
+//   padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  background-color: #4B5D67;
   color: #d8bfd8;
   letter-spacing: 0.5px;
   align-items: first baseline;
@@ -15,9 +16,8 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 1rem;
-    margin-top: -0.75rem;
-    margin-bottom: -0.75rem;
+    // padding: 0;
+    margin: -0.85rem 0.75rem;
     .footer-title {
       font-size: 0.8rem;
       font-weight: bold;
@@ -52,8 +52,8 @@
     }
   }
   .copyright {
-    font-size: 0.75rem;
-    margin: 0;
+    font-size: 0.6rem;
+    margin: 0 auto;
   }
 }
 
@@ -62,12 +62,11 @@
     position: fixed;
     bottom: 0;
     color: #d8bfd8;
-    padding: 0.1rem;
+    padding: 0;
     padding-bottom: 0.5rem;
     margin: 0 auto;
     width: 100%;
-    max-height: 5rem;
-    height: auto;
+    max-height: 4rem;
     letter-spacing: 0.5px;
     align-items: first baseline;
     text-align: center;
@@ -77,12 +76,14 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      left: 0;
-      margin-bottom: 0;
+    //   margin-bottom: 0;
+      padding: 0;
+      
 
       .footer-title {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         font-weight: 500;
+        letter-spacing: 0.02857em;
         display: column;
         text-transform: uppercase;
         text-wrap: nowrap;
@@ -92,23 +93,24 @@
         justify-content: center;
         svg {
           margin: 0.25rem;
-          width: 1rem;
-          height: 1rem;
+          width: 0.9rem;
+          height: 0.9rem;
           color: #d8bfd8;
         }
       }
       .footer-socials {
         max-width: 20%;
         width: auto;
-        padding: 0.5rem;
-        padding-bottom: 0;
+        padding: 0 0.5rem;
       }
       .footer-navigation {
         display: flex;
-        justify-content: space-evenly;
+        justify-content: center;
         a {
-          padding: 0.5rem;
-          padding-bottom: 0;
+          padding: 0 0.5rem;
+          font-weight: 500;
+          letter-spacing: 0.02857em;
+        //   padding-bottom: 0;
           text-decoration: none;
           color: #d8bfd8;
           cursor: pointer;
@@ -121,8 +123,7 @@
       .footer-contact {
         max-width: 20%;
         width: auto;
-        padding: 0.5rem;
-        padding-bottom: 0;
+        padding: 0 0.5rem;
       }
     }
   }

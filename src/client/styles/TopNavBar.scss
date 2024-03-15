@@ -1,18 +1,17 @@
 #top-nav {
   // background-color: #662d91;
-  background-color: #6a3771;
+  background-color: #4B5D67;
   color: #d8bfd8;
   .logo a {
+      align-items: center;
     display: flex;
     margin: 0;
     padding: 0;
-    align-items: center;
-    height: 4rem;
     text-decoration: none;
     color: #d8bfd8;
-  }
-  .logo-icon {
-    max-height: 2.4rem;
+}
+.logo-icon {
+    height: 2rem;
     padding-right: 0.5rem;
   }
   .logo:hover,
@@ -24,7 +23,7 @@
     text-decoration: none;
     color: #d8bfd8;
     font-weight: 600;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
   }
   .nav-menu {
     justify-content: right;
@@ -34,12 +33,12 @@
       font-size: 1rem;
       .css-i4bv87-MuiSvgIcon-root {
         padding-right: 0.5rem;
-        vertical-align: top;
+        vertical-align: middle;
       }
     }
   }
   #profile-icon {
     background-color: #d8bfd8;
-    color: #662d91;
+    color: #6a3771;
   }
 }

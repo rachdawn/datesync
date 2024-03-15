@@ -12,7 +12,7 @@ import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import React, { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import { useNavigate, useLocation, Link } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import { LoginButton } from "./auth/buttons/login-button";
 import { LogoutButton } from "./auth/buttons/logout-button";
 import { SignupButton } from "./auth/buttons/signup-button";
@@ -63,14 +63,14 @@ function TopNavBar() {
         <Toolbar disableGutters>
           <Typography
             className="logo"
-            variant="h4"
             noWrap
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
               fontFamily: "Grand Hotel",
               fontWeight: 400,
-              letterSpacing: ".1rem",
+              fontSize: "2rem",
+              letterSpacing: ".125rem",
               color: "inherit",
             }}
           >
@@ -88,15 +88,16 @@ function TopNavBar() {
               aria-haspopup="true"
               color="inherit"
               id="create-button"
+              sx={{ p: 0 }}
             >
               <Link to={"/create-date"}>
-                <AddCircleOutlineIcon />
+                <AddCircleOutlineIcon sx={{ width: 35, height: 35 }} />
               </Link>
             </IconButton>
           </Box>
           <Typography
             className="logo"
-            variant="h4"
+            // variant="h4"
             noWrap
             sx={{
               mr: 2,
@@ -104,7 +105,8 @@ function TopNavBar() {
               flexGrow: 1,
               fontFamily: "Grand Hotel",
               fontWeight: 400,
-              letterSpacing: ".1rem",
+              fontSize: "2rem",
+              letterSpacing: ".15rem",
               color: "inherit",
               textDecoration: "none",
             }}
@@ -120,10 +122,18 @@ function TopNavBar() {
           >
             <Button
               id="create-button"
-              sx={{ my: 2, color: "inherit", display: "flex" }}
+              sx={{
+                my: 1.5,
+                color: "inherit",
+                display: "flex",
+                alignItems: "center",
+              }}
             >
               <Link to={"/create-date"} className="nav-link">
-                <AddCircleOutlineIcon className="nav-plus-icon" />
+                <AddCircleOutlineIcon
+                  className="nav-plus-icon"
+                  sx={{ fontSize: "1.25rem", verticalAlign: "middle", m: 0.75 }}
+                />
                 Create Your Perfect Date
               </Link>
             </Button>
@@ -131,11 +141,12 @@ function TopNavBar() {
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu}>
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 {/* Avatar with conditional source */}
                 <Avatar
                   id="profile-icon"
                   alt="User Avatar"
+                  sx={{ width: 35, height: 35 }}
                   src={
                     isAuthenticated && user && user.picture
                       ? user.picture
@@ -172,13 +183,16 @@ function TopNavBar() {
                 >
                   {setting.component ? (
                     setting.component
-                ) : (
-                  <Typography textAlign="center">
-                   <Link to={setting.path} style={{ textDecoration: "none", color: "inherit" }}>
-                    {setting.label}
-                   </Link>
-                  </Typography>
-                )}
+                  ) : (
+                    <Typography textAlign="center">
+                      <Link
+                        to={setting.path}
+                        style={{ textDecoration: "none", color: "inherit" }}
+                      >
+                        {setting.label}
+                      </Link>
+                    </Typography>
+                  )}
                 </MenuItem>
               ))}
             </Menu>

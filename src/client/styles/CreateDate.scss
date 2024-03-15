@@ -41,8 +41,8 @@ body {
         .select-required {
           background-color: transparent;
           color: #e2d1e6;
-          font-size: 0.8rem;
-          font-weight: 600;
+          font-size: 0.75rem;
+          font-weight: 500;
           // margin: 1rem;
         }
       }
@@ -54,7 +54,7 @@ body {
       background-color: #e2d1e6;
       padding: 0.5rem;
       //   width: 90dvw;
-      border-radius: 12px;
+      border-radius: 10px;
       gap: 0.75rem;
 
       .buttons {
@@ -137,59 +137,74 @@ body {
       .desktop-search-bar {
         display: flex;
         margin: 0 auto;
-        margin-bottom: 2.5rem;
-        background-color: #6a3771;
+        margin-bottom: 2rem;
+        background-color: #4B5D67;
+        // background-color: #6a3771;
         padding: 0.25rem;
         width: 100dvw;
-        height: 6rem;
+        max-height: 5rem;
         align-items: center;
         .date-time-pickers {
           display: flex;
           flex-direction: row;
-          align-items: center;
           justify-content: center;
           margin: 0 auto;
-          width: 40%;
-          padding: 0.5rem;
-
-          .css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root,
-          .css-1laqsz7-MuiInputAdornment-root,
+          width: 35%;
+          .css-1laqsz7-MuiInputAdornment-root {
+            margin: 6px;
+            background-color: #6a3771;
+          }
+          .css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root {
+            background-color: #e2d1e6;
+            color: #6a3771;
+            // padding: 0.5rem;
+          }
+          .css-1laqsz7-MuiInputAdornment-root-MuiInputAdornment-positionEnd {
+              padding-right: 14px;
+            background-color: #e2d1e6;
+            color: #6a3771;
+          }
           .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root,
           .css-1jy569b-MuiFormLabel-root-MuiInputLabel-root,
           .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input,
           .css-dplwbx-MuiPickersCalendarHeader-label {
             font-family: "Quicksand", sans-serif;
             font-weight: 600;
+            font-size: 0.9rem;
             background-color: #e2d1e6;
             color: #6a3771;
+            border-radius: 4px;
           }
           .time-picker {
             width: 100%;
+            margin-top: 1rem;
             .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input {
-              border-radius: 10px;
-              padding: 0.75rem;
+              //   border-radius: 10px;
+
+              padding: 0.7rem;
+              height: 1.5rem;
             }
           }
           .city-picker {
-            margin-top: 1.55rem;
+            margin-top: 1rem;
             width: 100%;
             .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.MuiSelect-select {
-              border-radius: 12px;
-              height: 1rem;
-              padding: 0.75rem;
+              // border-radius: 10px;
+              padding: 0.7rem;
             }
           }
           .picker {
             #select-city {
               background-color: #e2d1e6;
               font-weight: 600;
+              font-size: 0.9rem;
               font-family: "Quicksand", sans-serif;
             }
           }
         }
 
         .component-search {
-          width: 50%;
+          width: 55%;
           background-color: transparent;
           padding: 0;
           margin: 0 auto;
@@ -203,10 +218,10 @@ body {
             button {
               margin: 0.5rem;
               color: #e2d1e6;
-              background-color: #9a5997;
-              padding: 0.65rem;
+              background-color: #6a3771;
+              padding: 0.75rem;
               font-family: "Quicksand", sans-serif;
-              font-size: 0.9;
+              font-size: 0.75rem;
               font-weight: 600;
             }
             .alert-notification {
