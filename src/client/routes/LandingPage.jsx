@@ -1,7 +1,7 @@
 import "../styles/LandingPage.scss";
 import CreateAccountButton from "../components/auth/buttons/create-account-button";
 import TryWithoutAccountButton from "../components/auth/buttons/try-without-account-button";
-import FeaturedDatesCarousel from "../components/FeaturedDatesCarousel";
+import AnimatedSearchBarIntro from "../components/AnimateSearchBarIntro";
 
 const LandingPage = () => {
 
@@ -15,19 +15,9 @@ const LandingPage = () => {
             <CreateAccountButton className="btn" />
             <TryWithoutAccountButton className="btn" />
            </section>
+           <AnimatedSearchBarIntro />
         </div>
       </section>
-      {/* <div className="featured">
-        <div className="feature-carousel">
-          <div className="feature-title">
-            <h2>
-              Perfect {new Date().toLocaleString("en-US", { month: "long" })}{" "}
-              Dates
-            </h2>
-          </div>
-          <FeaturedDatesCarousel />
-        </div>
-      </div> */}
     </main>
   );
 };
