@@ -17,7 +17,7 @@ const LandingPage = () => {
            </section>
         </div>
       </section>
-      <div className="featured">
+      {/* <div className="featured">
         <div className="feature-carousel">
           <div className="feature-title">
             <h2>
@@ -27,7 +27,7 @@ const LandingPage = () => {
           </div>
           <FeaturedDatesCarousel />
         </div>
-      </div>
+      </div> */}
     </main>
   );
 };
