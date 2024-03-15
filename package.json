@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "nodemon src/server/main.js -w src/server",
+    "dev": "nodemon src/server/main.js -w src/server & open-cli http://localhost:3000",
     "start": "NODE_ENV=production node src/server/main.js",
     "build": "vite build",
     "db:reset": "node bin/resetdb.js"
@@ -47,6 +47,7 @@
     "@vitejs/plugin-react": "^4.2.0",
     "dotenv": "^16.3.1",
     "nodemon": "^3.0.1",
+    "open-cli": "^8.0.0",
     "vite": "^5.0.2"
   }
 }
